@@ -3,7 +3,7 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import login_required, login_user, logout_user
 
-from arbio_azucar_adoptarbol.extensions import login_manager
+from arbio_azucar_adoptarbol.extensions import login_manager, pages
 from arbio_azucar_adoptarbol.public.forms import LoginForm
 from arbio_azucar_adoptarbol.user.forms import RegisterForm
 from arbio_azucar_adoptarbol.user.models import User
@@ -33,6 +33,12 @@ def home():
             flash_errors(form)
     return render_template('public/home.html', form=form)
 
+
+@blueprint.route('/page/<path:path>/')
+def page(path):
+    page = pages.get_or_404(path)
+    template = page.meta.get('template', 'public/flatpages.html')
+    return render_template(template, page=page)
 
 @blueprint.route('/logout/')
 @login_required
