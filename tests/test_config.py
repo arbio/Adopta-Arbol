@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Test configs."""
-from arbio_azucar_adoptarbol.app import create_app
-from arbio_azucar_adoptarbol.settings import DevConfig, ProdConfig
+from adoptarbol.app import create_app
+from adoptarbol.settings import DevConfig, ProdConfig
 
 
 def test_production_config():

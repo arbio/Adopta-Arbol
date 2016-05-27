@@ -4,7 +4,7 @@ import datetime as dt
 
 import pytest
 
-from arbio_azucar_adoptarbol.user.models import Role, User
+from adoptarbol.user.models import Role, User
 
 from .factories import UserFactory
 

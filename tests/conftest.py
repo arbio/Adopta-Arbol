@@ -4,9 +4,9 @@
 import pytest
 from webtest import TestApp
 
-from arbio_azucar_adoptarbol.app import create_app
-from arbio_azucar_adoptarbol.database import db as _db
-from arbio_azucar_adoptarbol.settings import TestConfig
+from adoptarbol.app import create_app
+from adoptarbol.database import db as _db
+from adoptarbol.settings import TestConfig
 
 from .factories import UserFactory
 

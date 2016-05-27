@@ -12,7 +12,7 @@ First, set your app's secret key as an environment variable. For example, exampl
 
 .. code-block:: bash
 
-    export arbio_azucar_adoptarbol_SECRET='something-really-secret'
+    export adoptarbol_SECRET='something-really-secret'
 
 
 Then run the following commands to bootstrap your environment.
@@ -20,8 +20,8 @@ Then run the following commands to bootstrap your environment.
 
 ::
 
-    git clone https://github.com/icarito/arbio_azucar_adoptarbol
-    cd arbio_azucar_adoptarbol
+    git clone https://github.com/icarito/adoptarbol
+    cd adoptarbol
     pip install -r requirements/dev.txt
     bower install
     python manage.py server
@@ -42,7 +42,7 @@ Once you have installed your DBMS, run the following to create your app's databa
 Deployment
 ----------
 
-In your production environment, make sure the ``arbio_azucar_adoptarbol_ENV`` environment variable is set to ``"prod"``.
+In your production environment, make sure the ``adoptarbol_ENV`` environment variable is set to ``"prod"``.
 
 
 Shell

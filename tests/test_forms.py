@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Test forms."""
 
-from arbio_azucar_adoptarbol.public.forms import LoginForm
-from arbio_azucar_adoptarbol.user.forms import RegisterForm
+from adoptarbol.public.forms import LoginForm
+from adoptarbol.user.forms import RegisterForm
 
 
 class TestRegisterForm:

@@ -3,11 +3,11 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import login_required, login_user, logout_user
 
-from arbio_azucar_adoptarbol.extensions import login_manager, pages
-from arbio_azucar_adoptarbol.public.forms import LoginForm
-from arbio_azucar_adoptarbol.user.forms import RegisterForm
-from arbio_azucar_adoptarbol.user.models import User
-from arbio_azucar_adoptarbol.utils import flash_errors
+from adoptarbol.extensions import login_manager, pages
+from adoptarbol.public.forms import LoginForm
+from adoptarbol.user.forms import RegisterForm
+from adoptarbol.user.models import User
+from adoptarbol.utils import flash_errors
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 

@@ -2,10 +2,10 @@
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
 
-from arbio_azucar_adoptarbol import public, user
-from arbio_azucar_adoptarbol.assets import assets
-from arbio_azucar_adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, pages
-from arbio_azucar_adoptarbol.settings import ProdConfig
+from adoptarbol import public, user
+from adoptarbol.assets import assets
+from adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, pages
+from adoptarbol.settings import ProdConfig
 
 
 def create_app(config_object=ProdConfig):

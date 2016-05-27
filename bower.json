@@ -1,5 +1,5 @@
 {
-  "name": "arbio_azucar_adoptarbol",
+  "name": "adoptarbol",
   "dependencies": {
     "bootstrap": "~3.2.0",
     "jQuery": "~2.1.3"

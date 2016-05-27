@@ -4,8 +4,8 @@ import datetime as dt
 
 from flask_login import UserMixin
 
-from arbio_azucar_adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
-from arbio_azucar_adoptarbol.extensions import bcrypt
+from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
+from adoptarbol.extensions import bcrypt
 
 
 class Role(SurrogatePK, Model):

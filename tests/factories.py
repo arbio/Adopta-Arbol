@@ -3,8 +3,8 @@
 from factory import PostGenerationMethodCall, Sequence
 from factory.alchemy import SQLAlchemyModelFactory
 
-from arbio_azucar_adoptarbol.database import db
-from arbio_azucar_adoptarbol.user.models import User
+from adoptarbol.database import db
+from adoptarbol.user.models import User
 
 
 class BaseFactory(SQLAlchemyModelFactory):

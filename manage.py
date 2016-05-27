@@ -9,12 +9,12 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_script import Command, Manager, Option, Server, Shell
 from flask_script.commands import Clean, ShowUrls
 
-from arbio_azucar_adoptarbol.app import create_app
-from arbio_azucar_adoptarbol.database import db
-from arbio_azucar_adoptarbol.settings import DevConfig, ProdConfig
-from arbio_azucar_adoptarbol.user.models import User
+from adoptarbol.app import create_app
+from adoptarbol.database import db
+from adoptarbol.settings import DevConfig, ProdConfig
+from adoptarbol.user.models import User
 
-CONFIG = ProdConfig if os.environ.get('arbio_azucar_adoptarbol_ENV') == 'prod' else DevConfig
+CONFIG = ProdConfig if os.environ.get('adoptarbol_ENV') == 'prod' else DevConfig
 HERE = os.path.abspath(os.path.dirname(__file__))
 TEST_PATH = os.path.join(HERE, 'tests')
 
