@@ -2,7 +2,7 @@
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
 
-from adoptarbol import public, user
+from adoptarbol import public, user, tree
 from adoptarbol.assets import assets
 from adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, pages
 from adoptarbol.settings import ProdConfig
@@ -38,6 +38,7 @@ def register_extensions(app):
 def register_blueprints(app):
     """Register Flask blueprints."""
     app.register_blueprint(public.views.blueprint)
+    app.register_blueprint(tree.views.blueprint)
     app.register_blueprint(user.views.blueprint)
     return None
 

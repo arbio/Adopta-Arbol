@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Database module, including the SQLAlchemy database object and DB-related utilities."""
 from sqlalchemy.orm import relationship
+from sqlalchemy.inspection import inspect
 
 from .compat import basestring
 from .extensions import db
@@ -42,6 +43,15 @@ class Model(CRUDMixin, db.Model):
     """Base model class that includes CRUD convenience methods."""
 
     __abstract__ = True
+
+
+    def __getitem__(self, key):
+        """Expose object attributes like dict values."""
+        return getattr(self, key)
+
+    def keys(self):
+        """Identify what db columns we have."""
+        return inspect(self).attrs.keys()
 
 
 # From Mike Bayer's "Building the app" talk

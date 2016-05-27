@@ -7,6 +7,7 @@ from adoptarbol.extensions import login_manager, pages
 from adoptarbol.public.forms import LoginForm
 from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
+from adoptarbol.tree.models import Tree, Sponsorship
 from adoptarbol.utils import flash_errors
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
