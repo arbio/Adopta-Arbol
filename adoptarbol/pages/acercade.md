@@ -5,7 +5,7 @@ Acerca de Adopta Un Árbol Amazónico
 
 ## Vamos todos a preservar la vida del Bosque!
 
-Adoptarbol crea una relación profunda entre personas y árboles nativos, direccionando recursos económicos a concesionarios para que los protejan.
+"**Adoptarbol** crea una relación profunda entre personas y árboles nativos, direccionando recursos económicos a concesionarios para que los protejan."
 
 > La diversidad biológico-cultural de la amazonía es proporcional a la cantidad de árboles nativos.
 > Para conservar los árboles, es necesaria la investigación y el patrullaje, actividades que demandan recursos económicos.
