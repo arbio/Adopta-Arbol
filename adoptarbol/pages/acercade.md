@@ -1,9 +1,9 @@
 title: Acerca de
 
-Acerca de Adopta Un Árbol Amazónico
-===================================
+Acerca de Adoptarbol
+====================
 
-## Vamos todos a preservar la vida del Bosque!
+## Adopta un árbol amazónico y preservemos juntos la vida del Bosque!
 
 > **El Reto:** La diversidad biológico-cultural de la amazonía es proporcional a la cantidad de árboles nativos.
 > Para conservar los árboles, es necesaria la investigación y el patrullaje, actividades que demandan recursos económicos.
