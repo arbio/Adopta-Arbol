@@ -3,12 +3,12 @@
 {% block content %}
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-  <h2 class="text-justify">"Las plantas y árboles amazónicos juegan un papel 
+  <h2 class="text-justify large">"Las plantas y árboles amazónicos juegan un papel 
     crítico en la regulación del cambio climático" <small>- WWF</small></h2>
 </div><!-- /.jumbotron -->
 
-<div class="jumbotron">
-  <h3 class="text-center">Adopta árboles nativos amazónicos certificados por &nbsp;<span class="label label-large label-success">ARBIO</label></h3>
+<div class="well well-sm">
+  <h4 class="text-center">Adopta árboles nativos amazónicos certificados por &nbsp;<span class="label label-large label-success">ARBIO</label></h4>
 </div><!-- /.jumbotron -->
 
 <div class="body-content">
@@ -17,7 +17,7 @@
       <table class="table table-condensed"><tbody>
       <tr>
         <td class="text-right"><h2>Árboles matriculados:</h2>
-        <td class="text-right"><h2>550</h2>
+        <td class="text-right"><h2>{{total}}</h2>
       </tr><tr>
         <td class="text-right"><h2>Árboles adoptados:</h2>
         <td class="text-right"><h2>0</h2>
@@ -78,8 +78,33 @@
 por el valor de su madera...</h3>
 </div><!-- /.jumbotron -->
 
-<div class="jumbotron text-center">
-  <h3>Con el apoyo de: ESAN - Ministerio del Ambiente - SPDA</h3>
+<div class="panel panel-default" style="overflow:hidden" align="center">
+  <p>Con el apoyo de:</p>
+  <br>
+  <div class="col-lg-4">
+    <img class="img-responsive" src="/static/images/logos/ministerio-del-ambiente.jpg">
+  </div>
+  <div class="col-lg-4">
+    <img class="img-responsive" src="/static/images/logos/spda.jpg">
+  </div>
+  <div class="col-lg-4">
+    <img class="img-responsive" src="/static/images/logos/esan.jpg">
+  </div>
 </div><!-- /.jumbotron -->
+
+<div class="panel panel-default" style="overflow:hidden;" align="center">
+  <p>Una iniciativa de:</p>
+  <br>
+  <div class="col-lg-3 vbottom">
+    <img class="img-responsive" src="/static/images/logos/arbio.jpg">
+    <p>Asociación para la Resiliencia del Bosque frente a la Inter-Oceánica</p>
+  </div><!--
+--><div class="col-lg-5 vbottom">
+    <img class="img-responsive" src="/static/images/logos/somosazucar.png">
+    <br>
+    <p>Tecnología Libre para la Educación Pública</p>
+    <br>
+  </div>
+</div><!-- /.panel -->
 {% endblock %}
 

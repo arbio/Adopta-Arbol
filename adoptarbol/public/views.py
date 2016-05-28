@@ -23,6 +23,8 @@ def load_user(user_id):
 def home():
     """Home page."""
     tree = Tree.random()
+    total = Tree.query.count()
+    sponsored = 0 # TODO
     form = LoginForm(request.form)
     # Handle logging in
     if request.method == 'POST':
@@ -33,7 +35,7 @@ def home():
             return redirect(redirect_url)
         else:
             flash_errors(form)
-    return render_template('public/home.html', form=form, tree=tree)
+    return render_template('public/home.html', form=form, tree=tree, total=total)
 
 
 @blueprint.route('/page/<path:path>/')
@@ -62,10 +64,3 @@ def register():
     else:
         flash_errors(form)
     return render_template('public/register.html', form=form)
-
-
-@blueprint.route('/about/')
-def about():
-    """About page."""
-    form = LoginForm(request.form)
-    return render_template('public/about.html', form=form)

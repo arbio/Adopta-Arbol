@@ -20,6 +20,10 @@ textarea {
   resize: vertical;
 }
 
+.large {
+  font-size: 40px;
+}
+
 .btn {
   font-size: 18px;
 }
@@ -87,4 +91,10 @@ footer .footer-nav {
   float: right;
   margin-right: 25px;
   list-style: none;
+}
+
+.vbottom {
+    display: inline-block;
+    vertical-align: bottom;
+    float: none;
 }
