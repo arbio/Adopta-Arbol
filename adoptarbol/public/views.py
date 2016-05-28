@@ -58,7 +58,7 @@ def home(tree_id=None):
     total = Tree.query.count()
     banner_a = get_random_item('frases')
     banner_b = get_random_item('sabiasque')
-    sponsored = 0 # TODO
+
     form = LoginForm(request.form)
     # Handle logging in
     if request.method == 'POST':

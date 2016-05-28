@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """Tree and sponsorship models."""
+import os
 import datetime as dt
 import utm
 from random import randint
+from flask import current_app as app
+from werkzeug import secure_filename
 
 from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
 
@@ -59,10 +62,15 @@ class Tree(SurrogatePK, Model):
 
     @property
     def image(self):
+        common_photo_file = "%s.jpg" % secure_filename(self.common_name.lower())
+        common_photo_path = os.path.join(app.static_folder, 'images', \
+                                        'common_trees', common_photo_file)
         if self.photo:
             return {'exists':True, 'src':self.photo}
+        elif os.path.exists(common_photo_path) and os.path.isfile(common_photo_path):
+            return {'exists':True, 'src':"/static/images/common_trees/%s" % common_photo_file}
         else:
-            return {'exists':False, 'src':"/static/images/reference_tree.jpg"}
+            return {'exists':False, 'src':"/static/images/common_trees/reference_tree.jpg"}
 
     @property
     def before(self):
