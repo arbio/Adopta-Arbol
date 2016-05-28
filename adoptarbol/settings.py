@@ -41,6 +41,7 @@ class DevConfig(Config):
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
     VALIDATE_IP = False
     VALIDATE_SIGNATURE = False
+    WTF_CSRF_ENABLED = False
 
 
 class TestConfig(Config):
