@@ -22,6 +22,7 @@ def load_user(user_id):
 @blueprint.route('/', methods=['GET', 'POST'])
 def home():
     """Home page."""
+    tree = Tree.random()
     form = LoginForm(request.form)
     # Handle logging in
     if request.method == 'POST':
@@ -32,7 +33,7 @@ def home():
             return redirect(redirect_url)
         else:
             flash_errors(form)
-    return render_template('public/home.html', form=form)
+    return render_template('public/home.html', form=form, tree=tree)
 
 
 @blueprint.route('/page/<path:path>/')

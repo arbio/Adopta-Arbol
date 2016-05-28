@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Tree and sponsorship models."""
 import datetime as dt
+from random import randint
 
 from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
 
@@ -30,6 +31,12 @@ class Tree(SurrogatePK, Model):
     def __repr__(self):
         """Represent instance as a unique string."""
         return '<Tree({code})>'.format(code=self.code)
+
+    @classmethod
+    def random(cls):
+        random_id = randint(1, cls.query.count())
+        tree = cls.query.offset(random_id).first()
+        return tree
 
 
 class Sponsorship(SurrogatePK, Model):
