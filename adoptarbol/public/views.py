@@ -44,9 +44,17 @@ def get_page(path):
 
 
 @blueprint.route('/', methods=['GET', 'POST'])
-def home():
+@blueprint.route('/selected/<int:tree_id>')
+def home(tree_id=None):
     """Home page."""
-    tree = Tree.random()
+    if not tree_id:
+        tree = Tree.random()
+    else:
+        tree = Tree.get_by_id(tree_id)
+
+    before_it = tree.before.id
+    after_it = tree.after.id
+
     total = Tree.query.count()
     banner_a = get_random_item('frases')
     banner_b = get_random_item('sabiasque')
@@ -62,7 +70,8 @@ def home():
         else:
             flash_errors(form)
     return render_template('public/home.html', form=form, tree=tree, total=total, \
-                            image=tree.image, banner_a=banner_a, banner_b=banner_b)
+                            image=tree.image, banner_a=banner_a, banner_b=banner_b, \
+                            before_it=before_it, after_it=after_it)
 
 
 @blueprint.route('/logout/')
