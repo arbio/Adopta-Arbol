@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask import Blueprint, flash, redirect, render_template, request, url_for, jsonify
 from flask_login import login_required, login_user, logout_user
 
 from adoptarbol.extensions import login_manager, pages
@@ -9,6 +9,8 @@ from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
 from adoptarbol.tree.models import Tree, Sponsorship
 from adoptarbol.utils import flash_errors
+
+from random import choice
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
@@ -19,11 +21,35 @@ def load_user(user_id):
     return User.get_by_id(int(user_id))
 
 
+@blueprint.route('/page/<path:path>/')
+def page(path):
+    page = pages.get_or_404(path)
+    template = page.meta.get('template', 'public/flatpages.html')
+    return render_template(template, page=page)
+
+@blueprint.route('/api/pages/<path:path>/_random')
+def get_random_item(path):
+    page = pages.get_or_404(path)
+    lines =  [line for line in page.body.split('\n') if line.startswith('- ')]
+    return choice(lines)[2:]
+
+@blueprint.route('/api/pages/<path:path>')
+def get_page(path):
+    page = pages.get_or_404(path)
+    result = page.meta
+    result['body'] = page.body
+    result['html'] = page.html
+    result['path'] = page.path
+    return jsonify(page.meta)
+
+
 @blueprint.route('/', methods=['GET', 'POST'])
 def home():
     """Home page."""
     tree = Tree.random()
     total = Tree.query.count()
+    banner_a = get_random_item('frases')
+    banner_b = get_random_item('sabiasque')
     sponsored = 0 # TODO
     form = LoginForm(request.form)
     # Handle logging in
@@ -35,14 +61,8 @@ def home():
             return redirect(redirect_url)
         else:
             flash_errors(form)
-    return render_template('public/home.html', form=form, tree=tree, total=total, image=tree.image)
-
-
-@blueprint.route('/page/<path:path>/')
-def page(path):
-    page = pages.get_or_404(path)
-    template = page.meta.get('template', 'public/flatpages.html')
-    return render_template(template, page=page)
+    return render_template('public/home.html', form=form, tree=tree, total=total, \
+                            image=tree.image, banner_a=banner_a, banner_b=banner_b)
 
 
 @blueprint.route('/logout/')

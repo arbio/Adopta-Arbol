@@ -64,6 +64,22 @@ class Tree(SurrogatePK, Model):
         else:
             return {'exists':False, 'src':"static/images/reference_tree.jpg"}
 
+    @property
+    def before(self):
+        one_before = self.query.params(id=self.id).offset(-1).first()
+        if one_before==self:
+            return None
+        else:
+            return one_before
+
+    @property
+    def after(self):
+        one_after = self.query.params(id=self.id).offset(1).first()
+        if one_after==self:
+            return None
+        else:
+            return one_after
+
     @classmethod
     def random(cls):
         random_id = randint(1, cls.query.count())

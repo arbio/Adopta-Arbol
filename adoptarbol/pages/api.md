@@ -1,12 +1,10 @@
 title: Documentación del API
 
-# Documentación del API
+# Documentación del API con ejemplos
 
 Documentación general del motor de API REST: [flask-restless](http://flask-restless.readthedocs.io/en/stable/requestformat.html)
 
-## Ejemplos
-
-### Árboles
+## Árboles
 
 - **Lista:** [/api/trees](/api/trees)
 
@@ -42,4 +40,20 @@ Documentación general del motor de API REST: [flask-restless](http://flask-rest
 
 - **Paginación:** [/api/trees?page=2](/api/trees?page=2)
 
+- **Después/Antes:**
+    - [/api/trees/2/after](/api/trees/2/after) devuelve el anterior (relativo al índice, en este caso, 2)
+    - [/api/trees/2/before](/api/trees/2/before) devuelve el posterior<br><br>
+
 - **Al azar:** [/api/trees/\_random](/api/trees/_random)
+
+## Páginas
+
+Las páginas corresponden en el sistema de archivo con el directorio  `pages` y son archivos en formato [*Markdown*](http://daringfireball.net/projects/markdown/).
+
+El api permite obtener un ítem de lista al azar (para colocar una frase sola).
+
+- **Ítem al azar:** [/api/pages/*&lt;pagina&gt;*/\_random](/api/pages/frases/_random) (ej. `pagina` : frases)
+
+- **Una página:** [/api/pages/sabiasque](/api/pages/sabiasque)
+
+Las páginas disponibles pueden ser consultadas (y editadas) en el directorio [`pages/`](https://github.com/icarito/arbio-azucar-adoptarbol/tree/master/adoptarbol/pages).
