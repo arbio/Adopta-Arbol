@@ -5,7 +5,7 @@ from flask import Flask, render_template
 from adoptarbol import public, user, tree
 from adoptarbol.assets import assets
 from adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, \
-                                  login_manager, migrate, pages, api_manager
+                                  login_manager, migrate, pages, api_manager, hooks
 from adoptarbol.settings import ProdConfig
 
 
@@ -19,6 +19,7 @@ def create_app(config_object=ProdConfig):
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
+    register_hooks(app)
     return app
 
 
@@ -34,6 +35,7 @@ def register_extensions(app):
     migrate.init_app(app, db)
     pages.init_app(app)
     api_manager.init_app(app)
+    hooks.init_app(app)
     return None
 
 
@@ -44,6 +46,10 @@ def register_blueprints(app):
     app.register_blueprint(user.views.blueprint)
     return None
 
+def register_hooks(app):
+    def ping(data, guid):
+        return 'pong'
+    hooks.register_hook('ping', ping)
 
 def register_errorhandlers(app):
     """Register error handlers."""
