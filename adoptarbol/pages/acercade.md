@@ -9,7 +9,7 @@ Acerca de Adopta Un Árbol Amazónico
 > Para conservar los árboles, es necesaria la investigación y el patrullaje, actividades que demandan recursos económicos.
 > Es urgente elevar la conciencia de las personas ajenas a la selva y darles la oportunidad de hacer una conexión de alto impacto. 
 
-La Solución: "**Adoptarbol** crea una relación profunda entre personas y árboles nativos, direccionando recursos económicos a concesionarios para que los protejan."
+"**Adoptarbol** crea una relación profunda entre personas y árboles nativos, direccionando recursos económicos a concesionarios para que los protejan."
 
 ¿Que es Arbio?
 
