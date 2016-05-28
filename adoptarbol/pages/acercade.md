@@ -7,7 +7,7 @@ Acerca de Adopta Un Árbol Amazónico
 
 > **El Reto:** La diversidad biológico-cultural de la amazonía es proporcional a la cantidad de árboles nativos.
 > Para conservar los árboles, es necesaria la investigación y el patrullaje, actividades que demandan recursos económicos.
-> Es urgente elevar la conciencia de las personas ajenas a la selva y darles la oportunidad de hacer una conexión de alto impacto. 
+> Es urgente elevar la conciencia de las personas ajenas a la selva y darles la oportunidad de hacer una conexión directa de alto impacto. 
 
 <center>"**Adoptarbol** crea una relación profunda entre personas y árboles nativos, direccionando recursos económicos a concesionarios para que los protejan."</center>
 
