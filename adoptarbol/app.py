@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 from adoptarbol import public, user, tree
 from adoptarbol.assets import assets
@@ -8,6 +8,7 @@ from adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar
                                   login_manager, migrate, pages, api_manager, hooks
 from adoptarbol.settings import ProdConfig
 
+import subprocess
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -47,9 +48,22 @@ def register_blueprints(app):
     return None
 
 def register_hooks(app):
-    def ping(data, guid):
+    def ping(data, delivery):
         return 'pong'
     hooks.register_hook('ping', ping)
+    
+    def new_code(data, delivery):
+        print('New push to %s' % data['ref'])
+        try:
+            cmd_output = subprocess.check_output(
+                ['git', 'pull', 'origin', 'master'],)
+            return jsonify({'msg': str(cmd_output)})
+        except subprocess.CalledProcessError as error:
+            email("Code deployment failed", error.output)
+            return jsonify({'msg': str(error.output)})
+        return 'Thanks'
+    hooks.register_hook('push', new_code)
+
     return None
 
 def register_errorhandlers(app):
