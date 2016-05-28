@@ -1,564 +1,564 @@
-1,404-1,Ubos,Spondias mombin,,457826,8654316,95,20,,
-2,404-2,Requia,Guarea guidonia,,457829,8654309,85,21,,
-3,404-3,Chimicua,Pseudolmedia laevis,,457829,8654309,25,18,,
-4,404-4,Manchinga,Brosimun alicastrum,,457824,8654312,140,25,,
-5,404-5,Cedro,Cedrela odorata,,457815,8654325,25,23,,
-6,404-6,Ocuera,Oliganthes discolor,,457818,8654322,60,23,,
-7,404-7,Shimbillo,Inga longipes,,457808,8654335,30,23,,
-8,404-8,Sapote,Quararibea cordata,,457819,8654355,40,23,,
-9,404-9,Chimicua,Pseudolmedia laevis,,457803,8654345,50,23,,
-10,404-10,Moena,Aniba amazonica,,457806,8654333,120,25,,
-11,404-11,Fariña seca,Celtis schippii,,457806,8654333,100,23,,
-12,404-12,Moena,Aniba amazonica,,457800,8654326,70,23,,
-13,404-13,Fariña seca,Celtis schippii,,457806,8654341,35,21,,
-14,404-14,Shimbillo,Inga longipes,,457806,8654341,75,21,,
-15,404-15,Peine de mono,Apeiba membranacea,,457806,8654360,35,21,,
-16,404-16,Sapote,Quararibea cordata,,457814,8654371,40,21,,
-17,404-17,Bolaina,Guazuma crinita,,457814,8654371,40,23,,
-18,404-18,Renaco,Ficus trigona,,457815,8654401,100,20,,
-19,404-19,Caimito,Pouteria caimito,,457815,8654401,25,21,,
-20,404-20,Caimito,Pouteria caimito,,457829,8654390,25,21,,
-21,404-21,Remo caspi,Aspidosperma excelsum,,457834,8654399,100,23,,
-22,404-22,Fariña seca,Celtis schippii,,457834,8654381,35,21,,
-23,404-23,Moena negra,Nectandra cuspidata,,457836,8654386,50,23,,
-24,404-24,Lupuna colorada,Cavanillesia hylogeiton,,457837,8654387,140,25,,
-25,404-25,Moena,Aniba amazonica,,457837,8654387,40,23,,
-26,404-26,Renaco,Ficus trigona,,457851,8654391,130,25,,
-27,404-27,Charichuelo,Rheedia brasiliensis,,457851,8654391,25,20,,
-28,404-28,Cedro,Cedrela odorata,,457873,8654391,45,20,,
-29,404-29,Requia,Guarea guidonia,,457884,8654396,50,23,,
-30,404-30,Shimbillo,Inga longipes,,457891,8654392,25,28,,
-31,404-31,Pashaco,Schizolobium amazonicum,,457891,8654392,25,20,,
-32,404-32,Moena,Aniba amazonica,,457878,8654395,45,23,,
-33,404-33,Renaco,Ficus trigona,,457860,8654378,120,21,,
-34,404-34,Caimito,Pouteria caimito,,457860,8654378,30,21,,
-35,404-35,Caimito,Pouteria caimito,,457860,8654378,35,21,,
-36,404-36,Bolaina,Guazuma crinita,,457861,8654362,40,18,,
-37,404-37,Caimito,Pouteria caimito,,457849,8654355,25,20,,
-38,404-38,Renaco,Ficus trigona,,457849,8654355,55,23,,
-39,404-39,Caimito,Pouteria caimito,,457859,8654353,35,23,,
-40,404-40,Requia,Guarea guidonia,,457859,8654353,35,22,,
-41,404-41,Pashaco,Schizolobium amazonicum,,457862,8654355,80,21,,
-42,404-42,Manchinga,Brosimun alicastrum,,457854,8654344,100,25,,
-43,404-43,Renaco,Ficus trigona,,457854,8654344,100,27,,
-44,404-44,Renaco,Ficus trigona,,457854,8654342,130,25,,
-45,404-45,Shimbillo,Inga longipes,,457854,8654342,30,19,,
-46,404-46,Coloradillo,Licania oblogifolia,,457854,8654342,25,21,,
-47,404-47,Renaco,Ficus trigona,,457854,8654342,150,27,,
-48,404-48,Manchinga,Brosimun alicastrum,,457853,8654334,150,25,,
-49,404-49,Ocuera,Oliganthes discolor,,457855,8654322,90,23,,
-50,404-50,Chimicua,Pseudolmedia laevis,,457855,8654322,30,18,,
-51,404-51,Shimbillo,Inga longipes,,457855,8654322,40,23,,
-52,404-52,Manchinga,Brosimun alicastrum,,457850,8654313,150,23,,
-53,404-53,Chimicua,Pseudolmedia laevis,,457865,8654312,50,21,,
-54,404-54,Ocuera,Oliganthes discolor,,457865,8654312,50,23,,
-55,404-55,Chimicua,Pseudolmedia laevis,,457878,8654309,50,25,,
-56,404-56,Renaco,Ficus trigona,,457879,8654316,180,27,,
-57,404-57,Ocuera,Oliganthes discolor,,457883,8654341,150,25,,
-58,404-58,Manchinga,Brosimun alicastrum,,457883,8654341,50,21,,
-59,404-59,Capirona,Calycophyllum spruceanum ,,457887,8654359,110,25,,
-60,404-60,Shimbillo,Inga longipes,,457887,8654359,40,20,,
-61,404-61,Yacuchapana,Terminalia oblonga,,457875,8654353,35,20,,
-62,404-62,Shimbillo,Inga longipes,,457801,8654299,35,19,,
-63,404-63,Moena,Aniba amazonica,,457801,8654299,45,19,,
-64,403-1,Caimito,Pouteria caimito,,457811,8654402,50,23,,
-65,403-2,Pashaco,Schizolobium amazonicum,,457811,8654402,50,23,,
-66,403-3,Shimbillo,Inga longipes,,457811,8654402,25,15,,
-67,403-4,Ocuera,Oliganthes discolor,,457811,8654402,80,20,,
-68,403-5,Moena,Aniba amazonica,,457811,8654402,60,20,,
-69,403-6,Moena,Aniba amazonica,,457811,8654402,25,13,,
-70,403-7,Moena,Aniba amazonica,,457798,8654438,30,22,,
-71,403-8,Requia,Guarea guidonia,,457798,8654438,20,21,,
-72,403-9,Cetico,Cecropia multiflora,,457798,8654438,25,20,,
-73,403-10,Shimbillo,Inga longipes,,457798,8654438,30,21,,
-74,403-11,Bolaina,Guazuma crinita,,457798,8654438,30,20,,
-75,403-12,Cetico,Cecropia multiflora,,457795,8654447,40,22,,
-76,403-13,Moena,Aniba amazonica,,457795,8654447,30,20,,
-77,403-14,Shimbillo,Inga longipes,,457795,8654447,40,23,,
-78,403-15,Moena,Aniba amazonica,,457793,8654450,30,19,,
-79,403-16,Shimbillo,Inga longipes,,457793,8654450,45,22,,
-80,403-17,Shimbillo,Inga longipes,,457793,8654450,25,20,,
-81,403-18,Pashaco,Schizolobium amazonicum,,457794,8654450,60,23,,
-82,403-19,Pashaco,Schizolobium amazonicum,,457809,8654459,60,20,,
-83,403-20,Bolaina,Guazuma crinita,,457809,8654459,40,19,,
-84,403-21,Peine de mono,Apeiba membranacea,,457809,8654459,40,17,,
-85,403-22,Peine de mono,Apeiba membranacea,,457809,8654459,30,18,,
-86,403-23,Caimito,Pouteria caimito,,457817,8654496,50,22,,
-87,403-24,Caimito,Pouteria caimito,,457817,8654496,30,22,,
-88,403-25,Caimito,Pouteria caimito,,457817,8654496,30,20,,
-89,403-26,Misa,Couratari guianensis,,457817,8654496,40,22,,
-90,403-27,Moena,Aniba amazonica,,457817,8654496,40,22,,
-91,403-28,Peine de mono,Apeiba membranacea,,457819,8654493,45,21,,
-92,403-29,Caimito,Pouteria caimito,,457835,8654481,40,20,,
-93,403-30,Caimito,Pouteria caimito,,457835,8654481,25,20,,
-94,403-31,Caimito,Pouteria caimito,,457845,8654502,25,18,,
-95,403-32,Caimito,Pouteria caimito,,457845,8654502,20,15,,
-96,403-33,Caimito,Pouteria caimito,,457845,8654502,60,23,,
-97,403-34,Caimito,Pouteria caimito,,457845,8654502,40,23,,
-98,403-35,Shimbillo,Inga longipes,,457845,8654502,35,21,,
-99,403-36,Moena,Aniba amazonica,,457850,8654497,40,19,,
-100,403-37,Cacao,Theobroma,,457850,8654497,25,20,,
-101,403-38,Shimbillo,Inga longipes,,457850,8654497,50,25,,
-102,403-39,Papailla,Jacaratia digitata,,457850,8654497,35,20,,
-103,403-40,Shimbillo,Inga longipes,,457850,8654497,30,19,,
-104,403-41,Shimbillo,Inga longipes,,457850,8654497,30,19,,
-105,403-42,Peine de mono,Apeiba membranacea,,457850,8654497,30,20,,
-106,403-43,Moena,Aniba amazonica,,457903,8654489,50,23,,
-107,403-44,Caimito,Pouteria caimito,,457903,8654489,25,20,,
-108,403-45,Pashaco,Schizolobium amazonicum,,457903,8654489,40,21,,
-109,403-46,Moena,Aniba amazonica,,457873,8654493,35,20,,
-110,403-47,Moena,Aniba amazonica,,457908,8654480,100,25,,
-111,403-48,Lupuna colorada,Cavanillesia hylogeiton,,457908,8654480,110,25,,
-112,403-49,Renaco,Ficus trigona,,457908,8654480,110,27,,
-113,403-50,Itauba,Mezilaurus itauba,,457908,8654480,40,22,,
-114,403-51,Moena,Aniba amazonica,,457895,8654476,50,23,,
-115,403-52,Moena,Aniba amazonica,,457890,8654470,40,23,,
-116,403-53,Peine de mono,Apeiba membranacea,,457894,8654461,50,23,,
-117,403-54,Fariña seca,Celtis schippii,,457894,8654461,25,19,,
-118,403-55,Ajosquiro,Gallesia integrifolia,,457882,8654451,130,27,,
-119,403-56,Chimicua,Pseudolmedia laevis,,457882,8654451,120,27,,
-120,403-57,Manchinga,Brosimun alicastrum,,457882,8654451,160,27,,
-121,403-58,Peine de mono,Apeiba membranacea,,457882,8654451,45,20,,
-122,403-59,Manchinga,Brosimun alicastrum,,457881,8654462,60,20,,
-123,403-60,Chimicua,Pseudolmedia laevis,,457881,8654462,70,20,,
-124,403-61,Huito,Genipa americana,,457881,8654462,25,19,,
-125,403-62,Shimbillo,Inga longipes,,457865,8654476,22,17,,
-126,403-63,Renaco,Ficus trigona,,457865,8654476,100,23,,
-127,403-64,Moena,Aniba amazonica,,457865,8654476,30,21,,
-128,403-65,Chimicua,Pseudolmedia laevis,,457868,8654450,30,21,,
-129,403-66,Fariña seca,Celtis schippii,,457868,8654450,25,19,,
-130,403-67,Fariña seca,Celtis schippii,,457868,8654450,40,22,,
-131,403-68,Caimito,Pouteria caimito,,457868,8654450,60,24,,
-132,403-69,Renaco,Ficus trigona,,457853,8654444,120,18,,
-133,403-70,Shimbillo,Inga longipes,,457853,8654444,30,20,,
-134,403-71,Shimbillo,Inga longipes,,457837,8654446,30,19,,
-135,403-72,Peine de mono,Apeiba membranacea,,457816,8654448,80,25,,
-136,403-73,Shimbillo,Inga longipes,,457816,8654448,35,16,,
-137,403-74,Bolaina,Guazuma crinita,,457816,8654448,40,21,,
-138,403-75,Caimito,Pouteria caimito,,457816,8654448,35,20,,
-139,403-76,Caimito,Pouteria caimito,,457850,8654427,40,23,,
-140,403-77,Ocuera,Oliganthes discolor,,457850,8654427,60,25,,
-141,403-78,Caimito,Pouteria caimito,,457850,8654427,35,21,,
-142,403-79,Shimbillo,Inga longipes,,457850,8654427,30,20,,
-143,403-80,Renaco,Ficus trigona,,457851,8654427,170,23,,
-144,403-81,Caimito,Pouteria caimito,,457851,8654427,30,19,,
-145,403-82,Ocuera,Oliganthes discolor,,457851,8654427,120,27,,
-146,403-83,Shimbillo,Inga longipes,,457851,8654427,25,19,,
-147,403-84,Estoraque,Myroxylon balsamum,,457875,8654418,60,21,,
-148,403-85,Mashonaste,Clarisia racemosa,,457884,8654411,70,27,,
-149,403-86,Moena,Aniba amazonica,,457888,8654411,70,20,,
-150,403-87,Requia,Guarea guidonia,,457888,8654411,50,21,,
-151,403-88,Chimicua,Pseudolmedia laevis,,457888,8654411,35,19,,
-152,403-89,Shihuahuaco,Dipteryx micrantha,,457877,8654404,170,30, ,
-153,403-90,Caimito,Pouteria caimito,,457877,8654404,40,23,,
-154,403-91,Caimito,Pouteria caimito,,457877,8654404,35,20,,
-155,403-92,Chimicua,Pseudolmedia laevis,,457888,8654431,50,23,,
-156,402-1,Pashaco,Schizolobium amazonicum,,457899,8654497,50,25,,
-157,402-2,Requia,Guarea guidonia,,457899,8654497,50,25,,
-158,402-3,Caimito,Pouteria caimito,,457899,8654497,25,18,,
-159,402-4,Pashaco,Schizolobium amazonicum,,457899,8654497,30,19,,
-160,402-5,Pashaco,Schizolobium amazonicum,,457899,8654497,30,20, , 
-161,402-6,Chimicua,Pseudolmedia laevis,,457901,8654511,90,25,13-OCT-12 11:44:27AM,
-162,402-7,Moena,Aniba amazonica,,457901,8654511,80,25,,
-163,402-8,Fariña seca,Celtis schippii,,457901,8654511,25,17,,
-164,402-9,Moena,Aniba amazonica,,457883,8654513,50,25,,
-165,402-10,Moena,Aniba amazonica,,457883,8654513,35,19,,
-166,402-11,Moena,Aniba amazonica,,457883,8654513,120,27,,
-167,402-12,Moena,Aniba amazonica,,457878,8654520,40,21,,
-168,402-13,Pashaco,Schizolobium amazonicum,,457878,8654520,25,20,,
-169,402-14,Moena,Aniba amazonica,,457870,8654515,40,23,,
-170,402-15,Moena,Aniba amazonica,,457866,8654507,35,21,,
-171,402-16,Espintana,Oxandra espintana,,457858,8654513,35,22,,
-172,402-17,Caimito,Pouteria caimito,,457841,8654513,50,27,,
-173,402-18,Caimito,Pouteria caimito,,457841,8654513,45,22,,
-174,402-19,Chimicua,Pseudolmedia laevis,,457841,8654513,35,20,,
-175,402-20,Chimicua,Pseudolmedia laevis,,457841,8654513,65,25,,
-176,402-21,Requia,Guarea guidonia,,457825,8654526,65,24,,
-177,402-22,Itauba,Mezilaurus itauba,,457825,8654526,35,21,,
-178,402-23,Sapote,Quararibea cordata,,457832,8654528,60,23,,
-179,402-24,Guacamayo caspi,Sickingia sp,,457825,8654526,120,24,,
-180,402-25,Moena,Aniba amazonica,,457825,8654526,60,23,,
-181,402-26,Chimicua,Pseudolmedia laevis,,457825,8654526,40,15,,
-182,402-27,Mashonaste,Clarisia racemosa,,457816,8654520,70,27,,
-183,402-28,Peine de mono,Apeiba membranacea,,457816,8654520,35,19,,
-184,402-29,Leche leche,Ficus sp.,,457812,8654510,45,22,,
-185,402-30,Leche leche,Ficus sp.,,457812,8654510,40,21,,
-186,402-31,Moena,Aniba amazonica,,457805,8654556,100,23,,
-187,402-32,Caimito,Pouteria caimito,,457805,8654556,40,21,,
-188,402-33,Peine de mono,Apeiba membranacea,,457805,8654556,50,23,,
-189,402-34,Itauba,Mezilaurus itauba,,457807,8654567,45,25,,
-190,402-35,Caimito,Pouteria caimito,,457807,8654567,40,21,,
-191,402-36,Shimbillo,Inga longipes,,457805,8654572,35,20,,
-192,402-37,Quinilla blanca,Manilkara bidentata,,457816,8654585,150,23,,
-193,402-38,Moena,Aniba amazonica,,457816,8654581,90,20,,
-194,402-39,Caimito,Pouteria caimito,,457816,8654581,50,15,,
-195,402-40,Shimbillo,Inga longipes,,457816,8654581,23,17,,
-196,402-41,Caimito,Pouteria caimito,,457816,8654581,25,15,,
-197,402-42,Shimbillo,Inga longipes,,457834,8654587,40,31,,
-198,402-43,Leche leche,Ficus sp.,,457834,8654587,40,20,,
-199,402-44,Uvilla,Pourouma cecropiifolia,,457834,8654587,25,20,,
-200,402-45,Shimbillo,Inga longipes,,457834,8654587,20,17,,
-201,402-46,Caimito,Pouteria caimito,,457834,8654587,25,17,,
-202,402-47,Caimito,Pouteria caimito,,457834,8654587,23,19,,
-203,402-48,Caimito,Pouteria caimito,,457834,8654587,22,18,,
-204,402-49,Shihuahuaco,Dipteryx micrantha,,457841,8654596,120,25,,
-205,402-50,Huayo blanco,,,457841,8654596,35,21,,
-206,402-51,Caimito,Pouteria caimito,,457841,8654596,25,18,,
-207,402-52,Itauba,Mezilaurus itauba,,457841,8654596,35,21,,
-208,402-53,Moena,Aniba amazonica,,457841,8654596,120,24,,
-209,402-54,Caimito,Pouteria caimito,,457841,8654596,40,16,,
-210,402-55,Leche leche,Ficus sp.,,457841,8654596,30,18,,
-211,402-56,Requia,Guarea guidonia,,457859,8654583,42,21,,
-212,402-57,Caimito,Pouteria caimito,,457859,8654583,45,21,,
-213,402-58,Cumala,Virola sp.,,457859,8654583,25,13,,
-214,402-59,Moena,Aniba amazonica,,457859,8654583,30,13,,
-215,402-60,Itauba,Mezilaurus itauba,,457859,8654583,30,18,,
-216,402-61,Requia,Guarea guidonia,,457859,8654583,45,17,,
-217,402-62,Manchinga,Brosimun alicastrum,,457859,8654583,130,21,,
-218,402-63,Caimito,Pouteria caimito,,457877,8654587,27,21,,
-219,402-64,Caucho macho,,,457898,8654588,45,19,,
-220,402-65,nn,,,457904,8654576,120,23,,
-221,402-66,Moena,Aniba amazonica,,457904,8654576,25,19,,
-222,402-67,Renaco,Ficus trigona,,457904,8654576,50,20,,
-223,402-68,Caimito,Pouteria caimito,,457904,8654576,25,19,,
-224,402-69,Uvilla,Pourouma cecropiifolia,,457904,8654576,25,18,,
-225,402-70,Moena,Aniba amazonica,,457904,8654576,55,21,,
-226,402-71,Peine de mono,Apeiba membranacea,,457893,8654550,30,20,,
-227,402-72,Caimito,Pouteria caimito,,457893,8654550,25,20,,
-228,402-73,Topa,Ochroma pyramidale,,457893,8654550,100,23,,
-229,402-74,Shimbillo,Inga longipes,,457893,8654550,26,21,,
-230,402-75,Qunilla,Manilkara bidentata,,457878,8654545,50,25,,
-231,402-76,Leche leche,Ficus sp.,,457878,8654545,20,19,,
-232,402-77,Leche leche,Ficus sp.,,457878,8654545,35,20,,
-233,402-78,Leche leche,Ficus sp.,,457878,8654545,65,22,,
-234,402-79,Uvilla,Pourouma cecropiifolia,,457879,8654555,45,21,,
-235,402-80,Peine de mono,Apeiba membranacea,,457879,8654555,25,19,,
-236,402-81,Caimito,Pouteria caimito,,457879,8654555,26,19,,
-237,402-82,nn,,,457879,8654555,28,20,,
-238,402-83,nn,,,457855,8654567,45,23,,
-239,402-84,Peine de mono,Apeiba membranacea,,457855,8654567,28,20,,
-240,402-85,Caimito,Pouteria caimito,,457855,8654567,20,19,,
-241,402-86,Chimicua,Pseudolmedia laevis,,457855,8654567,40,20,,
-242,402-87,NN,,,457844,8654574,45,21,,
-243,402-88,nn,,,457844,8654574,25,20,,
-244,402-89,Itauba,Mezilaurus itauba,,457844,8654574,28,19,,
-245,402-90,Guacamayo caspi,Sickingia sp,,457841,8654562,80,27,,
-246,402-91,Uvilla,Pourouma cecropiifolia,,457841,8654562,40,21,,
-247,402-92,Caimito,Pouteria caimito,,457841,8654562,35,22,,
-248,402-93,Shimbillo,Inga longipes,,457837,8654562,46,21,,
-249,402-94,Caimito,Pouteria caimito,,457837,8654562,35,20,,
-250,402-95,Moena,Aniba amazonica,,457837,8654562,40,22,,
-251,402-96,nn,,,457837,8654562,30,20,,
-252,402-97,Moena,Aniba amazonica,,457821,8654571,120,27,,
-253,402-98,nn,,,457821,8654571,65,22,,
-254,402-99,Moena,Aniba amazonica,,457821,8654571,65,19,,
-255,402-100,nn,,,457845,8654542,100,27,,
-256,402-101,nn,,,457845,8654542,30,19,,
-257,402-102,Moena,Aniba amazonica,,457845,8654542,28,21,,
-258,402-103,Bolaina,Guazuma crinita,,457845,8654542,25,19,,
-259,402-104,Moena,Aniba amazonica,,457840,8654546,30,20,,
-260,402-105,nn,,,457840,8654546,45,21,,
-261,402-106,nn,,,457861,8654544,25,21,,
-262,402-107,nn,,,457861,8654544,25,20,,
-263,402-108,Moena,Aniba amazonica,,457861,8654544,30,20,,
-264,402-109,Moena,Aniba amazonica,,457861,8654544,35,22,,
-265,402-110,nn,,,457861,8654544,26,20,,
-266,402-111,Papailla,Jacaratia digitata,,457861,8654544,45,21,,
-267,402-112,Tawari,Tabebuia serratifolia,,457877,8654534,95,22,tratamiento contra el cancer y HIV, 
-268,402-113,Moena,Aniba amazonica,,457877,8654534,80,25,,
-269,402-114,Caimito,Pouteria caimito,,457877,8654534,40,23,,
-270,402-115,Renaco,Ficus trigona,,457857,8654529,130,19,,
-271,402-116,Caimito,Pouteria caimito,,457857,8654529,30,19,,
-272,402-117,nn,,,457857,8654529,20,18,,
-273,402-118,Shimbillo,Inga longipes,,457857,8654529,30,21,,
-274, 369-1,nn,,,457897,8654492,25,20,,
-275,369-2,moena,Aniba amazonica,,457897,8654492,20,17,,
-276, 369-3,nn,,,457897,8654492,45,21,,
-277, 369-4,nn,,,457897,8654492,130,24,,
-278, 369-5,Moena,Aniba amazonica,,457910,8654523,45,25,,
-279, 369-6,nn,,,457910,8654523,30,21,,
-280, 369-7,Caimito,Pouteria caimito,,457910,8654523,27,20,,
-281, 369-8,Fariña seca,Celtis schippii,,457910,8654523,26,19,,
-282, 369-9,Leche leche,Ficus sp.,,457923,8654527,35,21,14-OCT-12 11:16:20AM,
-283, 369-10,Caimito,Pouteria caimito,,457923,8654527,30,13,,
-284, 369-11,Peine de mono,Apeiba membranacea,,457923,8654527,28,18,,
-285, 369-12,Renaco,Ficus trigona,,457923,8654527,40,19,,
-286, 369-13,Fariña seca,Celtis schippii,,457923,8654527,35,22,,
-287, 369-14,Caimito,Pouteria caimito,,457923,8654527,22,15,,
-288, 369-15,Moena,Aniba amazonica,,457952,8654513,75,20,,
-289, 369-16,Shimbillo,Inga longipes,,457952,8654513,22,17,,
-290, 369-17,Caimito,Pouteria caimito,,457952,8654513,20,15,,
-291, 369-18,Moena,Aniba amazonica,,457952,8654513,38,17,,
-292, 369-19,NN,,,457952,8654513,22,17,,
-293, 369-20,Moena,Aniba amazonica,,457952,8654513,25,21,,
-294, 369-21,nn,,,457952,8654513,27,18,,
-295, 369-22,Fariña seca,Celtis schippii,,457952,8654513,40,22,,
-296, 369-23,Lupuna   ,Ceiba pentandra,,457973,8654517,130,31,,
-297, 369-24,Moena,Aniba amazonica,,457973,8654517,40,19,,
-298, 369-25,nn,,,457973,8654517,50,22,,
-299, 369-26,Shimbillo,Inga longipes,,457973,8654517,25,18,,
-300, 369-27,Catahua,Hura crepitans,,457978,8654507,70,20,,
-301, 369-28,Caimito,Pouteria caimito,,457978,8654507,20,20,,
-302, 369-29,Caimito,Pouteria caimito,,457978,8654507,22,20,,
-303, 369-30,Bolaina,Guazuma crinita,,457981,8654499,55,21,,
-304, 369-31,Requia,Guarea guidonia,,457981,8654499,40,20,,
-305, 369-32,Caimito,Pouteria caimito,,457981,8654499,25,18,,
-306, 369-33,Guayabilla,,,457981,8654499,25,17,,
-307, 369-34,nn,,,457981,8654499,25,18,,
-308, 369-35,nn,,,457981,8654499,25,17,,
-309, 369-36,Shimbillo,Inga longipes,,457981,8654499,25,20,,
-310, 369-37,Leche leche,Ficus sp.,,457981,8654499,27,21,,
-311, 369-38,nn,,,457977,8654517,70,21,,
-312, 369-39,Cacao silvestre,Theobroma,,457991,8654539,25,17,,
-313, 369-40,Caimito,Pouteria caimito,,457991,8654539,60,21,,
-314, 369-41,nn,,,457991,8654539,30,21,,
-315, 369-42,Moena,Aniba amazonica,,457991,8654539,25,18,,
-316, 369-43,Chimicua,Pseudolmedia laevis,,457986,8654537,50,17,,
-317, 369-44,Moena,Aniba amazonica,,457986,8654537,80,21,,
-318, 369-45,Shimbillo,Inga longipes,,457986,8654537,28,23,,
-319, 369-46,Caimito,Pouteria caimito,,457986,8654537,25,15,,
-320, 369-47,Espintana,Oxandra espintana,,457986,8654537,15,15,,
-321, 369-48,Caimito,Pouteria caimito,,457986,8654537,15,13,,
-322, 369-49,nn,,,457986,8654537,40,18,,
-323, 369-50,Caimito,Pouteria caimito,,457986,8654537,35,19,,
-324, 369-51,nn,,,457962,8654541,110,30,,
-325, 369-52,nn,,,457962,8654541,28,18,,
-326, 369-53,Oreja elefante,,,457962,8654541,28,18,,
-327, 369-54,Chimicua,Pseudolmedia laevis,,457961,8654549,35,17,,
-328, 369-55,Chimicua,Pseudolmedia laevis,,457961,8654549,28,19,,
-329, 369-56,Fariña seca,Celtis schippii,,457961,8654549,25,13,,
-330, 369-57,Fariña seca,Celtis schippii,,457961,8654549,25,17,,
-331, 369-58,Oreja elefante,,,457961,8654549,22,13,,
-332, 369-59,Peine de mono,Apeiba membranacea,,457949,8654537,40,25,,
-333, 369-60,NN,,,457949,8654537,45,22,,
-334, 369-61,Moena,Aniba amazonica,,457949,8654537,20,20,,
-335, 369-62,NN,,,457949,8654537,25,18,,
-336, 369-63,NN,,,457949,8654537,26,18,,
-337, 369-64,Pashaco,Schizolobium amazonicum,,457971,8654533,60,28,,
-338, 369-65,Leche leche,Ficus sp.,,457971,8654533,27,18,,
-339, 369-66,NN,,,457971,8654533,40,17,olor fuerte a perfume,
-340, 369-67,Moena,Aniba amazonica,,457952,8654526,50,23,,
-341, 369-68,Chimicua,Pseudolmedia laevis,,457952,8654526,27,19,,
-342, 369-69,Moena,Aniba amazonica,,457952,8654526,25,19,,
-343, 369-70,Moena,Aniba amazonica,,457952,8654526,40,20,,
-344, 369-71,nn,,,457952,8654526,30,19,,
-345, 369-72,Shimbillo,Inga longipes,,457952,8654526,35,18,,
-346, 369-73,Pashaco,Schizolobium amazonicum,,457944,8654535,60,21,,
-347, 369-74,Leche leche,Ficus sp.,,457944,8654535,80,28,,
-348, 369-75,Moena,Aniba amazonica,,457944,8654535,28,20,,
-349, 369-76,Leche leche,Ficus sp.,,457944,8654535,35,23,,
-350, 369-77,nn,,,457944,8654535,25,18,,
-351, 369-78,Peine de mono,Apeiba membranacea,,457944,8654535,30,19,,
-352, 369-79,Moena,Aniba amazonica,,457944,8654535,30,18,,
-353, 369-80,nn,,,457944,8654535,25,18,,
-354, 369-81,Moena,Aniba amazonica,,457927,8654530,80,25,,
-355, 369-82,Leche leche,Ficus sp.,,457927,8654530,25,18,,
-356, 369-83,Chimicua,Pseudolmedia laevis,,457927,8654530,50,20,,
-357, 369-84,Caimito,Pouteria caimito,,457927,8654530,25,17,,
-358, 369-85,nn,,,457927,8654530,28,20,,
-359, 369-86,Huayo blanco,,,457927,8654530,25,18,,
-360, 369-87,Fariña seca,Celtis schippii,,457904,8654527,40,20,,
-361, 369-88,nn,,,457904,8654527,45,23,,
-362, 369-89,nn,,,457904,8654527,25,20,,
-363, 369-90,nn,,,457904,8654527,40,17,látex amarillo,
-364, 369-91,Chimicua,Pseudolmedia laevis,,457897,8654556,30,21,,
-365, 369-92,Requia,Guarea guidonia,,457897,8654556,30,20,,
-366, 369-93,Moena,Aniba amazonica,,457897,8654556,90,22,,
-367, 369-94,Manchinga,Brosimun alicastrum,,457908,8654562,150,35,,
-368, 369-95,Shimbillo,Inga longipes,,457908,8654562,25,17,,
-369, 369-96,Shimbillo,Inga longipes,,457908,8654562,25,17,,
-370, 369-97,Chimicua,Pseudolmedia laevis,,457908,8654562,40,19,,
-371, 369-98,Moena,Aniba amazonica,,457902,8654582,80,28,,
-372, 369-99,nn,,,457902,8654582,28,17,,
-373, 369-100,Caimito,Pouteria caimito,,457902,8654582,28,16,,
-374, 369-101,nn,,,457910,8654591,40,21,olor pescado,
-375, 369-102,Requia,Guarea guidonia,,457910,8654591,40,21,,
-376, 369-103,Oreja elefante,,,457910,8654591,225,18,,
-377, 369-104,nn,,,457910,8654591,27,15,,
-378, 369-105,Caimito,Pouteria caimito,,457935,8654591,28,17,,
-379, 369-106,Moena,Aniba amazonica,,457935,8654591,23,17,,
-380, 369-107,Moena,Aniba amazonica,,457935,8654591,100,23,,
-381, 369-108,Caimito,Pouteria caimito,,457935,8654591,45,17,,
-382, 369-109,Caimito,Pouteria caimito,,457935,8654591,30,17,,
-383, 369-110,Caimito,Pouteria caimito,,457935,8654591,25,18,,
-384, 369-111,nn,,,457935,8654591,35,20,,
-385, 369-112,nn,,,457935,8654591,40,22,,
-386, 369-113,Moena,Aniba amazonica,,457935,8654591,100,25,,
-387, 369-114,Chimicua,Pseudolmedia laevis,,457962,8654586,90,28,,
-388, 369-115,nn,,,457962,8654586,90,30,,
-389, 369-116,Manchinga,Brosimun alicastrum,,457962,8654586,110,27,,
-390, 369-117,Caimito,Pouteria caimito,,457962,8654586,35,19,,
-391, 369-118,Caimito,Pouteria caimito,,457962,8654586,25,17,,
-392, 369-119,Moena,Aniba amazonica,,457971,8654589,140,35,,
-393, 369-120,Caucho macho,,,457971,8654589,40,20,,
-394, 369-121,Moena,Aniba amazonica,,457971,8654589,100,27,,
-395, 369-122,Chimicua,Pseudolmedia laevis,,457971,8654589,25,18,,
-396, 369-123,Shimbillo,Inga longipes,,457971,8654589,25,17,,
-397, 369-124,Shimbillo,Inga longipes,,457971,8654589,30,21,,
-398, 369-125,Moena,Aniba amazonica,,457971,8654589,80,25,,
-399, 369-126,nn,,,457997,8654570,40,20,,
-400, 369-127,nn,,,457997,8654570,40,22,,
-401, 369-128,Moena,Aniba amazonica,,457997,8654570,110,29,,
-402, 369-129,Caimito,Pouteria caimito,,457997,8654570,20,18,,
-403, 369-130,Caimito,Pouteria caimito,,457997,8654570,45,24,,
-404,370-1,Sapote,Quararibea cordata,,457996,8654483,50,20,,
-405,370-2,nn,,,457996,8654483,45,22,,
-406,370-3,nn,,,457996,8654483,28,18,,
-407,370-4,Uvilla,Pourouma cecropiifolia,,457996,8654483,45,22,,
-408,370-5,Uvilla,Pourouma cecropiifolia,,457996,8654483,40,20,,
-409,370-6,Nn,,,457996,8654483,45,21,,
-410,370-7,Chimicua,Pseudolmedia laevis,,457996,8654483,30,20,,
-411,370-8,Peine de mono,Apeiba membranacea,,457996,8654483,45,23,,
-412,370-9,Uvilla,Pourouma cecropiifolia,,457996,8654483,40,21,,
-413,370-10,Yacuchapana,Terminalia oblonga,,457988,8654462,50,22,,
-414,370-11,Fariña seca,Celtis schippii,,457988,8654462,40,21,,
-415,370-12,Guacamayo caspi,Sickingia sp,,457988,8654462,70,30,,
-416,370-13,Renaco,Ficus trigona,,457988,8654462,40,21,,
-417,370-14,nn,,,457988,8654462,28,19,,
-418,370-15,Pashaco,Schizolobium amazonicum,,457988,8654462,40,20,,
-419,370-16,nn,,,457988,8654426,50,22,,
-420,370-17,nn,,,457988,8654426,30,19,,
-421,370-18,nn,,,457988,8654426,27,19,,
-422,370-19,nn,,,457988,8654409,30,20,15-OCT-12 11:03:02AM,
-423,370-20,nn,,,457988,8654409,30,20,,
-424,370-21,Caucho macho,,,457983,8654408,50,23,,
-425,370-22,Estoraque,Myroxylon balsamum,,457983,8654408,50,30,olor lejía,
-426,370-23,Cacao silvestre,Theobroma,,457983,8654408,30,22,,
-427,370-24,Fariña seca,Celtis schippii,,457983,8654408,45,23,,
-428,370-25,Uvilla,Pourouma cecropiifolia,,457961,8654413,40,21,,
-429,370-26,Uvilla,Pourouma cecropiifolia,,457961,8654413,40,21,,
-430,370-27,Peine de mono,Apeiba membranacea,,457961,8654413,25,20,,
-431,370-28,nn,,,457951,8654403,35,21,,
-432,370-29,nn,,,457951,8654403,28,20,,
-433,370-30,Caucho macho,,,457951,8654403,45,22,,
-434,370-31,nn,,,457951,8654403,25,19,,
-435,370-32,nn,,,457940,8654401,28,20,,
-436,370-33,nn,,,457940,8654401,25,15,,
-437,370-34,nn,,,457940,8654401,50,31,,
-438,370-35,Chimicua,Pseudolmedia laevis,,457940,8654401,70,21,,
-439,370-36,nn,,,457940,8654401,30,20,,
-440,370-37,nn,,,457940,8654401,27,19,olor a estoraque,
-441,370-38,Caimito,Pouteria caimito,,457908,8654407,30,20,,
-442,370-39,nn,,,457908,8654407,180,40,,
-443,370-40,Manchinga,Brosimun alicastrum,,457903,8654410,200,40,foto grupal. Buena energía,
-444,370-41,nn,,,457903,8654410,50,21,,
-445,370-42,nn,,,457903,8654410,35,20,,
-446,370-43,Shimbillo,Inga longipes,,457903,8654410,45,21,,
-447,370-44,Peine de mono,Apeiba membranacea,,457903,8654410,35,21,,
-448,370-45,nn,,,457903,8654410,45,20,,
-449,370-46,nn,,,457903,8654410,40,22,,
-450,370-47,Moena,Aniba amazonica,,457903,8654410,45,24,,
-451,370-48,nn,,,457903,8654410,25,20,,
-452,370-49,Palo bastón,,,457903,8654410,35,22,,
-453,370-50,Moena,Aniba amazonica,,457889,8654437,70,30,,
-454,370-51,Chimicua,Pseudolmedia laevis,,457889,8654437,80,25,,
-455,370-52,Manchinga,Brosimun alicastrum,,457916,8654442,110,37,,
-456,370-53,Shimbillo,Inga longipes,,457916,8654442,25,23,,
-457,370-54,Sapote,Quararibea cordata,,457916,8654442,60,29,,
-458,370-55,Nn,,,457916,8654442,25,19,,
-459,370-56,Shimbillo,Inga longipes,,457914,8654453,35,21,,
-460,370-57,nn,,,457914,8654453,40,20,,
-461,370-58,Caimito,Pouteria caimito,,457914,8654453,25,19,,
-462,370-59,Renaco,Ficus trigona,,457912,8654490,120,33,,
-463,370-60,Caimito,Pouteria caimito,,457912,8654490,70,30,,
-464,370-61,Peine de mono,Apeiba membranacea,,457912,8654490,50,25,,
-465,370-62,Pashaco,Schizolobium amazonicum,,457937,8654491,70,19,,
-466,370-63,Shimbillo,Inga longipes,,457937,8654491,27,21,,
-467,370-64,nn,,,457937,8654491,27,20,,
-468,370-65,Catahua,Hura crepitans,,457937,8654491,40,19,,
-469,370-66,Catahua,Hura crepitans,,457953,8654489,120,24,,
-470,370-67,Renaco,Ficus trigona,,457953,8654489,40,21,,
-471,370-68,nn,,,457953,8654489,28,17,,
-472,370-69,nn,,,457953,8654489,33,20,,
-473,370-70,nn,,,457953,8654489,30,19,,
-474,370-71,Moena,Aniba amazonica,,457953,8654489,50,22,manchinga caida. Zona de orquideas,
-475,370-72,Shimbillo,Inga longipes,,457953,8654489,27,20,,
-476,370-73,nn,,,457964,8654458,80,30,,
-477,370-74,Yacuchapana,Terminalia oblonga,,457964,8654458,110,33,,
-478,370-75,nn,,,457964,8654458,70,27,,
-479,370-76,Moena,Aniba amazonica,,457964,8654458,70,28,,
-480,370-77,Lupuna colorada,Cavanillesia hylogeiton,,457964,8654458,45,34,,
-481,370-78,Moena,Aniba amazonica,,457964,8654458,30,25,,
-482,370-79,Oreja elefante,,,457964,8654458,26,25,,
-483,370-80,Peine de mono,Apeiba membranacea,,457964,8654458,120,30,,
-484,370-81,nn,,,457964,8654458,40,19,,
-485,370-82,Yacuchapana,Terminalia oblonga,,457964,8654458,90,27,,
-486,370-83,Sapote,Quararibea cordata,,457961,8654449,60,20,,
-487,370-84,Yacuchapana,Terminalia oblonga,,457961,8654449,50,22,,
-488,370-85,nn,,,457961,8654449,22,15,,
-489,370-86,nn,,,457961,8654449,35,22,,
-490,370-87,Pashaco,Schizolobium amazonicum,,457961,8654449,70,28,,
-491,370-88,Moena,Aniba amazonica,,457961,8654449,85,30,,
-492,370-89,nn,,,457961,8654449,40,17,,
-493,370-90,Lupuna,Ceiba pentandra,,457963,8654438,45,25,,
-494,370-91,nn,,,457963,8654438,25,20,,
-495,370-92,Sapote,Quararibea cordata,,457963,8654438,60,30,,
-496,370-93,Bolaina,Guazuma crinita,,457981,8654421,45,25,,
-497,370-94,nn,,,457981,8654421,25,20,,
-498,370-95,nn,,,457981,8654421,33,15,,
-499,370-96,Ajosquiro,Gallesia integrifolia,,457944,8654427,100,25,,
-500,370-97,nn,,,457944,8654427,30,20,,
-501,370-98,Tangarana,Triplaris peruviana,,457944,8654427,30,30,,
-502,371-1,Peine de mono,Apeiba membranacea,,457944,8654427,50,33,,
-503,371-2,Nn,,,457944,8654427,25,19,,
-504,371-3,Leche leche,Ficus sp.,,457944,8654427,30,30,,
-505,371-4,Leche leche,Ficus sp.,,457944,8654427,40,32,,
-506,371-5,Moena,Aniba amazonica,,457992,8654404,55,32,,
-507,371-6,Requia,Guarea guidonia,,457992,8654404,35,23,,
-508,371-7,Leche leche,Ficus sp.,,458006,8654387,30,20,16-OCT-12 10:31:26AM,
-509,371-8,Shimbillo,Inga longipes,,457993,8654366,30,20,,
-510,371-9,nn,,,457993,8654366,35,23,,
-511,371-10,nn,,,457990,8654360,25,20,,
-512,371-11,nn,,,457990,8654360,30,23,,
-513,371-12,nn,,,457990,8654360,30,22,,
-514,371-13,nn,,,457990,8654360,30,20,,
-515,371-14,nn,,,457990,8654360,30,21,,
-516,371-15,Shihuahuaco,Dipteryx micrantha,,457980,8654346,80,35,,
-517,371-16,nn,,,457980,8654346,30,21,,
-518,371-17,Catahua,Hura crepitans,,457960,8654322,120,30,,
-519,371-18,Manchinga,Brosimun alicastrum,,457960,8654322,150,33,,
-520,371-19,nn,,,457981,8654315,40,25,,
-521,371-20,Shimbillo,Inga longipes,,457981,8654315,30,22,,
-522,371-21,Shimbillo,Inga longipes,,457981,8654315,27,20,,
-523,371-22,nn,,,457981,8654315,35,20,,
-524,371-23,Moena,Aniba amazonica,,457981,8654315,30,20,,
-525,371-24,Chimicua,Pseudolmedia laevis,,457981,8654315,40,22,,
-526,371-25,Misa colorada,Cariniana decandra,,457949,8654323,35,24,,
-527,371-26,Fariña seca,Celtis schippii,,457949,8654323,50,25,,
-528,371-27,Peine de mono,Apeiba membranacea,,457949,8654323,60,29,,
-529,371-28,Yacuchapana,Terminalia oblonga,,457949,8654323,70,22,,
-530,371-29,nn,,,457949,8654323,30,23,,
-531,371-30,Ubos,Spondias mombin,,457949,8654323,45,25,,
-532,371-31,Manchinga,Brosimun alicastrum,,457958,8654342,90,35,,
-533,371-32,nn,,,457958,8654342,30,20,,
-534,371-33,nn,,,457958,8654342,40,21,,
-535,371-34,Estoraque,Myroxylon balsamum,,457948,8654326,100,33,,
-536,371-35,Sapote,Quararibea cordata,,457925,8654314,40,21,,
-537,371-36,Shimbillo,Inga longipes,,457925,8654314,25,20,,
-538,371-37,nn,,,457925,8654314,45,25,,
-539,371-38,Shimbillo,Inga longipes,,457925,8654314,35,23,,
-540,371-39,Papailla,Jacaratia digitata,,457914,8654338,50,22,,
-541,371-40,nn,,,457914,8654338,45,30,Liana renaquilla,
-542,371-41,nn,,,457914,8654338,50,22, ,
-543,371-42,Peine de mono ,Apeiba membranacea,,457914,8654338,48,20,"en realidad es pancho, parecido al p de mono",
-544,371-43,nn,,,457914,8654338,50,30,,
-545,371-44,nn,,,457934,8654356,70,35,,
-546,371-45,nn,,,457934,8654356,90,33,,
-547,371-46,nn,,,457934,8654356,50,30,,
-548,371-47,nn,,,457934,8654356,35,21,,
-549,371-48,Caimito,Pouteria caimito,,457920,8654367,70,35,,
-550,371-49,Nn,,,457920,8654367,28,24,resina como agua rojiza,
-551,371-50,Shimbillo,Inga longipes,,457920,8654367,45,27,,
-552,371-51,Moena,Aniba amazonica,,457920,8654367,28,25,,
-553,371-52,nn,,,457920,8654367,50,29,,
-554,371-53,Requia,Guarea guidonia,,457941,8654382,50,30,,
-555,371-54,Moena,Aniba amazonica,,457941,8654382,30,25,,
-556,371-55,Shimbillo,Inga longipes,,457941,8654382,27,24,,
-557,371-56,nn,,,457941,8654382,30,23,,
-558,371-57,Manchinga,Brosimun alicastrum,,457921,8654372,130,39,,
-559,371-58,Sapote,Quararibea cordata,,457921,8654372,25,19,,
-560,371-59,Moena,Aniba amazonica,,457921,8654372,40,25,,
-561,371-60,nn,,,457921,8654372,110,22,,
-562,371-61,Shimbillo,Inga longipes,,457903,8654398,45,20,,
-563,371-62,Moena,Aniba amazonica,,457903,8654398,40,23,,
-564,371-63,Chimicua,Pseudolmedia laevis,,457903,8654398,70,25,,
+1	404-1	Ubos	Spondias mombin		457825,75	8654316,08	95	20		
+2	404-2	Requia	Guarea guidonia		457829,02	8654309,17	85	21		
+3	404-3	Chimicua	Pseudolmedia laevis		457829,02	8654309,17	25	18		
+4	404-4	Manchinga	Brosimun alicastrum		457824,41	8654312,28	140	25		
+5	404-5	Cedro	Cedrela odorata		457815,03	8654325,11	25	23		
+6	404-6	Ocuera	Oliganthes discolor		457818,49	8654321,93	60	23		
+7	404-7	Shimbillo	Inga longipes		457808,31	8654335,16	30	23		
+8	404-8	Sapote	Quararibea cordata		457818,83	8654354,66	40	23		
+9	404-9	Chimicua	Pseudolmedia laevis		457803,20	8654345,28	50	23		
+10	404-10	Moena	Aniba amazonica		457805,81	8654332,85	120	25		
+11	404-11	Fariña seca	Celtis schippii		457805,81	8654332,85	100	23		
+12	404-12	Moena	Aniba amazonica		457800,46	8654326,32	70	23		
+13	404-13	Fariña seca	Celtis schippii		457805,83	8654340,65	35	21		
+14	404-14	Shimbillo	Inga longipes		457805,83	8654340,65	75	21		
+15	404-15	Peine de mono	Apeiba membranacea		457805,84	8654360,39	35	21		
+16	404-16	Sapote	Quararibea cordata		457813,76	8654370,66	40	21		
+17	404-17	Bolaina	Guazuma crinita		457813,76	8654370,66	40	23		
+18	404-18	Renaco	Ficus trigona		457815,49	8654400,61	100	20		
+19	404-19	Caimito	Pouteria caimito		457815,49	8654400,61	25	21		
+20	404-20	Caimito	Pouteria caimito		457829,31	8654390,00	25	21		
+21	404-21	Remo caspi	Aspidosperma excelsum		457833,82	8654399,33	100	23		
+22	404-22	Fariña seca	Celtis schippii		457834,46	8654380,59	35	21		
+23	404-23	Moena negra	Nectandra cuspidata		457836,40	8654386,31	50	23		
+24	404-24	Lupuna colorada	Cavanillesia hylogeiton		457836,82	8654386,82	140	25		
+25	404-25	Moena	Aniba amazonica		457836,82	8654386,82	40	23		
+26	404-26	Renaco	Ficus trigona		457850,93	8654391,17	130	25		
+27	404-27	Charichuelo	Rheedia brasiliensis		457850,93	8654391,17	25	20		
+28	404-28	Cedro	Cedrela odorata		457873,11	8654391,40	45	20		
+29	404-29	Requia	Guarea guidonia		457883,60	8654395,92	50	23		
+30	404-30	Shimbillo	Inga longipes		457891,43	8654392,09	25	28		
+31	404-31	Pashaco	Schizolobium amazonicum		457891,43	8654392,09	25	20		
+32	404-32	Moena	Aniba amazonica		457877,69	8654395,47	45	23		
+33	404-33	Renaco	Ficus trigona		457859,58	8654378,48	120	21		
+34	404-34	Caimito	Pouteria caimito		457859,58	8654378,48	30	21		
+35	404-35	Caimito	Pouteria caimito		457859,58	8654378,48	35	21		
+36	404-36	Bolaina	Guazuma crinita		457860,93	8654362,10	40	18		
+37	404-37	Caimito	Pouteria caimito		457849,00	8654355,00	25	20		
+38	404-38	Renaco	Ficus trigona		457849,00	8654355,00	55	23		
+39	404-39	Caimito	Pouteria caimito		457859,30	8654352,54	35	23		
+40	404-40	Requia	Guarea guidonia		457859,30	8654352,54	35	22		
+41	404-41	Pashaco	Schizolobium amazonicum		457861,50	8654354,63	80	21		
+42	404-42	Manchinga	Brosimun alicastrum		457853,78	8654344,09	100	25		
+43	404-43	Renaco	Ficus trigona		457853,78	8654344,09	100	27		
+44	404-44	Renaco	Ficus trigona		457854,04	8654342,39	130	25		
+45	404-45	Shimbillo	Inga longipes		457854,04	8654342,39	30	19		
+46	404-46	Coloradillo	Licania oblogifolia		457854,04	8654342,39	25	21		
+47	404-47	Renaco	Ficus trigona		457854,04	8654342,39	150	27		
+48	404-48	Manchinga	Brosimun alicastrum		457852,65	8654334,33	150	25		
+49	404-49	Ocuera	Oliganthes discolor		457855,46	8654322,17	90	23		
+50	404-50	Chimicua	Pseudolmedia laevis		457855,46	8654322,17	30	18		
+51	404-51	Shimbillo	Inga longipes		457855,46	8654322,17	40	23		
+52	404-52	Manchinga	Brosimun alicastrum		457849,70	8654313,03	150	23		
+53	404-53	Chimicua	Pseudolmedia laevis		457865,32	8654312,40	50	21		
+54	404-54	Ocuera	Oliganthes discolor		457865,32	8654312,40	50	23		
+55	404-55	Chimicua	Pseudolmedia laevis		457878,08	8654309,29	50	25		
+56	404-56	Renaco	Ficus trigona		457879,03	8654316,22	180	27		
+57	404-57	Ocuera	Oliganthes discolor		457883,20	8654341,05	150	25		
+58	404-58	Manchinga	Brosimun alicastrum		457883,20	8654341,05	50	21		
+59	404-59	Capirona	Calycophyllum spruceanum 		457886,80	8654358,53	110	25		
+60	404-60	Shimbillo	Inga longipes		457886,80	8654358,53	40	20		
+61	404-61	Yacuchapana	Terminalia oblonga		457875,13	8654352,99	35	20		
+62	404-62	Shimbillo	Inga longipes		457800,66	8654298,56	35	19		
+63	404-63	Moena	Aniba amazonica		457800,66	8654298,56	45	19		
+64	403-1	Caimito	Pouteria caimito		457811,13	8654402,30	50	23		
+65	403-2	Pashaco	Schizolobium amazonicum		457811,13	8654402,30	50	23		
+66	403-3	Shimbillo	Inga longipes		457811,13	8654402,30	25	15		
+67	403-4	Ocuera	Oliganthes discolor		457811,13	8654402,30	80	20		
+68	403-5	Moena	Aniba amazonica		457811,13	8654402,30	60	20		
+69	403-6	Moena	Aniba amazonica		457811,13	8654402,30	25	13		
+70	403-7	Moena	Aniba amazonica		457797,69	8654437,93	30	22		
+71	403-8	Requia	Guarea guidonia		457797,69	8654437,93	20	21		
+72	403-9	Cetico	Cecropia multiflora		457797,69	8654437,93	25	20		
+73	403-10	Shimbillo	Inga longipes		457797,69	8654437,93	30	21		
+74	403-11	Bolaina	Guazuma crinita		457797,69	8654437,93	30	20		
+75	403-12	Cetico	Cecropia multiflora		457794,54	8654447,03	40	22		
+76	403-13	Moena	Aniba amazonica		457794,54	8654447,03	30	20		
+77	403-14	Shimbillo	Inga longipes		457794,54	8654447,03	40	23		
+78	403-15	Moena	Aniba amazonica		457792,90	8654449,51	30	19		
+79	403-16	Shimbillo	Inga longipes		457792,90	8654449,51	45	22		
+80	403-17	Shimbillo	Inga longipes		457792,90	8654449,51	25	20		
+81	403-18	Pashaco	Schizolobium amazonicum		457794,09	8654449,97	60	23		
+82	403-19	Pashaco	Schizolobium amazonicum		457809,24	8654458,65	60	20		
+83	403-20	Bolaina	Guazuma crinita		457809,24	8654458,65	40	19		
+84	403-21	Peine de mono	Apeiba membranacea		457809,24	8654458,65	40	17		
+85	403-22	Peine de mono	Apeiba membranacea		457809,24	8654458,65	30	18		
+86	403-23	Caimito	Pouteria caimito		457817,26	8654495,92	50	22		
+87	403-24	Caimito	Pouteria caimito		457817,26	8654495,92	30	22		
+88	403-25	Caimito	Pouteria caimito		457817,26	8654495,92	30	20		
+89	403-26	Misa	Couratari guianensis		457817,26	8654495,92	40	22		
+90	403-27	Moena	Aniba amazonica		457817,26	8654495,92	40	22		
+91	403-28	Peine de mono	Apeiba membranacea		457819,02	8654492,60	45	21		
+92	403-29	Caimito	Pouteria caimito		457835,39	8654481,37	40	20		
+93	403-30	Caimito	Pouteria caimito		457835,39	8654481,37	25	20		
+94	403-31	Caimito	Pouteria caimito		457844,70	8654501,67	25	18		
+95	403-32	Caimito	Pouteria caimito		457844,70	8654501,67	20	15		
+96	403-33	Caimito	Pouteria caimito		457844,70	8654501,67	60	23		
+97	403-34	Caimito	Pouteria caimito		457844,70	8654501,67	40	23		
+98	403-35	Shimbillo	Inga longipes		457844,70	8654501,67	35	21		
+99	403-36	Moena	Aniba amazonica		457850,17	8654496,85	40	19		
+100	403-37	Cacao	Theobroma		457850,17	8654496,85	25	20		
+101	403-38	Shimbillo	Inga longipes		457850,17	8654496,85	50	25		
+102	403-39	Papailla	Jacaratia digitata		457850,17	8654496,85	35	20		
+103	403-40	Shimbillo	Inga longipes		457850,17	8654496,85	30	19		
+104	403-41	Shimbillo	Inga longipes		457850,17	8654496,85	30	19		
+105	403-42	Peine de mono	Apeiba membranacea		457850,17	8654496,85	30	20		
+106	403-43	Moena	Aniba amazonica		457903,38	8654489,13	50	23		
+107	403-44	Caimito	Pouteria caimito		457903,38	8654489,13	25	20		
+108	403-45	Pashaco	Schizolobium amazonicum		457903,38	8654489,13	40	21		
+109	403-46	Moena	Aniba amazonica		457872,72	8654492,75	35	20		
+110	403-47	Moena	Aniba amazonica		457907,80	8654479,60	100	25		
+111	403-48	Lupuna colorada	Cavanillesia hylogeiton		457907,80	8654479,60	110	25		
+112	403-49	Renaco	Ficus trigona		457907,80	8654479,60	110	27		
+113	403-50	Itauba	Mezilaurus itauba		457907,80	8654479,60	40	22		
+114	403-51	Moena	Aniba amazonica		457894,62	8654476,38	50	23		
+115	403-52	Moena	Aniba amazonica		457890,00	8654470,26	40	23		
+116	403-53	Peine de mono	Apeiba membranacea		457894,44	8654460,97	50	23		
+117	403-54	Fariña seca	Celtis schippii		457894,44	8654460,97	25	19		
+118	403-55	Ajosquiro	Gallesia integrifolia		457881,60	8654451,13	130	27		
+119	403-56	Chimicua	Pseudolmedia laevis		457881,60	8654451,13	120	27		
+120	403-57	Manchinga	Brosimun alicastrum		457881,60	8654451,13	160	27		
+121	403-58	Peine de mono	Apeiba membranacea		457881,60	8654451,13	45	20		
+122	403-59	Manchinga	Brosimun alicastrum		457881,30	8654461,96	60	20		
+123	403-60	Chimicua	Pseudolmedia laevis		457881,30	8654461,96	70	20		
+124	403-61	Huito	Genipa americana		457881,30	8654461,96	25	19		
+125	403-62	Shimbillo	Inga longipes		457865,11	8654475,62	22	17		
+126	403-63	Renaco	Ficus trigona		457865,11	8654475,62	100	23		
+127	403-64	Moena	Aniba amazonica		457865,11	8654475,62	30	21		
+128	403-65	Chimicua	Pseudolmedia laevis		457868,01	8654450,06	30	21		
+129	403-66	Fariña seca	Celtis schippii		457868,01	8654450,06	25	19		
+130	403-67	Fariña seca	Celtis schippii		457868,01	8654450,06	40	22		
+131	403-68	Caimito	Pouteria caimito		457868,01	8654450,06	60	24		
+132	403-69	Renaco	Ficus trigona		457853,42	8654443,57	120	18		
+133	403-70	Shimbillo	Inga longipes		457853,42	8654443,57	30	20		
+134	403-71	Shimbillo	Inga longipes		457836,66	8654446,12	30	19		
+135	403-72	Peine de mono	Apeiba membranacea		457815,78	8654448,41	80	25		
+136	403-73	Shimbillo	Inga longipes		457815,78	8654448,41	35	16		
+137	403-74	Bolaina	Guazuma crinita		457815,78	8654448,41	40	21		
+138	403-75	Caimito	Pouteria caimito		457815,78	8654448,41	35	20		
+139	403-76	Caimito	Pouteria caimito		457849,84	8654427,24	40	23		
+140	403-77	Ocuera	Oliganthes discolor		457849,84	8654427,24	60	25		
+141	403-78	Caimito	Pouteria caimito		457849,84	8654427,24	35	21		
+142	403-79	Shimbillo	Inga longipes		457849,84	8654427,24	30	20		
+143	403-80	Renaco	Ficus trigona		457851,45	8654426,66	170	23		
+144	403-81	Caimito	Pouteria caimito		457851,45	8654426,66	30	19		
+145	403-82	Ocuera	Oliganthes discolor		457851,45	8654426,66	120	27		
+146	403-83	Shimbillo	Inga longipes		457851,45	8654426,66	25	19		
+147	403-84	Estoraque	Myroxylon balsamum		457874,72	8654417,58	60	21		
+148	403-85	Mashonaste	Clarisia racemosa		457883,51	8654411,48	70	27		
+149	403-86	Moena	Aniba amazonica		457887,69	8654411,18	70	20		
+150	403-87	Requia	Guarea guidonia		457887,69	8654411,18	50	21		
+151	403-88	Chimicua	Pseudolmedia laevis		457887,69	8654411,18	35	19		
+152	403-89	Shihuahuaco	Dipteryx micrantha		457877,14	8654404,39	170	30	 	
+153	403-90	Caimito	Pouteria caimito		457877,14	8654404,39	40	23		
+154	403-91	Caimito	Pouteria caimito		457877,14	8654404,39	35	20		
+155	403-92	Chimicua	Pseudolmedia laevis		457888,49	8654431,44	50	23		
+156	402-1	Pashaco	Schizolobium amazonicum		457899,41	8654497,47	50	25		
+157	402-2	Requia	Guarea guidonia		457899,41	8654497,47	50	25		
+158	402-3	Caimito	Pouteria caimito		457899,41	8654497,47	25	18		
+159	402-4	Pashaco	Schizolobium amazonicum		457899,41	8654497,47	30	19		
+160	402-5	Pashaco	Schizolobium amazonicum		457899,41	8654497,47	30	20	 	 
+161	402-6	Chimicua	Pseudolmedia laevis		457900,55	8654511,44	90	25	13-OCT-12 11:44:27AM	
+162	402-7	Moena	Aniba amazonica		457900,55	8654511,44	80	25		
+163	402-8	Fariña seca	Celtis schippii		457900,55	8654511,44	25	17		
+164	402-9	Moena	Aniba amazonica		457882,60	8654512,84	50	25		
+165	402-10	Moena	Aniba amazonica		457882,60	8654512,84	35	19		
+166	402-11	Moena	Aniba amazonica		457882,60	8654512,84	120	27		
+167	402-12	Moena	Aniba amazonica		457878,13	8654519,56	40	21		
+168	402-13	Pashaco	Schizolobium amazonicum		457878,13	8654519,56	25	20		
+169	402-14	Moena	Aniba amazonica		457869,52	8654514,91	40	23		
+170	402-15	Moena	Aniba amazonica		457866,00	8654507,23	35	21		
+171	402-16	Espintana	Oxandra espintana		457857,77	8654512,61	35	22		
+172	402-17	Caimito	Pouteria caimito		457841,30	8654513,05	50	27		
+173	402-18	Caimito	Pouteria caimito		457841,30	8654513,05	45	22		
+174	402-19	Chimicua	Pseudolmedia laevis		457841,30	8654513,05	35	20		
+175	402-20	Chimicua	Pseudolmedia laevis		457841,30	8654513,05	65	25		
+176	402-21	Requia	Guarea guidonia		457825,26	8654525,80	65	24		
+177	402-22	Itauba	Mezilaurus itauba		457825,26	8654525,80	35	21		
+178	402-23	Sapote	Quararibea cordata		457832,02	8654528,33	60	23		
+179	402-24	Guacamayo caspi	Sickingia sp		457824,61	8654526,45	120	24		
+180	402-25	Moena	Aniba amazonica		457824,61	8654526,45	60	23		
+181	402-26	Chimicua	Pseudolmedia laevis		457824,61	8654526,45	40	15		
+182	402-27	Mashonaste	Clarisia racemosa		457816,48	8654520,04	70	27		
+183	402-28	Peine de mono	Apeiba membranacea		457816,48	8654520,04	35	19		
+184	402-29	Leche leche	Ficus sp.		457812,28	8654510,08	45	22		
+185	402-30	Leche leche	Ficus sp.		457812,28	8654510,08	40	21		
+186	402-31	Moena	Aniba amazonica		457805,04	8654556,09	100	23		
+187	402-32	Caimito	Pouteria caimito		457805,04	8654556,09	40	21		
+188	402-33	Peine de mono	Apeiba membranacea		457805,04	8654556,09	50	23		
+189	402-34	Itauba	Mezilaurus itauba		457806,98	8654566,65	45	25		
+190	402-35	Caimito	Pouteria caimito		457806,98	8654566,65	40	21		
+191	402-36	Shimbillo	Inga longipes		457804,96	8654571,54	35	20		
+192	402-37	Quinilla blanca	Manilkara bidentata		457815,76	8654584,57	150	23		
+193	402-38	Moena	Aniba amazonica		457816,09	8654581,39	90	20		
+194	402-39	Caimito	Pouteria caimito		457816,09	8654581,39	50	15		
+195	402-40	Shimbillo	Inga longipes		457816,09	8654581,39	23	17		
+196	402-41	Caimito	Pouteria caimito		457816,09	8654581,39	25	15		
+197	402-42	Shimbillo	Inga longipes		457833,88	8654587,00	40	31		
+198	402-43	Leche leche	Ficus sp.		457833,88	8654587,00	40	20		
+199	402-44	Uvilla	Pourouma cecropiifolia		457833,88	8654587,00	25	20		
+200	402-45	Shimbillo	Inga longipes		457833,88	8654587,00	20	17		
+201	402-46	Caimito	Pouteria caimito		457833,88	8654587,00	25	17		
+202	402-47	Caimito	Pouteria caimito		457833,88	8654587,00	23	19		
+203	402-48	Caimito	Pouteria caimito		457833,88	8654587,00	22	18		
+204	402-49	Shihuahuaco	Dipteryx micrantha		457841,24	8654595,66	120	25		
+205	402-50	Huayo blanco			457841,24	8654595,66	35	21		
+206	402-51	Caimito	Pouteria caimito		457841,24	8654595,66	25	18		
+207	402-52	Itauba	Mezilaurus itauba		457841,24	8654595,66	35	21		
+208	402-53	Moena	Aniba amazonica		457841,24	8654595,66	120	24		
+209	402-54	Caimito	Pouteria caimito		457841,24	8654595,66	40	16		
+210	402-55	Leche leche	Ficus sp.		457841,24	8654595,66	30	18		
+211	402-56	Requia	Guarea guidonia		457858,51	8654582,59	42	21		
+212	402-57	Caimito	Pouteria caimito		457858,51	8654582,59	45	21		
+213	402-58	Cumala	Virola sp.		457858,51	8654582,59	25	13		
+214	402-59	Moena	Aniba amazonica		457858,51	8654582,59	30	13		
+215	402-60	Itauba	Mezilaurus itauba		457858,51	8654582,59	30	18		
+216	402-61	Requia	Guarea guidonia		457858,51	8654582,59	45	17		
+217	402-62	Manchinga	Brosimun alicastrum		457858,51	8654582,59	130	21		
+218	402-63	Caimito	Pouteria caimito		457877,04	8654587,15	27	21		
+219	402-64	Caucho macho			457898,18	8654587,97	45	19		
+220	402-65	nn			457904,07	8654576,27	120	23		
+221	402-66	Moena	Aniba amazonica		457904,07	8654576,27	25	19		
+222	402-67	Renaco	Ficus trigona		457904,07	8654576,27	50	20		
+223	402-68	Caimito	Pouteria caimito		457904,07	8654576,27	25	19		
+224	402-69	Uvilla	Pourouma cecropiifolia		457904,07	8654576,27	25	18		
+225	402-70	Moena	Aniba amazonica		457904,07	8654576,27	55	21		
+226	402-71	Peine de mono	Apeiba membranacea		457893,49	8654550,11	30	20		
+227	402-72	Caimito	Pouteria caimito		457893,49	8654550,11	25	20		
+228	402-73	Topa	Ochroma pyramidale		457893,49	8654550,11	100	23		
+229	402-74	Shimbillo	Inga longipes		457893,49	8654550,11	26	21		
+230	402-75	Qunilla	Manilkara bidentata		457877,54	8654545,31	50	25		
+231	402-76	Leche leche	Ficus sp.		457877,54	8654545,31	20	19		
+232	402-77	Leche leche	Ficus sp.		457877,54	8654545,31	35	20		
+233	402-78	Leche leche	Ficus sp.		457877,54	8654545,31	65	22		
+234	402-79	Uvilla	Pourouma cecropiifolia		457878,78	8654554,84	45	21		
+235	402-80	Peine de mono	Apeiba membranacea		457878,78	8654554,84	25	19		
+236	402-81	Caimito	Pouteria caimito		457878,78	8654554,84	26	19		
+237	402-82	nn			457878,78	8654554,84	28	20		
+238	402-83	nn			457854,97	8654567,38	45	23		
+239	402-84	Peine de mono	Apeiba membranacea		457854,97	8654567,38	28	20		
+240	402-85	Caimito	Pouteria caimito		457854,97	8654567,38	20	19		
+241	402-86	Chimicua	Pseudolmedia laevis		457854,97	8654567,38	40	20		
+242	402-87	NN			457843,51	8654573,93	45	21		
+243	402-88	nn			457843,51	8654573,93	25	20		
+244	402-89	Itauba	Mezilaurus itauba		457843,51	8654573,93	28	19		
+245	402-90	Guacamayo caspi	Sickingia sp		457841,11	8654562,24	80	27		
+246	402-91	Uvilla	Pourouma cecropiifolia		457841,11	8654562,24	40	21		
+247	402-92	Caimito	Pouteria caimito		457841,11	8654562,24	35	22		
+248	402-93	Shimbillo	Inga longipes		457836,53	8654561,87	46	21		
+249	402-94	Caimito	Pouteria caimito		457836,53	8654561,87	35	20		
+250	402-95	Moena	Aniba amazonica		457836,53	8654561,87	40	22		
+251	402-96	nn			457836,53	8654561,87	30	20		
+252	402-97	Moena	Aniba amazonica		457821,06	8654571,11	120	27		
+253	402-98	nn			457821,06	8654571,11	65	22		
+254	402-99	Moena	Aniba amazonica		457821,06	8654571,11	65	19		
+255	402-100	nn			457844,54	8654542,24	100	27		
+256	402-101	nn			457844,54	8654542,24	30	19		
+257	402-102	Moena	Aniba amazonica		457844,54	8654542,24	28	21		
+258	402-103	Bolaina	Guazuma crinita		457844,54	8654542,24	25	19		
+259	402-104	Moena	Aniba amazonica		457840,44	8654545,90	30	20		
+260	402-105	nn			457840,44	8654545,90	45	21		
+261	402-106	nn			457861,38	8654543,60	25	21		
+262	402-107	nn			457861,38	8654543,60	25	20		
+263	402-108	Moena	Aniba amazonica		457861,38	8654543,60	30	20		
+264	402-109	Moena	Aniba amazonica		457861,38	8654543,60	35	22		
+265	402-110	nn			457861,38	8654543,60	26	20		
+266	402-111	Papailla	Jacaratia digitata		457861,38	8654543,60	45	21		
+267	402-112	Tawari	Tabebuia serratifolia		457876,81	8654533,84	95	22	tratamiento contra el cancer y HIV	 
+268	402-113	Moena	Aniba amazonica		457876,81	8654533,84	80	25		
+269	402-114	Caimito	Pouteria caimito		457876,81	8654533,84	40	23		
+270	402-115	Renaco	Ficus trigona		457856,53	8654528,70	130	19		
+271	402-116	Caimito	Pouteria caimito		457856,53	8654528,70	30	19		
+272	402-117	nn			457856,53	8654528,70	20	18		
+273	402-118	Shimbillo	Inga longipes		457856,53	8654528,70	30	21		
+274	 369-1	nn			457897,22	8654492,07	25	20		
+275	369-2	moena	Aniba amazonica		457897,22	8654492,07	20	17		
+276	 369-3	nn			457897,22	8654492,07	45	21		
+277	 369-4	nn			457897,22	8654492,07	130	24		
+278	 369-5	Moena	Aniba amazonica		457909,59	8654522,67	45	25		
+279	 369-6	nn			457909,59	8654522,67	30	21		
+280	 369-7	Caimito	Pouteria caimito		457909,59	8654522,67	27	20		
+281	 369-8	Fariña seca	Celtis schippii		457909,59	8654522,67	26	19		
+282	 369-9	Leche leche	Ficus sp.		457922,81	8654527,33	35	21	14-OCT-12 11:16:20AM	
+283	 369-10	Caimito	Pouteria caimito		457922,81	8654527,33	30	13		
+284	 369-11	Peine de mono	Apeiba membranacea		457922,81	8654527,33	28	18		
+285	 369-12	Renaco	Ficus trigona		457922,81	8654527,33	40	19		
+286	 369-13	Fariña seca	Celtis schippii		457922,81	8654527,33	35	22		
+287	 369-14	Caimito	Pouteria caimito		457922,81	8654527,33	22	15		
+288	 369-15	Moena	Aniba amazonica		457952,28	8654512,80	75	20		
+289	 369-16	Shimbillo	Inga longipes		457952,28	8654512,80	22	17		
+290	 369-17	Caimito	Pouteria caimito		457952,28	8654512,80	20	15		
+291	 369-18	Moena	Aniba amazonica		457952,28	8654512,80	38	17		
+292	 369-19	NN			457952,28	8654512,80	22	17		
+293	 369-20	Moena	Aniba amazonica		457952,28	8654512,80	25	21		
+294	 369-21	nn			457952,28	8654512,80	27	18		
+295	 369-22	Fariña seca	Celtis schippii		457952,28	8654512,80	40	22		
+296	 369-23	Lupuna   	Ceiba pentandra		457973,28	8654517,01	130	31		
+297	 369-24	Moena	Aniba amazonica		457973,28	8654517,01	40	19		
+298	 369-25	nn			457973,28	8654517,01	50	22		
+299	 369-26	Shimbillo	Inga longipes		457973,28	8654517,01	25	18		
+300	 369-27	Catahua	Hura crepitans		457977,91	8654506,67	70	20		
+301	 369-28	Caimito	Pouteria caimito		457977,91	8654506,67	20	20		
+302	 369-29	Caimito	Pouteria caimito		457977,91	8654506,67	22	20		
+303	 369-30	Bolaina	Guazuma crinita		457981,41	8654498,97	55	21		
+304	 369-31	Requia	Guarea guidonia		457981,41	8654498,97	40	20		
+305	 369-32	Caimito	Pouteria caimito		457981,41	8654498,97	25	18		
+306	 369-33	Guayabilla			457981,41	8654498,97	25	17		
+307	 369-34	nn			457981,41	8654498,97	25	18		
+308	 369-35	nn			457981,41	8654498,97	25	17		
+309	 369-36	Shimbillo	Inga longipes		457981,41	8654498,97	25	20		
+310	 369-37	Leche leche	Ficus sp.		457981,41	8654498,97	27	21		
+311	 369-38	nn			457976,90	8654516,71	70	21		
+312	 369-39	Cacao silvestre	Theobroma		457990,85	8654539,16	25	17		
+313	 369-40	Caimito	Pouteria caimito		457990,85	8654539,16	60	21		
+314	 369-41	nn			457990,85	8654539,16	30	21		
+315	 369-42	Moena	Aniba amazonica		457990,85	8654539,16	25	18		
+316	 369-43	Chimicua	Pseudolmedia laevis		457985,81	8654537,27	50	17		
+317	 369-44	Moena	Aniba amazonica		457985,81	8654537,27	80	21		
+318	 369-45	Shimbillo	Inga longipes		457985,81	8654537,27	28	23		
+319	 369-46	Caimito	Pouteria caimito		457985,81	8654537,27	25	15		
+320	 369-47	Espintana	Oxandra espintana		457985,81	8654537,27	15	15		
+321	 369-48	Caimito	Pouteria caimito		457985,81	8654537,27	15	13		
+322	 369-49	nn			457985,81	8654537,27	40	18		
+323	 369-50	Caimito	Pouteria caimito		457985,81	8654537,27	35	19		
+324	 369-51	nn			457961,65	8654541,34	110	30		
+325	 369-52	nn			457961,65	8654541,34	28	18		
+326	 369-53	Oreja elefante			457961,65	8654541,34	28	18		
+327	 369-54	Chimicua	Pseudolmedia laevis		457960,72	8654548,73	35	17		
+328	 369-55	Chimicua	Pseudolmedia laevis		457960,72	8654548,73	28	19		
+329	 369-56	Fariña seca	Celtis schippii		457960,72	8654548,73	25	13		
+330	 369-57	Fariña seca	Celtis schippii		457960,72	8654548,73	25	17		
+331	 369-58	Oreja elefante			457960,72	8654548,73	22	13		
+332	 369-59	Peine de mono	Apeiba membranacea		457948,76	8654536,76	40	25		
+333	 369-60	NN			457948,76	8654536,76	45	22		
+334	 369-61	Moena	Aniba amazonica		457948,76	8654536,76	20	20		
+335	 369-62	NN			457948,76	8654536,76	25	18		
+336	 369-63	NN			457948,76	8654536,76	26	18		
+337	 369-64	Pashaco	Schizolobium amazonicum		457970,53	8654533,04	60	28		
+338	 369-65	Leche leche	Ficus sp.		457970,53	8654533,04	27	18		
+339	 369-66	NN			457970,53	8654533,04	40	17	olor fuerte a perfume	
+340	 369-67	Moena	Aniba amazonica		457951,50	8654525,91	50	23		
+341	 369-68	Chimicua	Pseudolmedia laevis		457951,50	8654525,91	27	19		
+342	 369-69	Moena	Aniba amazonica		457951,50	8654525,91	25	19		
+343	 369-70	Moena	Aniba amazonica		457951,50	8654525,91	40	20		
+344	 369-71	nn			457951,50	8654525,91	30	19		
+345	 369-72	Shimbillo	Inga longipes		457951,50	8654525,91	35	18		
+346	 369-73	Pashaco	Schizolobium amazonicum		457944,15	8654535,31	60	21		
+347	 369-74	Leche leche	Ficus sp.		457944,15	8654535,31	80	28		
+348	 369-75	Moena	Aniba amazonica		457944,15	8654535,31	28	20		
+349	 369-76	Leche leche	Ficus sp.		457944,15	8654535,31	35	23		
+350	 369-77	nn			457944,15	8654535,31	25	18		
+351	 369-78	Peine de mono	Apeiba membranacea		457944,15	8654535,31	30	19		
+352	 369-79	Moena	Aniba amazonica		457944,15	8654535,31	30	18		
+353	 369-80	nn			457944,15	8654535,31	25	18		
+354	 369-81	Moena	Aniba amazonica		457927,10	8654529,83	80	25		
+355	 369-82	Leche leche	Ficus sp.		457927,10	8654529,83	25	18		
+356	 369-83	Chimicua	Pseudolmedia laevis		457927,10	8654529,83	50	20		
+357	 369-84	Caimito	Pouteria caimito		457927,10	8654529,83	25	17		
+358	 369-85	nn			457927,10	8654529,83	28	20		
+359	 369-86	Huayo blanco			457927,10	8654529,83	25	18		
+360	 369-87	Fariña seca	Celtis schippii		457903,86	8654526,67	40	20		
+361	 369-88	nn			457903,86	8654526,67	45	23		
+362	 369-89	nn			457903,86	8654526,67	25	20		
+363	 369-90	nn			457903,86	8654526,67	40	17	látex amarillo	
+364	 369-91	Chimicua	Pseudolmedia laevis		457897,01	8654556,08	30	21		
+365	 369-92	Requia	Guarea guidonia		457897,01	8654556,08	30	20		
+366	 369-93	Moena	Aniba amazonica		457897,01	8654556,08	90	22		
+367	 369-94	Manchinga	Brosimun alicastrum		457908,38	8654562,12	150	35		
+368	 369-95	Shimbillo	Inga longipes		457908,38	8654562,12	25	17		
+369	 369-96	Shimbillo	Inga longipes		457908,38	8654562,12	25	17		
+370	 369-97	Chimicua	Pseudolmedia laevis		457908,38	8654562,12	40	19		
+371	 369-98	Moena	Aniba amazonica		457902,36	8654582,20	80	28		
+372	 369-99	nn			457902,36	8654582,20	28	17		
+373	 369-100	Caimito	Pouteria caimito		457902,36	8654582,20	28	16		
+374	 369-101	nn			457909,51	8654590,97	40	21	olor pescado	
+375	 369-102	Requia	Guarea guidonia		457909,51	8654590,97	40	21		
+376	 369-103	Oreja elefante			457909,51	8654590,97	225	18		
+377	 369-104	nn			457909,51	8654590,97	27	15		
+378	 369-105	Caimito	Pouteria caimito		457934,78	8654591,07	28	17		
+379	 369-106	Moena	Aniba amazonica		457934,78	8654591,07	23	17		
+380	 369-107	Moena	Aniba amazonica		457934,78	8654591,07	100	23		
+381	 369-108	Caimito	Pouteria caimito		457934,78	8654591,07	45	17		
+382	 369-109	Caimito	Pouteria caimito		457934,78	8654591,07	30	17		
+383	 369-110	Caimito	Pouteria caimito		457934,78	8654591,07	25	18		
+384	 369-111	nn			457934,78	8654591,07	35	20		
+385	 369-112	nn			457934,78	8654591,07	40	22		
+386	 369-113	Moena	Aniba amazonica		457934,78	8654591,07	100	25		
+387	 369-114	Chimicua	Pseudolmedia laevis		457961,81	8654586,23	90	28		
+388	 369-115	nn			457961,81	8654586,23	90	30		
+389	 369-116	Manchinga	Brosimun alicastrum		457961,81	8654586,23	110	27		
+390	 369-117	Caimito	Pouteria caimito		457961,81	8654586,23	35	19		
+391	 369-118	Caimito	Pouteria caimito		457961,81	8654586,23	25	17		
+392	 369-119	Moena	Aniba amazonica		457971,40	8654589,19	140	35		
+393	 369-120	Caucho macho			457971,40	8654589,19	40	20		
+394	 369-121	Moena	Aniba amazonica		457971,40	8654589,19	100	27		
+395	 369-122	Chimicua	Pseudolmedia laevis		457971,40	8654589,19	25	18		
+396	 369-123	Shimbillo	Inga longipes		457971,40	8654589,19	25	17		
+397	 369-124	Shimbillo	Inga longipes		457971,40	8654589,19	30	21		
+398	 369-125	Moena	Aniba amazonica		457971,40	8654589,19	80	25		
+399	 369-126	nn			457996,56	8654569,97	40	20		
+400	 369-127	nn			457996,56	8654569,97	40	22		
+401	 369-128	Moena	Aniba amazonica		457996,56	8654569,97	110	29		
+402	 369-129	Caimito	Pouteria caimito		457996,56	8654569,97	20	18		
+403	 369-130	Caimito	Pouteria caimito		457996,56	8654569,97	45	24		
+404	370-1	Sapote	Quararibea cordata		457996,18	8654483,30	50	20		
+405	370-2	nn			457996,18	8654483,30	45	22		
+406	370-3	nn			457996,18	8654483,30	28	18		
+407	370-4	Uvilla	Pourouma cecropiifolia		457996,18	8654483,30	45	22		
+408	370-5	Uvilla	Pourouma cecropiifolia		457996,18	8654483,30	40	20		
+409	370-6	Nn			457996,18	8654483,30	45	21		
+410	370-7	Chimicua	Pseudolmedia laevis		457996,18	8654483,30	30	20		
+411	370-8	Peine de mono	Apeiba membranacea		457996,18	8654483,30	45	23		
+412	370-9	Uvilla	Pourouma cecropiifolia		457996,18	8654483,30	40	21		
+413	370-10	Yacuchapana	Terminalia oblonga		457987,95	8654462,34	50	22		
+414	370-11	Fariña seca	Celtis schippii		457987,95	8654462,34	40	21		
+415	370-12	Guacamayo caspi	Sickingia sp		457987,95	8654462,34	70	30		
+416	370-13	Renaco	Ficus trigona		457987,95	8654462,34	40	21		
+417	370-14	nn			457987,95	8654462,34	28	19		
+418	370-15	Pashaco	Schizolobium amazonicum		457987,95	8654462,34	40	20		
+419	370-16	nn			457988,47	8654426,11	50	22		
+420	370-17	nn			457988,47	8654426,11	30	19		
+421	370-18	nn			457988,47	8654426,11	27	19		
+422	370-19	nn			457987,78	8654409,49	30	20	15-OCT-12 11:03:02AM	
+423	370-20	nn			457987,78	8654409,49	30	20		
+424	370-21	Caucho macho			457983,00	8654408,48	50	23		
+425	370-22	Estoraque	Myroxylon balsamum		457983,00	8654408,48	50	30	olor lejía	
+426	370-23	Cacao silvestre	Theobroma		457983,00	8654408,48	30	22		
+427	370-24	Fariña seca	Celtis schippii		457983,00	8654408,48	45	23		
+428	370-25	Uvilla	Pourouma cecropiifolia		457960,78	8654412,84	40	21		
+429	370-26	Uvilla	Pourouma cecropiifolia		457960,78	8654412,84	40	21		
+430	370-27	Peine de mono	Apeiba membranacea		457960,78	8654412,84	25	20		
+431	370-28	nn			457951,15	8654403,10	35	21		
+432	370-29	nn			457951,15	8654403,10	28	20		
+433	370-30	Caucho macho			457951,15	8654403,10	45	22		
+434	370-31	nn			457951,15	8654403,10	25	19		
+435	370-32	nn			457940,42	8654400,52	28	20		
+436	370-33	nn			457940,42	8654400,52	25	15		
+437	370-34	nn			457940,42	8654400,52	50	31		
+438	370-35	Chimicua	Pseudolmedia laevis		457940,42	8654400,52	70	21		
+439	370-36	nn			457940,42	8654400,52	30	20		
+440	370-37	nn			457940,42	8654400,52	27	19	olor a estoraque	
+441	370-38	Caimito	Pouteria caimito		457908,34	8654407,27	30	20		
+442	370-39	nn			457908,34	8654407,27	180	40		
+443	370-40	Manchinga	Brosimun alicastrum		457903,00	8654410,29	200	40	foto grupal. Buena energía	
+444	370-41	nn			457903,00	8654410,29	50	21		
+445	370-42	nn			457903,00	8654410,29	35	20		
+446	370-43	Shimbillo	Inga longipes		457903,00	8654410,29	45	21		
+447	370-44	Peine de mono	Apeiba membranacea		457903,00	8654410,29	35	21		
+448	370-45	nn			457903,00	8654410,29	45	20		
+449	370-46	nn			457903,00	8654410,29	40	22		
+450	370-47	Moena	Aniba amazonica		457903,00	8654410,29	45	24		
+451	370-48	nn			457903,00	8654410,29	25	20		
+452	370-49	Palo bastón			457903,00	8654410,29	35	22		
+453	370-50	Moena	Aniba amazonica		457888,63	8654436,59	70	30		
+454	370-51	Chimicua	Pseudolmedia laevis		457888,63	8654436,59	80	25		
+455	370-52	Manchinga	Brosimun alicastrum		457916,15	8654442,35	110	37		
+456	370-53	Shimbillo	Inga longipes		457916,15	8654442,35	25	23		
+457	370-54	Sapote	Quararibea cordata		457916,15	8654442,35	60	29		
+458	370-55	Nn			457916,15	8654442,35	25	19		
+459	370-56	Shimbillo	Inga longipes		457913,99	8654453,49	35	21		
+460	370-57	nn			457913,99	8654453,49	40	20		
+461	370-58	Caimito	Pouteria caimito		457913,99	8654453,49	25	19		
+462	370-59	Renaco	Ficus trigona		457912,16	8654489,64	120	33		
+463	370-60	Caimito	Pouteria caimito		457912,16	8654489,64	70	30		
+464	370-61	Peine de mono	Apeiba membranacea		457912,16	8654489,64	50	25		
+465	370-62	Pashaco	Schizolobium amazonicum		457937,24	8654490,51	70	19		
+466	370-63	Shimbillo	Inga longipes		457937,24	8654490,51	27	21		
+467	370-64	nn			457937,24	8654490,51	27	20		
+468	370-65	Catahua	Hura crepitans		457937,24	8654490,51	40	19		
+469	370-66	Catahua	Hura crepitans		457953,24	8654489,08	120	24		
+470	370-67	Renaco	Ficus trigona		457953,24	8654489,08	40	21		
+471	370-68	nn			457953,24	8654489,08	28	17		
+472	370-69	nn			457953,24	8654489,08	33	20		
+473	370-70	nn			457953,24	8654489,08	30	19		
+474	370-71	Moena	Aniba amazonica		457953,24	8654489,08	50	22	manchinga caida. Zona de orquideas	
+475	370-72	Shimbillo	Inga longipes		457953,24	8654489,08	27	20		
+476	370-73	nn			457964,08	8654458,25	80	30		
+477	370-74	Yacuchapana	Terminalia oblonga		457964,08	8654458,25	110	33		
+478	370-75	nn			457964,08	8654458,25	70	27		
+479	370-76	Moena	Aniba amazonica		457964,08	8654458,25	70	28		
+480	370-77	Lupuna colorada	Cavanillesia hylogeiton		457964,08	8654458,25	45	34		
+481	370-78	Moena	Aniba amazonica		457964,08	8654458,25	30	25		
+482	370-79	Oreja elefante			457964,08	8654458,25	26	25		
+483	370-80	Peine de mono	Apeiba membranacea		457964,08	8654458,25	120	30		
+484	370-81	nn			457964,08	8654458,25	40	19		
+485	370-82	Yacuchapana	Terminalia oblonga		457964,08	8654458,25	90	27		
+486	370-83	Sapote	Quararibea cordata		457960,85	8654449,27	60	20		
+487	370-84	Yacuchapana	Terminalia oblonga		457960,85	8654449,27	50	22		
+488	370-85	nn			457960,85	8654449,27	22	15		
+489	370-86	nn			457960,85	8654449,27	35	22		
+490	370-87	Pashaco	Schizolobium amazonicum		457960,85	8654449,27	70	28		
+491	370-88	Moena	Aniba amazonica		457960,85	8654449,27	85	30		
+492	370-89	nn			457960,85	8654449,27	40	17		
+493	370-90	Lupuna	Ceiba pentandra		457962,56	8654438,39	45	25		
+494	370-91	nn			457962,56	8654438,39	25	20		
+495	370-92	Sapote	Quararibea cordata		457962,56	8654438,39	60	30		
+496	370-93	Bolaina	Guazuma crinita		457980,59	8654421,40	45	25		
+497	370-94	nn			457980,59	8654421,40	25	20		
+498	370-95	nn			457980,59	8654421,40	33	15		
+499	370-96	Ajosquiro	Gallesia integrifolia		457944,33	8654427,45	100	25		
+500	370-97	nn			457944,33	8654427,45	30	20		
+501	370-98	Tangarana	Triplaris peruviana		457944,33	8654427,45	30	30		
+502	371-1	Peine de mono	Apeiba membranacea		457944,33	8654427,45	50	33		
+503	371-2	Nn			457944,33	8654427,45	25	19		
+504	371-3	Leche leche	Ficus sp.		457944,33	8654427,45	30	30		
+505	371-4	Leche leche	Ficus sp.		457944,33	8654427,45	40	32		
+506	371-5	Moena	Aniba amazonica		457991,50	8654403,77	55	32		
+507	371-6	Requia	Guarea guidonia		457991,50	8654403,77	35	23		
+508	371-7	Leche leche	Ficus sp.		458005,82	8654387,24	30	20	16-OCT-12 10:31:26AM	
+509	371-8	Shimbillo	Inga longipes		457992,78	8654365,76	30	20		
+510	371-9	nn			457992,78	8654365,76	35	23		
+511	371-10	nn			457989,63	8654360,12	25	20		
+512	371-11	nn			457989,63	8654360,12	30	23		
+513	371-12	nn			457989,63	8654360,12	30	22		
+514	371-13	nn			457989,63	8654360,12	30	20		
+515	371-14	nn			457989,63	8654360,12	30	21		
+516	371-15	Shihuahuaco	Dipteryx micrantha		457979,78	8654346,40	80	35		
+517	371-16	nn			457979,78	8654346,40	30	21		
+518	371-17	Catahua	Hura crepitans		457960,40	8654321,95	120	30		
+519	371-18	Manchinga	Brosimun alicastrum		457960,40	8654321,95	150	33		
+520	371-19	nn			457980,99	8654315,25	40	25		
+521	371-20	Shimbillo	Inga longipes		457980,99	8654315,25	30	22		
+522	371-21	Shimbillo	Inga longipes		457980,99	8654315,25	27	20		
+523	371-22	nn			457980,99	8654315,25	35	20		
+524	371-23	Moena	Aniba amazonica		457980,99	8654315,25	30	20		
+525	371-24	Chimicua	Pseudolmedia laevis		457980,99	8654315,25	40	22		
+526	371-25	Misa colorada	Cariniana decandra		457949,11	8654323,23	35	24		
+527	371-26	Fariña seca	Celtis schippii		457949,11	8654323,23	50	25		
+528	371-27	Peine de mono	Apeiba membranacea		457949,11	8654323,23	60	29		
+529	371-28	Yacuchapana	Terminalia oblonga		457949,11	8654323,23	70	22		
+530	371-29	nn			457949,11	8654323,23	30	23		
+531	371-30	Ubos	Spondias mombin		457949,11	8654323,23	45	25		
+532	371-31	Manchinga	Brosimun alicastrum		457958,26	8654342,02	90	35		
+533	371-32	nn			457958,26	8654342,02	30	20		
+534	371-33	nn			457958,26	8654342,02	40	21		
+535	371-34	Estoraque	Myroxylon balsamum		457947,58	8654325,73	100	33		
+536	371-35	Sapote	Quararibea cordata		457924,93	8654314,18	40	21		
+537	371-36	Shimbillo	Inga longipes		457924,93	8654314,18	25	20		
+538	371-37	nn			457924,93	8654314,18	45	25		
+539	371-38	Shimbillo	Inga longipes		457924,93	8654314,18	35	23		
+540	371-39	Papailla	Jacaratia digitata		457913,74	8654337,68	50	22		
+541	371-40	nn			457913,74	8654337,68	45	30	Liana renaquilla	
+542	371-41	nn			457913,74	8654337,68	50	22	 	
+543	371-42	Peine de mono 	Apeiba membranacea		457913,74	8654337,68	48	20	en realidad es pancho, parecido al p de mono	
+544	371-43	nn			457913,74	8654337,68	50	30		
+545	371-44	nn			457933,52	8654355,83	70	35		
+546	371-45	nn			457933,52	8654355,83	90	33		
+547	371-46	nn			457933,52	8654355,83	50	30		
+548	371-47	nn			457933,52	8654355,83	35	21		
+549	371-48	Caimito	Pouteria caimito		457920,29	8654367,29	70	35		
+550	371-49	Nn			457920,29	8654367,29	28	24	resina como agua rojiza	
+551	371-50	Shimbillo	Inga longipes		457920,29	8654367,29	45	27		
+552	371-51	Moena	Aniba amazonica		457920,29	8654367,29	28	25		
+553	371-52	nn			457920,29	8654367,29	50	29		
+554	371-53	Requia	Guarea guidonia		457940,71	8654381,64	50	30		
+555	371-54	Moena	Aniba amazonica		457940,71	8654381,64	30	25		
+556	371-55	Shimbillo	Inga longipes		457940,71	8654381,64	27	24		
+557	371-56	nn			457940,71	8654381,64	30	23		
+558	371-57	Manchinga	Brosimun alicastrum		457920,97	8654372,15	130	39		
+559	371-58	Sapote	Quararibea cordata		457920,97	8654372,15	25	19		
+560	371-59	Moena	Aniba amazonica		457920,97	8654372,15	40	25		
+561	371-60	nn			457920,97	8654372,15	110	22		
+562	371-61	Shimbillo	Inga longipes		457903,20	8654398,17	45	20		
+563	371-62	Moena	Aniba amazonica		457903,20	8654398,17	40	23		
+564	371-63	Chimicua	Pseudolmedia laevis		457903,20	8654398,17	70	25		

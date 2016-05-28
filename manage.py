@@ -13,6 +13,7 @@ from adoptarbol.app import create_app
 from adoptarbol.database import db
 from adoptarbol.settings import DevConfig, ProdConfig
 from adoptarbol.user.models import User
+from adoptarbol.tree.models import Tree,Sponsorship
 
 CONFIG = ProdConfig if os.environ.get('adoptarbol_ENV') == 'prod' else DevConfig
 HERE = os.path.abspath(os.path.dirname(__file__))
@@ -25,7 +26,7 @@ migrate = Migrate(app, db)
 
 def _make_context():
     """Return context dict for a shell session so you can access app, db, and the User model by default."""
-    return {'app': app, 'db': db, 'User': User}
+    return {'app': app, 'db': db, 'User': User, 'Tree': Tree, 'Sponsorship': Sponsorship}
 
 
 @manager.command
