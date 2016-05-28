@@ -1,9 +1,27 @@
 # -*- coding: utf-8 -*-
 """Tree and sponsorship models."""
 import datetime as dt
+import utm
 from random import randint
 
 from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
+
+def convert_lat(context):
+    utm_e = context.current_parameters.get('coord_utm_e')
+    utm_n = context.current_parameters.get('coord_utm_n')
+    utm_zone_n = context.current_parameters.get('coord_utm_zone_n')
+    utm_zone_letter = context.current_parameters.get('coord_utm_zone_letter')
+    lat, lon = utm.to_latlon(utm_e, utm_n, utm_zone_n, utm_zone_letter)
+    return lat
+
+def convert_lon(context):
+    utm_e = context.current_parameters.get('coord_utm_e')
+    utm_n = context.current_parameters.get('coord_utm_n')
+    utm_zone_n = context.current_parameters.get('coord_utm_zone_n')
+    utm_zone_letter = context.current_parameters.get('coord_utm_zone_letter')
+    lat, lon = utm.to_latlon(utm_e, utm_n, utm_zone_n, utm_zone_letter)
+    return lon
+
 
 class Tree(SurrogatePK, Model):
     """A tree to adopt."""
@@ -14,10 +32,17 @@ class Tree(SurrogatePK, Model):
     scientific_name = Column(db.String(80), nullable=False)
     family = Column(db.String(80), nullable=False)
 
+    photo = Column(db.String(256))
+
     sponsor = relationship('Sponsorship', backref='tree')
 
-    coord_utm_e = Column(db.Float, nullable=False)
-    coord_utm_n = Column(db.Float, nullable=False)
+    coord_utm_e = Column(db.Float)
+    coord_utm_n = Column(db.Float)
+    coord_utm_zone_n = Column(db.Integer, default=19)
+    coord_utm_zone_letter = Column(db.String, default='L')
+
+    coord_lat = Column(db.Float, default=convert_lat)
+    coord_lon = Column(db.Float, default=convert_lon)
 
     diameter = Column(db.Integer, nullable=False)
     height = Column(db.Integer, nullable=False)
@@ -48,6 +73,7 @@ class Sponsorship(SurrogatePK, Model):
     tree_id = reference_col('trees', nullable=True)
     user_id = reference_col('users', nullable=True)
 
+    sponsored_on = Column(db.DateTime, nullable=True, default=dt.datetime.utcnow)
     amount = Column(db.Float, nullable=False)
     currency = Column(db.String, nullable=False)
     reference = Column(db.String, nullable=False)

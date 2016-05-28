@@ -17,6 +17,7 @@ with app.app_context():
     with open("dataloader/Inventario.csv") as f:
         for row in f:
             row = row.split("\t")
+            print "Procesando " + row[1].decode('UTF-8')
             tree = {
                 "code":row[1].decode('UTF-8'),
                 "common_name":row[2].decode('UTF-8'),
@@ -24,8 +25,10 @@ with app.app_context():
                 "family":row[4].decode('UTF-8'),
                 "coord_utm_e":float(row[5].replace(",",".")),
                 "coord_utm_n":float(row[6].replace(",",".")),
+                "photo":'',
                 "diameter":int(row[7]),
                 "height":int(row[8]),
                 "comments":row[9].decode('UTF-8')
                 }
-            Tree.create (**tree)
+            t = Tree(**tree)
+            t.save()

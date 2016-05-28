@@ -1,13 +1,13 @@
 """empty message
 
-Revision ID: c2c6673d5c1b
+Revision ID: 77d8ee04418a
 Revises: None
-Create Date: 2016-05-27 14:26:44.441570
+Create Date: 2016-05-28 01:35:56.317695
 
 """
 
 # revision identifiers, used by Alembic.
-revision = 'c2c6673d5c1b'
+revision = '77d8ee04418a'
 down_revision = None
 
 from alembic import op
@@ -22,8 +22,13 @@ def upgrade():
     sa.Column('common_name', sa.String(length=80), nullable=False),
     sa.Column('scientific_name', sa.String(length=80), nullable=False),
     sa.Column('family', sa.String(length=80), nullable=False),
-    sa.Column('coord_utm_e', sa.Float(), nullable=False),
-    sa.Column('coord_utm_n', sa.Float(), nullable=False),
+    sa.Column('photo', sa.String(length=256), nullable=True),
+    sa.Column('coord_utm_e', sa.Float(), nullable=True),
+    sa.Column('coord_utm_n', sa.Float(), nullable=True),
+    sa.Column('coord_utm_zone_n', sa.Integer(), nullable=True),
+    sa.Column('coord_utm_zone_letter', sa.String(), nullable=True),
+    sa.Column('coord_lat', sa.Float(), nullable=True),
+    sa.Column('coord_lon', sa.Float(), nullable=True),
     sa.Column('diameter', sa.Integer(), nullable=False),
     sa.Column('height', sa.Integer(), nullable=False),
     sa.Column('comments', sa.String(length=500), nullable=True),
@@ -57,6 +62,7 @@ def upgrade():
     sa.Column('code', sa.String(length=80), nullable=False),
     sa.Column('tree_id', sa.Integer(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('sponsored_on', sa.DateTime(), nullable=True),
     sa.Column('amount', sa.Float(), nullable=False),
     sa.Column('currency', sa.String(), nullable=False),
     sa.Column('reference', sa.String(), nullable=False),
