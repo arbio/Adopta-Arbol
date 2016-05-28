@@ -56,4 +56,4 @@ El api permite obtener un ítem de lista al azar (para colocar una frase sola).
 
 - **Una página:** [/api/pages/sabiasque](/api/pages/sabiasque)
 
-Las páginas disponibles pueden ser consultadas (y editadas) en el directorio [`pages/`](https://github.com/icarito/arbio-azucar-adoptarbol/tree/master/adoptarbol/pages).
+Las páginas disponibles pueden ser consultadas (y editadas) en el directorio [`pages/` <i class="fa fa-github-alt" aria-hidden="true"></i>](https://github.com/icarito/arbio-azucar-adoptarbol/tree/master/adoptarbol/pages).
