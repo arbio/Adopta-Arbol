@@ -52,12 +52,17 @@ def home(tree_id=None):
     else:
         tree = Tree.get_by_id(tree_id)
 
-    before_it = tree.before.id
-    after_it = tree.after.id
+    nav = {}
+    nav['before'] = tree.before.id
+    nav['after'] = tree.after.id
 
     total = Tree.query.count()
-    banner_a = get_random_item('frases')
-    banner_b = get_random_item('sabiasque')
+
+    banner = {}
+    banner['a'] = get_random_item('frases')
+    banner['b'] = tree.comments or get_random_item('sobremi')
+    banner['c'] = get_random_item('sabiasque')
+    banner['d'] = get_random_item('porqueadoptar')
 
     form = LoginForm(request.form)
     # Handle logging in
@@ -70,8 +75,7 @@ def home(tree_id=None):
         else:
             flash_errors(form)
     return render_template('public/home.html', form=form, tree=tree, total=total, \
-                            image=tree.image, banner_a=banner_a, banner_b=banner_b, \
-                            before_it=before_it, after_it=after_it)
+                            image=tree.image, banner=banner, nav=nav)
 
 
 @blueprint.route('/logout/')

@@ -3,7 +3,7 @@
 {% block content %}
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-  <h2 class="text-justify large">{{banner_a|safe}}</h2>
+  <h2 class="text-justify large">{{banner.a|safe}}</h2>
 </div><!-- /.jumbotron -->
 
 <div class="well well-sm">
@@ -58,13 +58,13 @@
       <h3>Diámetro: {{tree.diameter}} cm</h3>
       <h3>Altura: {{tree.height}} m</h3>
       <h3>Más sobre mí:</h3>
-      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
+      <h4>{{banner.b}}</h4>
       <h2>Código: # {{tree.code}}</h2>
       <p>
       <br>
-      <a href="{{url_for('public.home', tree_id=before_it, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-left"></i></a>
+      <a href="{{url_for('public.home', tree_id=nav.before, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-left"></i></a>
       <a href="{{url_for('tree.adopt', id=tree.id)}}" class="btn btn-warning"><i class="fa fa-heart"></i>&nbsp; Adóptalo ahora</a>
-      <a href="{{url_for('public.home', tree_id=after_it, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-right"></i></a>
+      <a href="{{url_for('public.home', tree_id=nav.after, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-right"></i></a>
       </p>
     <br>
     <br>
@@ -72,7 +72,7 @@
     <div class="col-lg-5 text-center panel panel-default control-group">
       <h3><small>Sabías que...</small>
       <br><br>
-      {{banner_b}}</h3>
+      {{banner.c}}</h3>
       <br><br>
     </div>
   </div><!-- /.row -->
@@ -80,18 +80,17 @@
 <br>
 <div class="jumbotron text-center">
   <h2>¿Porqué adoptar un árbol nativo amazónico?<h2>
-  <h3>Nuestros árboles nativos amazónicos están en amenaza constante 
-por el valor de su madera...</h3>
+  <h3>{{banner.d}}</h3>
 </div><!-- /.jumbotron -->
 
 <div class="panel panel-default" style="overflow:hidden" align="center">
   <p>Con el apoyo de:</p>
-  <br>
   <div class="col-lg-4">
     <a href="http://www.minam.gob.pe/">
     <img class="img-responsive" src="/static/images/logos/ministerio-del-ambiente.jpg"></a>
   </div>
   <div class="col-lg-4">
+    <br>
     <a href="http://www.spda.org.pe/">
     <img class="img-responsive" src="/static/images/logos/spda.jpg"></a>
     <br>
