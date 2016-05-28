@@ -3,21 +3,20 @@ title: Acerca de
 Acerca de Adopta Un Árbol Amazónico
 ===================================
 
-## Corpora sed tendens diemque temploque
+## Ayudamos a protejer la vida
 
-Lorem markdownum formae claro; nulla nunc muneris dolendi corpora, sui hac
-occasus edidit in. Inferre cornuaque nonne robore iaces matremque corpora,
-blanditias territa, et alte Calydon genitas ut passos.
+Adoptarbol crea una relación profunda entre personas y árboles nativos, direccionando recursos económicos a concesionarios que los protejan.
 
-> Ipse sub senili inquit pauca adamanta; et nec aspera et ritu. Virgo est ceram
-> diebus, fatetur sacrificos, *tradat plangente* auctorem, exit, nubilibus. Unus
-> fuit num Liriope latent, concresse simulacra silices urbesque conveniunt.
-> Cervix per et adest ubera tale mille obicit dictis usum, visa cum extinctum;
-> animam. Quae furores, non profuit trementi Cyparisse rectum altae aperti, deum
-> moresque, affectibus veneni, perimunt litora.
+> La diversidad biológico-cultural de la amazonía es proporcional a la cantidad de árboles nativos.
+> Para conservar los árboles, es necesaria la investigación y el patrullaje, actividades que demandan recursos económicos.
+> Es urgente elevar la conciencia de las personas ajenas a la selva y darles la oportunidad de hacer una conexión de alto impacto. 
 
-Tertia fata lumina? Ubi diu illuc subvolat liquores, si fratres carchesia loqui
-simul pectore quae rex visum vota Macareida abrumpit nascendi. Subiecit quam
-inpedit verba ima Anigrus agitur memorant, fine. Greges parte aedes tamen
-**obscenique crinem**, et prope, motae ubi astra ferox per vires? Praedaque
-pascas.
+Que es arbio?
+
+Arbio es una asociación creada en el año 2010 en Madre de Dios con el objetivo de generar mecanismos de conservación del bosque amazónico. Implementamos actividades para proteger la estructura y funcionalidad del ecosistema en un bosque de 916 hectáreas ubicado en la provincia de Tambopata.  Nuestra propuesta es generar soluciones económicamente viables y sostenibles para los usuarios del bosque (o guardianes del bosque) involucrando a la sociedad civil en la conservación de la amazonía.
+
+Quien es SomosAzucar.Org?
+
+En SomosAzucar.org compartimos todo tipo de Software Libre que consideramos útil, desde recursos educativos, herramientas científicas, de diseño gráfico, arquitectura, estadística, programación, incluso videojuegos
+
+Arbio y SomosAzucar.org suman esfuerzos y así nace Adoptarbol, la primera plataforma de intercambio de recursos económicos y emocionales entre árboles certificdos por Arbio, personas y concesionarios.
