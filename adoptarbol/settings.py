@@ -16,6 +16,9 @@ class Config(object):
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLATPAGES_EXTENSION = '.md'
+    VALIDATE_IP = False
+    VALIDATE_SIGNATURE = False
+    WTF_CSRF_ENABLED = False
 
 
 class ProdConfig(Config):

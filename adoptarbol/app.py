@@ -50,6 +50,7 @@ def register_hooks(app):
     def ping(data, guid):
         return 'pong'
     hooks.register_hook('ping', ping)
+    return None
 
 def register_errorhandlers(app):
     """Register error handlers."""
