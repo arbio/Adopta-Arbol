@@ -4,7 +4,8 @@ from flask import Flask, render_template
 
 from adoptarbol import public, user, tree
 from adoptarbol.assets import assets
-from adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, pages
+from adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, \
+                                  login_manager, migrate, pages, api_manager
 from adoptarbol.settings import ProdConfig
 
 
@@ -32,6 +33,7 @@ def register_extensions(app):
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     pages.init_app(app)
+    api_manager.init_app(app)
     return None
 
 

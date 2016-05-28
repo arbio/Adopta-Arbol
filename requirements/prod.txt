@@ -42,3 +42,6 @@ Flask-DebugToolbar==0.10.0
 
 # FlatPages
 Flask-FlatPages==0.6
+
+# Restless API
+Flask-Restless==0.17.0
