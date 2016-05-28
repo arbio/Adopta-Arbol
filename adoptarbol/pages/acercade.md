@@ -1,7 +1,7 @@
 title: Acerca de
 
-Adoptarbol: Plataforma de Adopción de árboles amazónicos
-========================================================
+Adoptarbol: Adopción de árboles amazónicos
+==========================================
 
 ## Preservemos juntos la vida del Bosque!
 
