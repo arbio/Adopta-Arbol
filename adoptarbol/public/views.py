@@ -35,7 +35,7 @@ def home():
             return redirect(redirect_url)
         else:
             flash_errors(form)
-    return render_template('public/home.html', form=form, tree=tree, total=total)
+    return render_template('public/home.html', form=form, tree=tree, total=total, image=tree.image)
 
 
 @blueprint.route('/page/<path:path>/')
@@ -43,6 +43,7 @@ def page(path):
     page = pages.get_or_404(path)
     template = page.meta.get('template', 'public/flatpages.html')
     return render_template(template, page=page)
+
 
 @blueprint.route('/logout/')
 @login_required

@@ -12,7 +12,19 @@ blueprint = Blueprint('tree', __name__, static_folder='../static')
 api_manager.create_api(Tree)
 api_manager.create_api(Sponsorship)
 
+@blueprint.route('/api')
+def api_docs():
+    """convenience api docs access."""
+    return redirect(url_for('public.page', path='api'))
+
 @blueprint.route('/random/tree')
+@blueprint.route('/api/trees/_random')
 def random_tree_endpoint():
     """random tree."""
     return jsonify(Tree.random())
+
+@blueprint.route('/adopt/<id>')
+def adopt(id):
+    """adopt a tree."""
+    tree = Tree.get_by_id(id)
+    return jsonify(tree)

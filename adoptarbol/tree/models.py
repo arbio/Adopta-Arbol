@@ -57,6 +57,13 @@ class Tree(SurrogatePK, Model):
         """Represent instance as a unique string."""
         return '<Tree({code})>'.format(code=self.code)
 
+    @property
+    def image(self):
+        if self.photo:
+            return {'exists':True, 'src':self.photo}
+        else:
+            return {'exists':False, 'src':"static/images/reference_tree.jpg"}
+
     @classmethod
     def random(cls):
         random_id = randint(1, cls.query.count())
