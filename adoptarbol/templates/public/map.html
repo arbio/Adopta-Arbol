@@ -3,25 +3,30 @@
 {% block content %}
 
 <style>
-    #mapid { height: 420px; }
+    #mapid { height: 500px; }
 </style>
 
 <div class="body-content">
   <div class="well well-sm row">
+  <center>
     <h3 class="text-center">Adopta &nbsp; <span class="label label-large label-warning">PASO 1 </span> &nbsp; Selecciona a tu compañero ideal.</h3>
   </div><!-- /.well -->
 
-  <br>
-  <div class="well well-sm row">
-        <div id="mapid"></div>
+  <div class="col-lg-2">
+  </div>
+  <div class="well well-lg col-lg-8">
+    <div id="mapid"></div>
   </div><!-- /.well -->
 
-<script>
+  </center>
+</div>
 
+<script>  
+          
 window.onload = function () {
 
 
-    var mymap = L.map('mapid').setView([-12.1717094, -69.3869664], 18);
+    var mymap = L.map('mapid').setView([-12.1716094, -69.3869664], 18);
 
     googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         attribution: 'Árboles censados por Arbio - Imagen © Google',
@@ -38,14 +43,12 @@ window.onload = function () {
 
     {% for tree in trees %}
 
-    var popup = new L.Popup();
-
     var circle = L.circle([{{tree.coord_lat}}, {{tree.coord_lon}}], 5, {
         color: 'green',
         fillColor: 'yellow',
         fillOpacity: 0.5})
     .addTo(mymap)
-    .bindPopup('Yo soy un {{tree.common_name}}.')
+    .bindPopup('Yo soy un {{tree.common_name}}.', {offset:[0, -5]})
     .on('mouseover', function (e) {
             this.openPopup();
         })
@@ -63,5 +66,4 @@ window.onload = function () {
 
 </script>
 
-</div>
 {% endblock %}
