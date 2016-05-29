@@ -29,7 +29,7 @@
   {% block css %}{% endblock %}
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
   {% if image %}
-  <link rel="image_src" href="http://arbio.somosazucar.org{{image.src}}" />
+  <meta property="og:image" content="http://arbio.somosazucar.org{{image.src}}" />
   {% endif %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
