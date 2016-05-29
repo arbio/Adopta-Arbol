@@ -92,12 +92,12 @@ def pay():
 
 @blueprint.route('/cancel/')
 def cancel():
-    flash(u'Operación cancelada')
+    flash(u'PROCESO DE PAGO: Operacion cancelada.')
     return redirect(url_for('public.home'))
 
 @blueprint.route('/confirm/')
 def confirm():
-    flash(u'¡Muchas gracias por tu aporte! Nos estaremos comunicando contigo...')
+    flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
     return redirect(url_for('public.home'))
 
 @blueprint.route('/adopt/')
