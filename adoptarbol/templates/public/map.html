@@ -3,7 +3,7 @@
 {% block content %}
 
 <style>
-    #mapid { height: 380px; }
+    #mapid { height: 420px; }
 </style>
 
 <div class="body-content">
@@ -21,9 +21,10 @@
 window.onload = function () {
 
 
-    var mymap = L.map('mapid').setView([-12.1724094, -69.3876664], 19);
+    var mymap = L.map('mapid').setView([-12.1717094, -69.3869664], 18);
 
     googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+        attribution: 'Árboles censados por Arbio - Imagen © Google',
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(mymap);
@@ -36,9 +37,9 @@ window.onload = function () {
 //            }).addTo(mymap);
 
     {% for tree in trees %}
-    var circle = L.circle([{{tree.coord_lat}}, {{tree.coord_lon}}], 3, {
+    var circle = L.circle([{{tree.coord_lat}}, {{tree.coord_lon}}], 5, {
         color: 'green',
-        fillColor: '#f03',
+        fillColor: 'yellow',
         fillOpacity: 0.5
     }).addTo(mymap).on('click',
         function(e) {

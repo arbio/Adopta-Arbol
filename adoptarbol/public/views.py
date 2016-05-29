@@ -121,8 +121,7 @@ def adopt(tree_id=None):
 @blueprint.route('/find/')
 def pick(page=1):
     """pick a tree."""
-    page_size = 50
-    trees = Tree.query.limit(50).offset( (page - 1) * page_size ).all()
+    trees = Tree.query.all()
     return render_template('public/map.html', trees=trees)
 
 
