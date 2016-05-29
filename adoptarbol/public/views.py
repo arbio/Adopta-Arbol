@@ -90,6 +90,7 @@ def adopt(tree_id=None):
     """adopt a tree."""
     if not tree_id:
         tree = Tree.random()
+        return redirect(url_for('public.adopt', tree_id=tree.id))
     else:
         tree = Tree.get_by_id(tree_id)
     tree.comments = tree.comments or get_random_item('sobremi')
