@@ -33,7 +33,8 @@
 
 
 <div class="well well-sm" id="treeselector">
-  <h4 class="text-center">Adopta árboles nativos amazónicos certificados por &nbsp;<span class="label label-large label-success">ARBIO</span></h4>
+
+  <h4 class="text-center">Adopta árboles nativos amazónicos certificados por &nbsp;<a class="lead label label-large label-success" data-toggle="popover" data-title="Arbio realiza el censo de verificación del buen estado de los árboles para que sean 'certificados'." data-content="Arbio trabaja en la conservación de 916 hectáreas de bosque amazónico en Tambopata, Madre de Dios, generando soluciones económicamente viables y sostenibles para los guardianes del bosque.">ARBIO</a></h4>
 </div><!-- /.well -->
 
 <div class="body-content">
@@ -96,5 +97,11 @@
     <br>
   </div>
 </div><!-- /.panel -->
+<script src="https://code.jquery.com/jquery-2.x-git.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
 {% endblock %}
 
