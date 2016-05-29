@@ -115,12 +115,24 @@ def adopt(tree_id=None):
 
     form = SponsorshipForm(request.form)
 
+    explanation = { 'wood':u'Es maderable.',
+                    'bird':u'Es hogar de aves.',
+                    'mammal':u'Es hogar de mamíferos.',
+                    'soil':u'Es mejorador del suelo.',
+                    'community':u'Es importante para las comunidades nativas.',
+                    'medicine':u'Es medicinal.' }
+
+    functions = []
+    for function in tree.function.split(","):
+        functions.append ( { 'icon':"%s.png" % function,
+                             'desc':explanation[function] } )
+
+
     return render_template('public/adopt.html', tree=tree, terminos=terminos, \
-                            image=tree.image, form=form)
+                            image=tree.image, form=form, functions=functions)
 
 
-@blueprint.route('/find/page/<int:page>')
-@blueprint.route('/find/')
+@blueprint.route('/buscar/')
 def pick(page=1):
     """pick a tree."""
     trees = Tree.query.all()

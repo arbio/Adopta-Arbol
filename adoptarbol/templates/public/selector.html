@@ -17,8 +17,14 @@
       <h3>Altura: {{tree.height}} m</h3>
       <h3>Más sobre mí:</h3><br>
       <p class="lead"><small>{{tree.comments}}</small></p><br>
+      {% for function in functions %}
+        &nbsp;&nbsp;&nbsp;<img alt="{{function.desc}}" src="/static/images/icons/{{function.icon}}" width=48>&nbsp;&nbsp;&nbsp;
+      {% endfor %}
+      <br>
+
       <h2>Código: # {{tree.code}}</h2>
       {% if not nav %}
+
       <h2>Aporte: <span class="label label-large label-success">{{"%.2f"|format(tree.cost)}} {{tree.currency}}</span></h2>
       {% endif %}
       <p>
