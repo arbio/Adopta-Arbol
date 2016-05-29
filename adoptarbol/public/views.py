@@ -115,12 +115,12 @@ def adopt(tree_id=None):
 
     form = SponsorshipForm(request.form)
 
-    explanation = { 'wood':u'Es maderable.',
-                    'bird':u'Es hogar de aves.',
-                    'mammal':u'Es hogar de mamíferos.',
-                    'soil':u'Es mejorador del suelo.',
-                    'community':u'Es importante para las comunidades nativas.',
-                    'medicine':u'Es medicinal.' }
+    explanation = { 'wood':u'Es maderable',
+                    'bird':u'Es hogar de aves',
+                    'mammal':u'Es hogar de mamíferos',
+                    'soil':u'Es mejorador del suelo',
+                    'community':u'Es importante para las comunidades nativas',
+                    'medicine':u'Es medicinal' }
 
     functions = []
     for function in tree.function.split(","):
