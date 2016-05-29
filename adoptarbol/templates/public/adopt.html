@@ -9,6 +9,24 @@
 
   {% include "public/selector.html" %}
 
+  <div class="well well-sm col-lg-5 text-center">
+    <form id="adoptForm" method="POST" class="form form-inline" action="/confirm/">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      <input type="hidden" name="tree_id" value="{{ tree.id }}"/>
+      <div class="form-group">
+        {{ form.name(placeholder="Nombre", class_="form-control") }}
+        {{ form.email(placeholder="Email", class_="form-control") }}
+      </div>
+      <br>
+      <div class="form-group">
+        {{ form.gift(class_="form-control") }} {{form.gift.label}}
+      </div>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-default">Acepto</button>
+    </form>
+  </div><!-- /.well -->
+
   </div><!-- /.row -->
 </div>
 {% endblock %}

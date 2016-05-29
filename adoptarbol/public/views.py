@@ -4,7 +4,7 @@ from flask import Blueprint, flash, redirect, render_template, request, url_for,
 from flask_login import login_required, login_user, logout_user
 
 from adoptarbol.extensions import login_manager, pages
-from adoptarbol.public.forms import LoginForm
+from adoptarbol.public.forms import LoginForm, SponsorshipForm
 from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
 from adoptarbol.tree.models import Tree, Sponsorship
@@ -80,9 +80,12 @@ def home(tree_id=None):
             return redirect(redirect_url)
         else:
             flash_errors(form)
-    return render_template('public/home.html', form=form, tree=tree, count=count, \
+    return render_template('public/home.html', loginform=form, tree=tree, count=count, \
                             image=tree.image, banner=banner, nav=nav)
 
+@blueprint.route('/confirm/', methods=['POST'])
+def pay():
+    return "Thanks!"
 
 @blueprint.route('/adopt/')
 @blueprint.route('/adopt/<int:tree_id>')
@@ -97,8 +100,10 @@ def adopt(tree_id=None):
 
     terminos = pages.get('terminosadopcion')
 
+    form = SponsorshipForm(request.form)
+
     return render_template('public/adopt.html', tree=tree, terminos=terminos, \
-                            image=tree.image)
+                            image=tree.image, form=form)
 
 
 @blueprint.route('/logout/')
