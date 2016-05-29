@@ -28,6 +28,9 @@
 
   {% block css %}{% endblock %}
 
+  {% if image %}
+  <link rel="image_src" href="{{url_for('public.home', _external=True)}}{{image.src}}" />
+  {% endif %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
 {% block body %}
