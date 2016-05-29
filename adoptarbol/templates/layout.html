@@ -31,6 +31,10 @@
   {% if image %}
   <meta property="og:image" content="http://arbio.somosazucar.org{{image.src}}" />
   {% endif %}
+  {% if tree %}
+  <meta property="og:title" content="Adóptame soy un {{tree.common_name}}" />
+  <meta property="og:description" content="{{tree.comments}}" />
+  {% endif %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
 {% block body %}
