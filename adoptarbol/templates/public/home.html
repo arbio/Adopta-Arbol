@@ -2,12 +2,8 @@
 {% extends "layout.html" %}
 {% block content %}
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <h2 class="text-justify large">{{banner.a|safe}}</h2>
-</div><!-- /.jumbotron -->
-
-<div class="well well-sm">
-  <h4 class="text-center">Adopta árboles nativos amazónicos certificados por &nbsp;<span class="label label-large label-success">ARBIO</label></h4>
+<div class="well">
+  <h2 class="text-right">{{banner.a|safe}}</h2>
 </div><!-- /.jumbotron -->
 
 <div class="body-content">
@@ -21,8 +17,8 @@
         <td class="text-right"><h2>Árboles adoptados:</h2>
         <td class="text-right"><h2>0</h2>
       </tr>
-      <tr><td class="text-right" colspan="2">
-      <a href="{{url_for('tree.adopt', id=tree.id)}}" class="btn btn-warning large">¡Ayúdanos a llegar a 20!</a>
+      <tr><td class="text-right" colspan="2"><br>
+      <a href="{{url_for('tree.adopt', id=tree.id)}}" class="btn btn-warning lead">¡Ayúdanos a llegar a 20!</a>
       </td></tr>
       </tbody></table>
     </div>
@@ -36,11 +32,8 @@
   </div><!-- /.row -->
 </div>
 
-<div class="jumbotron text-center">
-  <h2><a href="{{url_for('public.page', path='concesionarios')}}">¿Tienes un bosque?</a><h2>
-  <h3> 1. Inscribe tu bosque &raquo; &nbsp;
-       2. Mapea tus árboles nativos &raquo; &nbsp;
-       3. Certifícate</h3>
+<div class="well well-sm">
+  <h4 class="text-center">Adopta árboles nativos amazónicos certificados por &nbsp;<span class="label label-large label-success">ARBIO</label></h4>
 </div><!-- /.jumbotron -->
 
 <div id="treeselector" style="hidden:true">&nbsp;</div>
@@ -57,8 +50,8 @@
       <h3>Nombre científico: <em>{{tree.scientific_name}}</em></h3>
       <h3>Diámetro: {{tree.diameter}} cm</h3>
       <h3>Altura: {{tree.height}} m</h3>
-      <h3>Más sobre mí:</h3>
-      <h4>{{banner.b}}</h4>
+      <h3>Más sobre mí:</h3><br>
+      <p class="lead"><small>{{banner.b}}</small></p><br>
       <h2>Código: # {{tree.code}}</h2>
       <p>
       <br>
@@ -66,7 +59,6 @@
       <a href="{{url_for('tree.adopt', id=tree.id)}}" class="btn btn-warning"><i class="fa fa-heart"></i>&nbsp; Adóptalo ahora</a>
       <a href="{{url_for('public.home', tree_id=nav.after, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-right"></i></a>
       </p>
-    <br>
     <br>
     </div>
     <div class="col-lg-5 text-center panel panel-default control-group">
@@ -78,9 +70,17 @@
   </div><!-- /.row -->
 </div>
 <br>
+
 <div class="jumbotron text-center">
   <h2>¿Porqué adoptar un árbol nativo amazónico?<h2>
   <h3>{{banner.d}}</h3>
+</div><!-- /.jumbotron -->
+
+<div class="jumbotron text-center">
+  <h2><a href="{{url_for('public.page', path='concesionarios')}}">¿Tienes un bosque?</a><h2>
+  <h3> 1. Inscribe tu bosque &raquo; &nbsp;
+       2. Mapea tus árboles nativos &raquo; &nbsp;
+       3. Certifícate</h3>
 </div><!-- /.jumbotron -->
 
 <div class="panel panel-default" style="overflow:hidden" align="center">
