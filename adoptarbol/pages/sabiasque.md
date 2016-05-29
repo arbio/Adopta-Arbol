@@ -7,3 +7,4 @@ title: Sabías que...
 - ¿Los árboles proporcionan sus copas y un hábitat para la vida silvestre?
 - ¿Un solo árbol en Tambopata puede albergar a más de 5.000 especies distintas de insectos?
 - ¿Un árbol amazonico contiene en promedio 5 Toneladas de Carbono almacenado?
+- ¿Una de cada 10 especies conocidas en el planeta vive en los bosques amazónicos?
