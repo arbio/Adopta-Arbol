@@ -84,6 +84,7 @@ def home(tree_id=None):
                             image=tree.image, banner=banner, nav=nav)
 
 
+@blueprint.route('/adopt/')
 @blueprint.route('/adopt/<int:tree_id>')
 def adopt(tree_id=None):
     """adopt a tree."""
