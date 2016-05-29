@@ -117,6 +117,12 @@ def adopt(tree_id=None):
                             image=tree.image, form=form)
 
 
+@blueprint.route('/find/')
+def pick():
+    """pick a tree."""
+    return render_template('public/map.html')
+
+
 @blueprint.route('/logout/')
 @login_required
 def logout():

@@ -1,0 +1,37 @@
+{% extends "layout_with_leaflet.html" %}
+
+{% block content %}
+
+<style>
+    #mapid { height: 380px; }
+</style>
+
+<div class="body-content">
+  <div class="well well-sm row">
+    <h3 class="text-center">Adopta &nbsp; <span class="label label-large label-warning">PASO 1 </span> &nbsp; Selecciona a tu compañero ideal.</h3>
+  </div><!-- /.well -->
+
+  <br>
+  <div class="well well-sm row">
+        <div id="mapid"></div>
+  </div><!-- /.well -->
+
+<script>
+
+window.onload = function () {
+
+    var mymap = L.map('mapid').setView([-12.1727294, -69.3876664], 13);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                maxZoom: 19,
+                id: 'mapbox.satellite',
+                accessToken: 'pk.eyJ1IjoiaWNhcml0byIsImEiOiJjaW9zbTgxZ3MwMDk0dWZtNDFtNG84eGJzIn0.A-5TdlE4Ep-jXw_eIihJMA'
+            }).addTo(mymap);
+
+}
+
+</script>
+
+</div>
+{% endblock %}
