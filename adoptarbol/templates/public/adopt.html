@@ -22,8 +22,29 @@
         {{ form.gift(class_="form-control") }} {{form.gift.label}}
       </div>
       <br>
-      <br>
-      <button type="submit" class="btn btn-default">Acepto</button>
+
+      <div class="form-group">
+        <ul class="nav nav-pills text-center">
+          <li class="active"><a data-toggle="pill" href="#paypal"><i class="fa fa-cc-paypal large" aria-hidden="true"></i><br><br>Tarjetas<br>de<br>crédito</a></li>
+          <li><a data-toggle="pill" href="#bitcoin"><i class="fa fa-bitcoin large" aria-hidden="true"></i><br><br>BitCoin<br>criptomoneda<br>digital</a></li>
+          <li><a data-toggle="pill" href="#faircoin"><img src="/static/images/logos/faircoin.png" height="72"><br><br>FairCoin<br>criptomoneda<br>justa</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="paypal" class="tab-pane fade in active">
+            <br>
+            <button type="submit" name="paypal" class="btn btn-default">Pagar con Paypal ®</button>
+          </div>
+          <div id="bitcoin" class="tab-pane fade">
+            <br>
+            <p>En desarrollo.</p>
+          </div>
+          <div id="faircoin" class="tab-pane fade">
+            <br>
+            <p>En desarrollo.</p>
+          </div>
+        </div>
+      </div>
+
     </form>
   </div><!-- /.well -->
 

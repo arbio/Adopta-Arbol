@@ -20,6 +20,10 @@ textarea {
   resize: vertical;
 }
 
+.large {
+  font-size: 72px; */
+}
+
 .btn {
   font-size: 18px;
 }
