@@ -83,9 +83,20 @@ def home(tree_id=None):
     return render_template('public/home.html', loginform=form, tree=tree, count=count, \
                             image=tree.image, banner=banner, nav=nav)
 
-@blueprint.route('/confirm/', methods=['POST'])
+@blueprint.route('/pay/', methods=['POST'])
 def pay():
-    return "Thanks!"
+    tree = Tree.get_by_id( request.form['tree_id'] )
+
+    if 'paypal' in request.form:
+        return 'paypal'
+
+@blueprint.route('/cancel/', methods=['POST'])
+def cancel():
+    return 'cancelled'
+
+@blueprint.route('/confirm/', methods=['POST'])
+def confirm():
+    return 'confirmed'
 
 @blueprint.route('/adopt/')
 @blueprint.route('/adopt/<int:tree_id>')
