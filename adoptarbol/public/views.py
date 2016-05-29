@@ -94,7 +94,10 @@ def adopt(tree_id=None):
     else:
         tree = Tree.get_by_id(tree_id)
     tree.comments = tree.comments or get_random_item('sobremi')
-    return render_template('public/adopt.html', tree=tree, \
+
+    terminos = pages.get('terminosadopcion')
+
+    return render_template('public/adopt.html', tree=tree, terminos=terminos, \
                             image=tree.image)
 
 

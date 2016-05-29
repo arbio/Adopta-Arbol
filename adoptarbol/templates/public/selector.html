@@ -1,5 +1,12 @@
     <div class="col-lg-7">
     <img class="img-responsive" src="{{image.src}}">
+    <br>
+      {% if terminos %}
+      <div class="well well-large">
+          <h2 class="text-center">Términos de Adopción</h2>
+          <div class="text-justify lead">{{terminos.html|safe}}</div>
+      </div><!-- ./well -->
+      {% endif %}
     </div><!--
  --><div class="col-lg-5 text-center panel panel-default">
     <br>
@@ -11,10 +18,12 @@
       <h3>Más sobre mí:</h3><br>
       <p class="lead"><small>{{tree.comments}}</small></p><br>
       <h2>Código: # {{tree.code}}</h2>
+      {% if not nav %}
+      <h2>Costo: <span class="label label-large label-success">{{"%.2f"|format(tree.cost)}} {{tree.currency}}</span></h2>
+      {% endif %}
       <p>
-      
-      {% if nav %}
       <br>
+      {% if nav %}
       <a href="{{url_for('public.home', tree_id=nav.before, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-left"></i></a>
       <a href="{{url_for('public.adopt', tree_id=tree.id)}}" class="btn btn-warning"><i class="fa fa-heart"></i>&nbsp; Adóptalo ahora</a>
       <a href="{{url_for('public.home', tree_id=nav.after, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-right"></i></a>
