@@ -10,7 +10,7 @@
   {% include "public/selector.html" %}
 
   <div class="well well-sm col-lg-5 text-center">
-    <form id="adoptForm" method="POST" class="form form-inline" action="/confirm/">
+    <form id="adoptForm" method="POST" class="form form-inline" action="/pay/">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
       <input type="hidden" name="tree_id" value="{{ tree.id }}"/>
       <div class="form-group">
@@ -29,10 +29,20 @@
           <li><a data-toggle="pill" href="#bitcoin"><i class="fa fa-bitcoin large" aria-hidden="true"></i><br><br>BitCoin<br>criptomoneda<br>digital</a></li>
           <li><a data-toggle="pill" href="#faircoin"><img src="/static/images/logos/faircoin.png" height="72"><br><br>FairCoin<br>criptomoneda<br>justa</a></li>
         </ul>
+
+        </form>
         <div class="tab-content">
           <div id="paypal" class="tab-pane fade in active">
             <br>
-            <button type="submit" name="paypal" class="btn btn-default">Pagar con Paypal ®</button>
+
+            <form target="_top" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="S9SN2KJFZZBX6">
+            <input type="hidden" name="on0" value="{{tree.code}}">
+            <input type="hidden" name="os0" value="{{tree.code}}">
+            <button type="submit" name="paypal" class="btn btn-default" value="true">Pagar con Paypal ®</button>
+            </form>
+
           </div>
           <div id="bitcoin" class="tab-pane fade">
             <br>

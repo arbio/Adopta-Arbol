@@ -114,6 +114,8 @@ class Sponsorship(SurrogatePK, Model):
     currency = Column(db.String, nullable=False)
     reference = Column(db.String, nullable=False)
 
+    status = Column(db.Enum(['pending', 'confirmed', 'cancelled']))
+
     def __init__(self, code, **kwargs):
         """Create instance."""
         db.Model.__init__(self, code=code, **kwargs)
