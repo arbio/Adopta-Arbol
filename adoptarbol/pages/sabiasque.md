@@ -5,3 +5,4 @@ title: Sabías que...
 - ¿Un árbol puede darte tanto amor como cualquier mascota?
 - ¿Las personas que tienen al alcance un gran árbol sanan más rápido?
 - ¿Los árboles proporcionan sus copas y un hábitat para la vida silvestre?
+- ¿Un solo árbol en Tambopata puede albergar a más de 5.000 especies distintas de insectos?
