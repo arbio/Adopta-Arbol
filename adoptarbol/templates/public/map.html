@@ -48,7 +48,7 @@ window.onload = function () {
         fillColor: 'yellow',
         fillOpacity: 0.5})
     .addTo(mymap)
-    .bindPopup('Yo soy un {{tree.common_name}}.', {offset:[0, -5]})
+    .bindPopup('Yo soy un <b>{{tree.common_name}}<b>.', {offset:[0, -5]})
     .on('mouseover', function (e) {
             this.openPopup();
         })
