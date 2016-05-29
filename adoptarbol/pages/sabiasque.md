@@ -9,4 +9,4 @@ title: Sabías que...
 - Un árbol amazonico contiene en promedio 5 Toneladas de Carbono almacenado.
 - Una de cada 10 especies conocidas en el planeta vive en los bosques amazónicos.
 - 17% de las emisiones de carbono a la atmósfera proviene de los bosques que se deforestan y se degradan.
-- Los bosques están desapareciendo a una tasa de 10 hectáreas por minutoy la mayor deforestación se concentra en la amazonía.
+- Los bosques están desapareciendo a una tasa de 10 hectáreas por minuto y la mayor deforestación se concentra en la amazonía.
