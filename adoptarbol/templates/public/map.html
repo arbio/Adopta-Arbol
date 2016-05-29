@@ -37,11 +37,22 @@ window.onload = function () {
 //            }).addTo(mymap);
 
     {% for tree in trees %}
+
+    var popup = new L.Popup();
+
     var circle = L.circle([{{tree.coord_lat}}, {{tree.coord_lon}}], 5, {
         color: 'green',
         fillColor: 'yellow',
-        fillOpacity: 0.5
-    }).addTo(mymap).on('click',
+        fillOpacity: 0.5})
+    .addTo(mymap)
+    .bindPopup('Yo soy un {{tree.common_name}}.')
+    .on('mouseover', function (e) {
+            this.openPopup();
+        })
+    .on('mouseout', function (e) {
+            this.closePopup();
+        })
+    .on('click',
         function(e) {
             location.href = '/adopt/{{tree.id}}';
         }
