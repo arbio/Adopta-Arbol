@@ -18,6 +18,20 @@ with app.app_context():
         for row in f:
             row = row.split("\t")
             print "Procesando " + row[1].decode('UTF-8')
+            function = []
+            if row[10]:
+                function.append('community')
+            if row[11]:
+                function.append('medicine')
+            if row[12]:
+                function.append('mammal')
+            if row[13]:
+                function.append('bird')
+            if row[14]:
+                function.append('soil')
+            if row[15]:
+                function.append('wood')
+            function = ','.join(function)
             tree = {
                 "code":row[1].decode('UTF-8'),
                 "common_name":row[2].decode('UTF-8'),
@@ -28,7 +42,8 @@ with app.app_context():
                 "photo":'',
                 "diameter":int(row[7]),
                 "height":int(row[8]),
-                "comments":row[9].decode('UTF-8')
+                "comments":row[9].decode('UTF-8'),
+                "function":function
                 }
             t = Tree(**tree)
             t.save()

@@ -50,7 +50,12 @@ class Tree(SurrogatePK, Model):
     diameter = Column(db.Integer, nullable=False)
     height = Column(db.Integer, nullable=False)
 
-    comments  = Column(db.String(500), nullable=True)
+    comments  = Column(db.String(500))
+
+    cost = Column(db.Float, nullable=False, default=50)
+    currency = Column(db.String, nullable=False, default='USD')
+
+    function = Column(db.String(500))
 
     def __init__(self, code, **kwargs):
         """Create instance."""
