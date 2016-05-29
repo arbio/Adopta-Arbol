@@ -22,9 +22,3 @@ def api_docs():
 def random_tree_endpoint():
     """random tree."""
     return jsonify(Tree.random())
-
-@blueprint.route('/adopt/<id>')
-def adopt(id):
-    """adopt a tree."""
-    tree = Tree.get_by_id(id)
-    return jsonify(tree)

@@ -51,6 +51,7 @@ def home(tree_id=None):
         tree = Tree.random()
     else:
         tree = Tree.get_by_id(tree_id)
+    tree.comments = tree.comments or get_random_item('sobremi')
 
     nav = {}
     nav['before'] = tree.before.id
@@ -66,7 +67,6 @@ def home(tree_id=None):
 
     banner = {}
     banner['a'] = get_random_item('frases')
-    banner['b'] = tree.comments or get_random_item('sobremi')
     banner['c'] = get_random_item('sabiasque')
     banner['d'] = get_random_item('porqueadoptar')
 
@@ -82,6 +82,18 @@ def home(tree_id=None):
             flash_errors(form)
     return render_template('public/home.html', form=form, tree=tree, count=count, \
                             image=tree.image, banner=banner, nav=nav)
+
+
+@blueprint.route('/adopt/<int:tree_id>')
+def adopt(tree_id=None):
+    """adopt a tree."""
+    if not tree_id:
+        tree = Tree.random()
+    else:
+        tree = Tree.get_by_id(tree_id)
+    tree.comments = tree.comments or get_random_item('sobremi')
+    return render_template('public/adopt.html', tree=tree, \
+                            image=tree.image)
 
 
 @blueprint.route('/logout/')

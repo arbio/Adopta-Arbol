@@ -1,0 +1,25 @@
+    <div class="col-lg-7">
+    <img class="img-responsive" src="{{image.src}}">
+    </div><!--
+ --><div class="col-lg-5 text-center panel panel-default">
+    <br>
+    <br>
+      <h3>Nombre común: <strong>{{tree.common_name}}</strong></h3>
+      <h3>Nombre científico: <em>{{tree.scientific_name}}</em></h3>
+      <h3>Diámetro: {{tree.diameter}} cm</h3>
+      <h3>Altura: {{tree.height}} m</h3>
+      <h3>Más sobre mí:</h3><br>
+      <p class="lead"><small>{{tree.comments}}</small></p><br>
+      <h2>Código: # {{tree.code}}</h2>
+      <p>
+      
+      {% if nav %}
+      <br>
+      <a href="{{url_for('public.home', tree_id=nav.before, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-left"></i></a>
+      <a href="{{url_for('public.adopt', tree_id=tree.id)}}" class="btn btn-warning"><i class="fa fa-heart"></i>&nbsp; Adóptalo ahora</a>
+      <a href="{{url_for('public.home', tree_id=nav.after, _anchor="treeselector")}}" class="btn btn-warning"><i class="fa fa-arrow-circle-right"></i></a>
+      </p>
+      {% endif %}
+
+    <br>
+    </div>
