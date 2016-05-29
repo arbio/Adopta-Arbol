@@ -90,13 +90,15 @@ def pay():
     if 'paypal' in request.form:
         return 'paypal'
 
-@blueprint.route('/cancel/', methods=['POST'])
+@blueprint.route('/cancel/')
 def cancel():
-    return 'cancelled'
+    flash(u'Operación cancelada')
+    return redirect(url_for('public.home'))
 
-@blueprint.route('/confirm/', methods=['POST'])
+@blueprint.route('/confirm/')
 def confirm():
-    return 'confirmed'
+    flash(u'¡Muchas gracias por tu aporte! Nos estaremos comunicando contigo...')
+    return redirect(url_for('public.home'))
 
 @blueprint.route('/adopt/')
 @blueprint.route('/adopt/<int:tree_id>')
