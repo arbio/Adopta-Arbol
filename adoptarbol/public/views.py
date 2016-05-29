@@ -3,7 +3,7 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for, jsonify
 from flask_login import login_required, login_user, logout_user
 
-from adoptarbol.extensions import login_manager, pages
+from adoptarbol.extensions import login_manager, pages, api_manager
 from adoptarbol.public.forms import LoginForm, SponsorshipForm
 from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
@@ -117,10 +117,13 @@ def adopt(tree_id=None):
                             image=tree.image, form=form)
 
 
+@blueprint.route('/find/page/<int:page>')
 @blueprint.route('/find/')
-def pick():
+def pick(page=1):
     """pick a tree."""
-    return render_template('public/map.html')
+    page_size = 50
+    trees = Tree.query.limit(50).offset( (page - 1) * page_size ).all()
+    return render_template('public/map.html', trees=trees)
 
 
 @blueprint.route('/logout/')
