@@ -2,11 +2,17 @@
 {% block content %}
 <div class="body-content">
   <div class="row">
-    <div class="col-lg-1"></div>
+    <div class="col-lg-1">
+    </div>
     <div class="col-lg-10 lead">
     {{page.html|safe}}
     </div>
-    <div class="col-lg-1"></div>
+    <div class="col-lg-1 lead">
+      <br>
+      <a href="https://github.com/icarito/arbio-azucar-adoptarbol/edit/master/adoptarbol/pages/{{page.path}}.md">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </a>
+    </div>
   </div><!-- /.row -->
 </div>
 {% endblock %}
