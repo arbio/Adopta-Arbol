@@ -99,6 +99,16 @@ def cancel():
     flash(u'PROCESO DE PAGO: Operacion cancelada.')
     return redirect(url_for('public.home'))
 
+@blueprint.route('/confirm2/<token>')
+@blueprint.route('/confirm2/')
+def confirm2(token=None):
+    if token:
+        print token
+    else:
+        print 'no token'
+    flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
+    return redirect(url_for('public.home'))
+
 @blueprint.route('/confirm/<token>')
 @blueprint.route('/confirm/')
 def confirm(token=None):
@@ -144,7 +154,7 @@ def adopt(tree_id=None):
 @blueprint.route('/adopt2/')
 @blueprint.route('/adopt2/<int:tree_id>')
 def adopt2(tree_id=None):
-    """adopt a tree."""
+    """fake adopt a tree."""
     if not tree_id:
         tree = Tree.random()
         return redirect(url_for('public.adopt2', tree_id=tree.id))
