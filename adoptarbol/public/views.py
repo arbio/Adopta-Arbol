@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-from flask import Blueprint, flash, redirect, render_template, request, url_for, jsonify
+from flask import Blueprint, flash, redirect, render_template, request, url_for, jsonify, make_response
 from flask_login import login_required, login_user, logout_user, current_user
 
 from adoptarbol.extensions import login_manager, pages, api_manager
@@ -12,7 +12,7 @@ from adoptarbol.utils import flash_errors
 
 from random import choice
 import requests
-from werkzeug.datastructures import ImmutableOrderedMultiDict
+from itertools import chain
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
@@ -216,30 +216,30 @@ def debug():
     raise Error
 
 # https://gist.github.com/doobeh/1869698
-@blueprint.route('/ipn',methods=['POST'])
-def ipn():
+# https://gist.github.com/cbsmith/5069769
+#demonstration of hack to declaratively set param_storage_class declaratively using a decorator
+#also demonstrates how to write an IPN handler with Flask
 
-    arg = ''
-    #: We use an ImmutableOrderedMultiDict item because it retains the order.
-    request.parameter_storage_class = ImmutableOrderedMultiDict
-    values = request.form
-    for x, y in values.iteritems():
-        arg += "&{x}={y}".format(x=x,y=y)
+#Normally this parameter would come from a config
+IPN_URLSTRING = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+IPN_VERIFY_EXTRA_PARAMS = (('cmd', '_notify-validate'),)
 
-    validate_url = 'https://www.sandbox.paypal.com' \
-                   '/cgi-bin/webscr?cmd=_notify-validate{arg}' \
-                   .format(arg=arg)
-                  
-    print 'Validating IPN using {url}'.format(url=validate_url)
-
-    r = requests.get(validate_url)
-
-    if r.text == 'VERIFIED':
-        print "PayPal transaction was verified successfully."
-        # Do something with the verified transaction details.
-        payer_email =  request.form.get('payer_email')
-        print "Pulled {email} from transaction".format(email=payer_email)
-    else:
-         print 'Paypal IPN string {arg} did not validate'.format(arg=arg)
-
-    return r.text
+def ordered_storage(f):
+    import werkzeug.datastructures
+    import flask
+    def decorator(*args, **kwargs):
+        flask.request.parameter_storage_class = werkzeug.datastructures.ImmutableOrderedMultiDict
+        return f(*args, **kwargs)
+    return decorator
+    
+@blueprint.route('/ipn', methods=['POST'])
+@ordered_storage
+def paypal_webhook():
+    #probably should have a sanity check here on the size of the form data to guard against DoS attacks
+    verify_args = chain(request.form.iteritems(), IPN_VERIFY_EXTRA_PARAMS)
+    verify_string = '&'.join(('%s=%s' % (param, value) for param, value in verify_args))
+    with closing(urlopen(IPN_URLSTRING, data=verify_string)) as paypal_verify_request:
+        response_string = paypal_verify_request.read()
+        if response_string != 'VERIFIED':
+            raise ValueError('Did not receive expected IPN confirmation from PayPal')
+    return make_response('')
