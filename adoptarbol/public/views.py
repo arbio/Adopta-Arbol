@@ -12,6 +12,7 @@ from adoptarbol.utils import flash_errors
 
 from random import choice
 import requests
+from werkzeug.datastructures import ImmutableOrderedMultiDict
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
