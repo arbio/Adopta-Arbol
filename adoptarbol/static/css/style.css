@@ -23,6 +23,9 @@ textarea {
 .large {
   font-size: 72px; */
 }
+.waiter {
+  display: none;
+}
 
 .btn {
   font-size: 18px;

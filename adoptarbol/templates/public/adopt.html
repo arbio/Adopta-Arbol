@@ -12,7 +12,9 @@
   <div class="well well-sm col-lg-5 text-center">
     <form id="adoptForm" method="POST" class="form form-inline" action="/pay/">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      <input type="hidden" name="opcode" value="{{  csrf_token()|truncate(12, False, "") }}"/>
       <input type="hidden" name="tree_id" value="{{ tree.id }}"/>
+      <input type="hidden" name="tree_code" value="{{ tree.code }}"/>
       <div class="form-group">
         {{ form.name(placeholder="Nombre", class_="form-control") }}
         {{ form.email(placeholder="Email", class_="form-control") }}
@@ -25,24 +27,15 @@
 
       <div class="form-group">
         <ul class="nav nav-pills text-center">
-          <li class="active"><a data-toggle="pill" href="#paypal"><i class="fa fa-cc-paypal large" aria-hidden="true"></i><br><br>Tarjetas<br>de<br>crédito</a></li>
+          <li class="active"><a data-toggle="pill" href="#pp_tab"><i class="fa fa-cc-paypal large" aria-hidden="true"></i><br><br>Tarjetas<br>de<br>crédito</a></li>
           <li><a data-toggle="pill" href="#bitcoin"><i class="fa fa-bitcoin large" aria-hidden="true"></i><br><br>BitCoin<br>criptomoneda<br>digital</a></li>
           <li><a data-toggle="pill" href="#faircoin"><img src="/static/images/logos/faircoin.png" height="72"><br><br>FairCoin<br>criptomoneda<br>justa</a></li>
         </ul>
 
-        </form>
         <div class="tab-content">
-          <div id="paypal" class="tab-pane fade in active">
+          <div id="pp_tab" class="tab-pane fade in active">
             <br>
-
-            <form target="_top" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="S9SN2KJFZZBX6">
-            <input type="hidden" name="on0" value="{{tree.code}}">
-            <input type="hidden" name="os0" value="{{tree.code}}">
-            <button type="submit" name="paypal" class="btn btn-warning" value="true">Pagar con Paypal ®</button>
-            </form>
-
+            <button type="submit" name="pp_submit" class="btn btn-warning waiter" value="true">Pagar con Paypal ®</button>
           </div>
           <div id="bitcoin" class="tab-pane fade">
             <br>
@@ -60,9 +53,26 @@
 
   </div><!-- /.row -->
 </div>
+
+          <form id="pp_form" target="_top" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="S9SN2KJFZZBX6">
+          <input type="hidden" name="item_name" value="Adoptar un arbol {{tree.common_name}}">
+          <input type="hidden" name="item_number" value="{{tree.id}}">
+          <input type="hidden" name="on0" value="Codigo arbol : {{tree.code}}">
+          <input type="hidden" name="custom" value="OpCode : {{csrf_token()|truncate(12, False, "")}}">
+          <!--button type="submit" class="btn btn-warning" value="true">Pagar con Paypal ®</button-->
+          </form>
+
 <script>
 window.onload = function () {
     $('.link').tooltip();
-}
+    $('#adoptForm').submit( function(e) {
+        e.preventDefault();
+        $.post('/pay/', $('#adoptForm').serialize());
+        $('#pp_form').submit();
+        });
+    $('.waiter').show();
+};
 </script>
 {% endblock %}
