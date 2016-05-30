@@ -76,9 +76,11 @@
 <script>
 window.onload = function () {
     $('.link').tooltip();
-    $('#adoptForm').submit( function(e) {
+    $('button[type=submit]').click( function(e) {
         e.preventDefault();
-        $.post('/pay/', $('#adoptForm').serialize());
+        var post = $(this).attr("name") + "=" + $(this).val();
+        var data = $(this.form).serialize() + "&" + post;
+        $.post('/pay/', data);
         $('#pp_form').submit();
         });
     $('.waiter').show();

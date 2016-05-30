@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
 from flask import Blueprint, flash, redirect, render_template, request, url_for, jsonify
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user, current_user
 
 from adoptarbol.extensions import login_manager, pages, api_manager
 from adoptarbol.public.forms import LoginForm, SponsorshipForm
@@ -11,6 +11,7 @@ from adoptarbol.tree.models import Tree, Sponsorship
 from adoptarbol.utils import flash_errors
 
 from random import choice
+import requests
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
@@ -87,35 +88,33 @@ def home(tree_id=None):
 def pay():
     tree = Tree.get_by_id( request.form['tree_id'] )
 
-    print dict(request.form)
-
+    # Paypal
     if 'pp_submit' in request.form:
-        return 'Paypal'
+        return str(Sponsorship.create(
+                       tree_id=tree.id,
+                       user_id=current_user.get_id(),
+                       amount=tree.cost,
+                       currency=tree.currency,
+                       reference=str(jsonify({'opcode':request.form['opcode'], \
+                                          'name':request.form['name'], \
+                                          'email':request.form['email']})),
+                       status='pending'))
 
-    return 'Thanks!'
+    flash(u'PROCESO DE PAGO: Operador desconocido.')
+    return redirect(url_for('public.home'))
 
 @blueprint.route('/cancel/')
 def cancel():
     flash(u'PROCESO DE PAGO: Operacion cancelada.')
     return redirect(url_for('public.home'))
 
-@blueprint.route('/confirm2/<token>')
 @blueprint.route('/confirm2/')
-def confirm2(token=None):
-    if token:
-        print token
-    else:
-        print 'no token'
+def confirm2():
     flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
     return redirect(url_for('public.home'))
 
-@blueprint.route('/confirm/<token>')
 @blueprint.route('/confirm/')
-def confirm(token=None):
-    if token:
-        print token
-    else:
-        print 'no token'
+def confirm():
     flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
     return redirect(url_for('public.home'))
 
@@ -214,3 +213,32 @@ def register():
 @blueprint.route('/debug/')
 def debug():
     raise Error
+
+# https://gist.github.com/doobeh/1869698
+@blueprint.route('/ipn',methods=['POST'])
+def ipn():
+
+    arg = ''
+    #: We use an ImmutableOrderedMultiDict item because it retains the order.
+    request.parameter_storage_class = ImmutableOrderedMultiDict()
+    values = request.form
+    for x, y in values.iteritems():
+        arg += "&{x}={y}".format(x=x,y=y)
+
+    validate_url = 'https://www.sandbox.paypal.com' \
+                   '/cgi-bin/webscr?cmd=_notify-validate{arg}' \
+                   .format(arg=arg)
+                  
+    print 'Validating IPN using {url}'.format(url=validate_url)
+
+    r = requests.get(validate_url)
+
+    if r.text == 'VERIFIED':
+        print "PayPal transaction was verified successfully."
+        # Do something with the verified transaction details.
+        payer_email =  request.form.get('payer_email')
+        print "Pulled {email} from transaction".format(email=payer_email)
+    else:
+         print 'Paypal IPN string {arg} did not validate'.format(arg=arg)
+
+    return r.text

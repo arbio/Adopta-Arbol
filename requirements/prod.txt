@@ -3,9 +3,6 @@
 setuptools==20.2.2
 wheel==0.29.0
 
-# Coordinate converter
-utm==0.4.0
-
 # Flask
 Flask==0.10.1
 MarkupSafe==0.23
@@ -49,3 +46,9 @@ Markdown>=2.5.1
 
 # Restless API
 Flask-Restless==0.17.0
+
+# Coordinate converter
+utm==0.4.0
+
+# Useful for dealing with APIs
+requests>=2.10.0

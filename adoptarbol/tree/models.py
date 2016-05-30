@@ -104,7 +104,6 @@ class Sponsorship(SurrogatePK, Model):
     """A tree adoption."""
 
     __tablename__ = 'sponsorships'
-    code = Column(db.String(80), unique=True, nullable=False)
 
     tree_id = reference_col('trees', nullable=True)
     user_id = reference_col('users', nullable=True)
@@ -117,9 +116,9 @@ class Sponsorship(SurrogatePK, Model):
     status = Column(db.Enum(['pending', 'confirmed', 'cancelled']))
     just_test = Column(db.Boolean(), default=False)
 
-    def __init__(self, code, **kwargs):
+    def __init__(self, **kwargs):
         """Create instance."""
-        db.Model.__init__(self, code=code, **kwargs)
+        db.Model.__init__(self, **kwargs)
 
     def __repr__(self):
         """Represent instance as a unique string."""
