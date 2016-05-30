@@ -115,6 +115,7 @@ class Sponsorship(SurrogatePK, Model):
     reference = Column(db.String, nullable=False)
 
     status = Column(db.Enum(['pending', 'confirmed', 'cancelled']))
+    just_test = Column(db.Boolean(), default=False)
 
     def __init__(self, code, **kwargs):
         """Create instance."""
