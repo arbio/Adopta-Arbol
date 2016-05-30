@@ -87,16 +87,25 @@ def home(tree_id=None):
 def pay():
     tree = Tree.get_by_id( request.form['tree_id'] )
 
-    if 'paypal' in request.form:
-        return 'paypal'
+    print dict(request.form)
+
+    if 'pp_submit' in request.form:
+        return 'Paypal'
+
+    return 'Thanks!'
 
 @blueprint.route('/cancel/')
 def cancel():
     flash(u'PROCESO DE PAGO: Operacion cancelada.')
     return redirect(url_for('public.home'))
 
+@blueprint.route('/confirm/<token>')
 @blueprint.route('/confirm/')
-def confirm():
+def confirm(token=None):
+    if token:
+        print token
+    else:
+        print 'no token'
     flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
     return redirect(url_for('public.home'))
 
@@ -132,6 +141,38 @@ def adopt(tree_id=None):
                             image=tree.image, form=form, functions=functions)
 
 
+@blueprint.route('/adopt2/')
+@blueprint.route('/adopt2/<int:tree_id>')
+def adopt2(tree_id=None):
+    """adopt a tree."""
+    if not tree_id:
+        tree = Tree.random()
+        return redirect(url_for('public.adopt2', tree_id=tree.id))
+    else:
+        tree = Tree.get_by_id(tree_id)
+    tree.comments = tree.comments or get_random_item('sobremi')
+
+    terminos = pages.get('terminosadopcion')
+
+    form = SponsorshipForm(request.form)
+
+    explanation = { 'wood':u'Es maderable',
+                    'bird':u'Es hogar de aves',
+                    'mammal':u'Es hogar de mamíferos',
+                    'soil':u'Es mejorador del suelo',
+                    'community':u'Es importante para las comunidades nativas',
+                    'medicine':u'Es medicinal' }
+
+    functions = []
+    for function in tree.function.split(","):
+        functions.append ( { 'icon':"%s.png" % function,
+                             'desc':explanation[function] } )
+
+
+    return render_template('public/adopt2.html', tree=tree, terminos=terminos, \
+                            image=tree.image, form=form, functions=functions)
+
+
 @blueprint.route('/buscar/')
 def pick(page=1):
     """pick a tree."""
@@ -159,3 +200,7 @@ def register():
     else:
         flash_errors(form)
     return render_template('public/register.html', form=form)
+
+@blueprint.route('/debug/')
+def debug():
+    raise Error
