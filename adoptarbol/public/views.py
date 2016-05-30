@@ -221,7 +221,7 @@ def ipn():
 
     arg = ''
     #: We use an ImmutableOrderedMultiDict item because it retains the order.
-    request.parameter_storage_class = ImmutableOrderedMultiDict()
+    request.parameter_storage_class = ImmutableOrderedMultiDict
     values = request.form
     for x, y in values.iteritems():
         arg += "&{x}={y}".format(x=x,y=y)
