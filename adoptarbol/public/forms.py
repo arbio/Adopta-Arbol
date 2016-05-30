@@ -11,7 +11,7 @@ class SponsorshipForm(Form):
     """Sponsorship form."""
 
     name = StringField('Name', validators=[DataRequired()])
-    email = PasswordField('Email', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
     gift = BooleanField('Es un regalo')
 
     def __init__(self, *args, **kwargs):
