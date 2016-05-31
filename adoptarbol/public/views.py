@@ -113,7 +113,7 @@ def cancel():
     flash(u'PROCESO DE PAGO: Operacion cancelada.')
     return redirect(url_for('public.home'))
 
-@blueprint.route('/ipn/', methods=['POST'])
+@blueprint.route('/ipn', methods=['POST'])
 def confirm_ipn():
     query_string = request.get_data()
 
