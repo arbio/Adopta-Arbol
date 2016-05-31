@@ -102,7 +102,7 @@ def pay():
                        reference=json.dumps({'opcode':request.form['opcode'], \
                                           'name':request.form['name'], \
                                           'email':request.form['email']}),
-                       status='pending'))
+                       status='pending')
         return 'OK'
 
     flash(u'PROCESO DE PAGO: Operador desconocido.')
