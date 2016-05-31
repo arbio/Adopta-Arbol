@@ -139,9 +139,12 @@ def confirm():
         sandbox = False
 
     id_transaction = request.args['tx']
+
     print request.args
 
     response = pypay.pdt_confirm(id_transaction, id_token, sandbox=sandbox)
+
+    print response.details
 
     if response.confirmed:
         flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
