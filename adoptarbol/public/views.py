@@ -94,7 +94,7 @@ def pay():
 
     # Paypal
     if 'pp_submit' in request.form:
-        return str(Sponsorship.create(
+        sponsorship = Sponsorship.create(
                        tree_id=tree.id,
                        user_id=current_user.get_id(),
                        amount=tree.cost,
@@ -103,6 +103,7 @@ def pay():
                                           'name':request.form['name'], \
                                           'email':request.form['email']}),
                        status='pending'))
+        return 'OK'
 
     flash(u'PROCESO DE PAGO: Operador desconocido.')
     return redirect(url_for('public.home'))
