@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """Public forms."""
 from flask_wtf import Form
-from wtforms import PasswordField, StringField, BooleanField
+from wtforms import PasswordField, StringField, BooleanField, HiddenField
 from wtforms.validators import DataRequired
 
 from adoptarbol.user.models import User
 
+import time
+import hashlib
+import random
 
 class SponsorshipForm(Form):
     """Sponsorship form."""
@@ -14,10 +17,26 @@ class SponsorshipForm(Form):
     email = StringField('Email', validators=[DataRequired()])
     gift = BooleanField('Es un regalo')
 
+    ## Payments
+    opcode = HiddenField('opcode')
+    pp_button_id = HiddenField('pp_button_id')
+    pp_target = HiddenField('pp_target')
+
     def __init__(self, *args, **kwargs):
         """Create instance."""
         super(SponsorshipForm, self).__init__(*args, **kwargs)
-        self.user = None
+
+        # Generate random hash
+        data = '%s%s' % (time.time(), random.randint(10000, 100000))
+        random_hash = hashlib.sha1(data).hexdigest()
+        self.opcode = random_hash
+
+        if kwargs['sandbox']:
+            self.pp_button_id = '5Q34E2APFU3JJ'
+            self.pp_target = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+        else:
+            self.pp_button_id = 'S9SN2KJFZZBX6'
+            self.pp_target = 'https://www.paypal.com/cgi-bin/webscr'
 
     def validate(self):
         """Validate the form."""

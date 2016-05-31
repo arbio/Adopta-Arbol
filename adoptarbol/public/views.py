@@ -10,6 +10,9 @@ from adoptarbol.user.models import User
 from adoptarbol.tree.models import Tree, Sponsorship
 from adoptarbol.utils import flash_errors
 
+import pypay
+import json
+
 from random import choice
 import requests
 from itertools import chain
@@ -61,7 +64,7 @@ def home(tree_id=None):
 
     count = {}
     count['total'] = Tree.query.count()
-    count['sponsored'] = Sponsorship.query.count() 
+    count['sponsored'] = Tree.adopted()
     # clever way to get next multiple of 5
     count['target'] = count['sponsored'] + (5 - count['sponsored'] % 5)
     if count['target'] > count['total']:
@@ -96,9 +99,9 @@ def pay():
                        user_id=current_user.get_id(),
                        amount=tree.cost,
                        currency=tree.currency,
-                       reference=str(jsonify({'opcode':request.form['opcode'], \
+                       reference=json.dumps({'opcode':request.form['opcode'], \
                                           'name':request.form['name'], \
-                                          'email':request.form['email']})),
+                                          'email':request.form['email']}),
                        status='pending'))
 
     flash(u'PROCESO DE PAGO: Operador desconocido.')
@@ -106,17 +109,44 @@ def pay():
 
 @blueprint.route('/cancel/')
 def cancel():
+    print request.args
     flash(u'PROCESO DE PAGO: Operacion cancelada.')
     return redirect(url_for('public.home'))
 
-@blueprint.route('/confirm2/')
-def confirm2():
-    flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
-    return redirect(url_for('public.home'))
+@blueprint.route('/ipn/', methods=['POST'])
+def confirm_ipn():
+    query_string = request.get_data()
 
+    print request.args
+
+    response = pypay.pdt_confirm(query_string, sandbox=request.args.get('test_ipn'))
+
+    if response.confirmed:
+        print 'IPN CONFIRMED!'
+    else:
+        print 'IPN FAILED!'
+
+    return 'OK'
+
+@blueprint.route('/confirm2/') # pp_sandbox
 @blueprint.route('/confirm/')
 def confirm():
-    flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
+    if 'confirm2' in request.path:
+        id_token = 'LwhcHjbn_BmF4Lsf7XNYrJTZ6orZF-Wtlp_rPOlKczX_OGSht9ETIyK0mny'
+        sandbox = True
+    else:
+        id_token = 'z97zgbJXSuHADnkx56wfgKEWkNIWkfMQ-k0u6kxpSOgKH98a7DHyh0qDjg4'
+        sandbox = False
+
+    id_transaction = request.args['tx']
+    print request.args
+
+    response = pypay.pdt_confirm(id_transaction, id_token, sandbox=sandbox)
+
+    if response.confirmed:
+        flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
+    else:
+        flash(u'Algo ha salido mal.')
     return redirect(url_for('public.home'))
 
 @blueprint.route('/adopt/')
@@ -128,11 +158,11 @@ def adopt(tree_id=None):
         return redirect(url_for('public.adopt', tree_id=tree.id))
     else:
         tree = Tree.get_by_id(tree_id)
-    tree.comments = tree.comments or get_random_item('sobremi')
 
     terminos = pages.get('terminosadopcion')
 
-    form = SponsorshipForm(request.form)
+    print request.args.get('sandbox')
+    form = SponsorshipForm(request.form, sandbox=request.args.get('sandbox'))
 
     explanation = { 'wood':u'Es maderable',
                     'bird':u'Es hogar de aves',
@@ -140,46 +170,14 @@ def adopt(tree_id=None):
                     'soil':u'Es mejorador del suelo',
                     'community':u'Es importante para las comunidades nativas',
                     'medicine':u'Es medicinal' }
+    tree.comments = tree.comments or get_random_item('sobremi')
 
-    functions = []
+    functions = [] # tree ecosystemic icons
     for function in tree.function.split(","):
         functions.append ( { 'icon':"%s.png" % function,
                              'desc':explanation[function] } )
-
 
     return render_template('public/adopt.html', tree=tree, terminos=terminos, \
-                            image=tree.image, form=form, functions=functions)
-
-
-@blueprint.route('/adopt2/')
-@blueprint.route('/adopt2/<int:tree_id>')
-def adopt2(tree_id=None):
-    """fake adopt a tree."""
-    if not tree_id:
-        tree = Tree.random()
-        return redirect(url_for('public.adopt2', tree_id=tree.id))
-    else:
-        tree = Tree.get_by_id(tree_id)
-    tree.comments = tree.comments or get_random_item('sobremi')
-
-    terminos = pages.get('terminosadopcion')
-
-    form = SponsorshipForm(request.form)
-
-    explanation = { 'wood':u'Es maderable',
-                    'bird':u'Es hogar de aves',
-                    'mammal':u'Es hogar de mamíferos',
-                    'soil':u'Es mejorador del suelo',
-                    'community':u'Es importante para las comunidades nativas',
-                    'medicine':u'Es medicinal' }
-
-    functions = []
-    for function in tree.function.split(","):
-        functions.append ( { 'icon':"%s.png" % function,
-                             'desc':explanation[function] } )
-
-
-    return render_template('public/adopt2.html', tree=tree, terminos=terminos, \
                             image=tree.image, form=form, functions=functions)
 
 
@@ -214,32 +212,3 @@ def register():
 @blueprint.route('/debug/')
 def debug():
     raise Error
-
-# https://gist.github.com/doobeh/1869698
-# https://gist.github.com/cbsmith/5069769
-#demonstration of hack to declaratively set param_storage_class declaratively using a decorator
-#also demonstrates how to write an IPN handler with Flask
-
-#Normally this parameter would come from a config
-IPN_URLSTRING = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
-IPN_VERIFY_EXTRA_PARAMS = (('cmd', '_notify-validate'),)
-
-def ordered_storage(f):
-    import werkzeug.datastructures
-    import flask
-    def decorator(*args, **kwargs):
-        flask.request.parameter_storage_class = werkzeug.datastructures.ImmutableOrderedMultiDict
-        return f(*args, **kwargs)
-    return decorator
-    
-@blueprint.route('/ipn', methods=['POST'])
-@ordered_storage
-def paypal_webhook():
-    #probably should have a sanity check here on the size of the form data to guard against DoS attacks
-    verify_args = chain(request.form.iteritems(), IPN_VERIFY_EXTRA_PARAMS)
-    verify_string = '&'.join(('%s=%s' % (param, value) for param, value in verify_args))
-    with closing(urlopen(IPN_URLSTRING, data=verify_string)) as paypal_verify_request:
-        response_string = paypal_verify_request.read()
-        if response_string != 'VERIFIED':
-            raise ValueError('Did not receive expected IPN confirmation from PayPal')
-    return make_response('')

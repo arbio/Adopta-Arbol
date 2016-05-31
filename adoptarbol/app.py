@@ -59,7 +59,7 @@ def register_hooks(app):
                 ['git', 'pull', 'origin', 'master'],)
             return jsonify({'msg': str(cmd_output)})
         except subprocess.CalledProcessError as error:
-            email("Code deployment failed", error.output)
+            print "Code deployment failed", error.output
             return jsonify({'msg': str(error.output)})
         return 'Thanks'
     hooks.register_hook('push', new_code)

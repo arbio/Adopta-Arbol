@@ -99,6 +99,10 @@ class Tree(SurrogatePK, Model):
         tree = cls.query.offset(random_id).first()
         return tree
 
+    @classmethod
+    def adopted(cls):
+        return Sponsorship.query.filter("status='confirmed'").count()
+
 
 class Sponsorship(SurrogatePK, Model):
     """A tree adoption."""
