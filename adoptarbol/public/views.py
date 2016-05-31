@@ -116,10 +116,10 @@ def cancel():
 @blueprint.route('/ipn', methods=['POST'])
 def confirm_ipn():
     query_string = request.get_data()
+    sandbox = request.form.get('test_ipn')
+    print 'IPN_GOT :' + query_string
 
-    print request.args
-
-    response = pypay.ipn_confirm(query_string, sandbox=request.args.get('test_ipn'))
+    response = pypay.ipn_confirm(query_string, sandbox=sandbox)
 
     if response.confirmed:
         print 'IPN CONFIRMED!'
