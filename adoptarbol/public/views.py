@@ -119,7 +119,7 @@ def confirm_ipn():
 
     print request.args
 
-    response = pypay.pdt_confirm(query_string, sandbox=request.args.get('test_ipn'))
+    response = pypay.ipn_confirm(query_string, sandbox=request.args.get('test_ipn'))
 
     if response.confirmed:
         print 'IPN CONFIRMED!'
