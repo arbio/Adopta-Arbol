@@ -110,7 +110,7 @@ def pay():
 
 @blueprint.route('/cancel/')
 def cancel():
-    print request.args
+    print (request.args)
     flash(u'PROCESO DE PAGO: Operacion cancelada.')
     return redirect(url_for('public.home'))
 
@@ -118,14 +118,14 @@ def cancel():
 def confirm_ipn():
     query_string = request.get_data()
     sandbox = request.form.get('test_ipn')
-    print 'IPN_GOT :' + query_string
+    print ('IPN_GOT :' + query_string)
 
     response = pypay.ipn_confirm(query_string, sandbox=sandbox)
 
     if response.confirmed:
-        print 'IPN CONFIRMED!'
+        print ('IPN CONFIRMED!')
     else:
-        print 'IPN FAILED!'
+        print ('IPN FAILED!')
 
     return 'OK'
 
@@ -141,11 +141,11 @@ def confirm():
 
     id_transaction = request.args['tx']
 
-    print request.args
+    print (request.args)
 
     response = pypay.pdt_confirm(id_transaction, id_token, sandbox=sandbox)
 
-    print response.details
+    print (response.details)
 
     if response.confirmed:
         flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
@@ -165,7 +165,7 @@ def adopt(tree_id=None):
 
     terminos = pages.get('terminosadopcion')
 
-    print request.args.get('sandbox')
+    print (request.args.get('sandbox'))
     form = SponsorshipForm(request.form, sandbox=request.args.get('sandbox'))
 
     explanation = { 'wood':u'Es maderable',

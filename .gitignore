@@ -28,10 +28,11 @@ nosetests.xml
 # Translations
 *.mo
 
-# Mr Developer
+# Editors
 .mr.developer.cfg
 .project
 .pydevproject
+*.swp
 
 # Complexity
 output/*.html
@@ -44,5 +45,6 @@ docs/_build
 
 # Virtualenvs
 env/
+.direnv/
 
 _orig/

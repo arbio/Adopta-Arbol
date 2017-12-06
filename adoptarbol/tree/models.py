@@ -117,7 +117,7 @@ class Sponsorship(SurrogatePK, Model):
     currency = Column(db.String, nullable=False)
     reference = Column(db.String, nullable=False)
 
-    status = Column(db.Enum(['pending', 'confirmed', 'cancelled']))
+    status = Column(db.Enum(('pending', 'confirmed', 'cancelled')))
     just_test = Column(db.Boolean(), default=False)
 
     def __init__(self, **kwargs):

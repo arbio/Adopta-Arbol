@@ -1,44 +1,44 @@
 # Everything needed in production
 
-setuptools==20.2.2
-wheel==0.29.0
+setuptools==38.2.4
+wheel==0.30.0
 
 # Flask
-Flask==0.10.1
-MarkupSafe==0.23
-Werkzeug==0.11.4
-Jinja2==2.8
+Flask==0.12.2
+MarkupSafe==1.0
+Werkzeug==0.12.2
+Jinja2==2.10
 itsdangerous==0.24
 
 # Database
-Flask-SQLAlchemy==2.1
-psycopg2==2.6.1
-SQLAlchemy==1.0.12
+Flask-SQLAlchemy==2.3.2
+psycopg2==2.7.3.2
+SQLAlchemy==1.1.15
 
 # Migrations
-Flask-Migrate==1.8.0
+Flask-Migrate==2.1.1
 
 # Forms
-Flask-WTF==0.12
+Flask-WTF==0.14.2
 WTForms==2.1
 
 # Deployment
 gunicorn>=19.1.1
 
 # Assets
-Flask-Assets==0.11
+Flask-Assets==0.12
 cssmin>=0.2.0
 jsmin>=2.0.11
 
 # Auth
-Flask-Login==0.3.2
+Flask-Login==0.4.1
 Flask-Bcrypt==0.7.1
 
 # Caching
 Flask-Cache>=0.13.1
 
 # Debug toolbar
-Flask-DebugToolbar==0.10.0
+Flask-DebugToolbar==0.10.1
 
 # FlatPages
 Flask-FlatPages==0.6
@@ -48,7 +48,7 @@ Markdown>=2.5.1
 Flask-Restless==0.17.0
 
 # Coordinate converter
-utm==0.4.0
+utm==0.4.2
 
 # Useful for dealing with APIs
 requests>=2.10.0
