@@ -25,17 +25,17 @@
       <li><a href="{{ url_for('public.adopt') }}">Adopta ahora</a></li>
       <li><a href="{{ url_for('public.page', path='concesionarios') }}">¿Tienes un bosque?</a></li>
     </ul>
-    <!--{% if current_user and current_user.is_authenticated %}
+    {% if current_user and current_user.is_authenticated %}
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <p class="navbar-text"><a class="navbar-link" href="{{ url_for('user.members') }}">Logged in as {{ current_user.username }}</a></p>
+            <p class="navbar-text"><a class="navbar-link" href="{{ url_for('user.members') }}">Bienvenido(a) {{ current_user.username }}</a></p>
         </li>
         <li><a class="navbar-link" href="{{ url_for('public.logout') }}"><i class="fa fa-sign-out"></i></a></li>
 
     </ul>
     {% elif loginform %}
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{ url_for('public.register') }}">Create account</a></li>
+      <li><a href="{{ url_for('public.register') }}">Registrarse</a></li>
     </ul>
     <form id="loginForm" method="POST" class="navbar-form form-inline navbar-right" action="/" role="login">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
@@ -45,7 +45,7 @@
       </div>
       <button type="submit" class="btn btn-default">Log in</button>
     </form>
-    {% endif %}--!>
+    {% endif %}
   </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>
