@@ -21,4 +21,4 @@ def api_docs():
 @blueprint.route('/api/trees/_random')
 def random_tree_endpoint():
     """random tree."""
-    return jsonify(Tree.random())
+    return jsonify(dict(Tree.random()))
