@@ -28,7 +28,7 @@ class SponsorshipForm(Form):
 
         # Generate random hash
         data = '%s%s' % (time.time(), random.randint(10000, 100000))
-        random_hash = hashlib.sha1(data).hexdigest()
+        random_hash = hashlib.sha1(data.encode('utf-8')).hexdigest()
         self.opcode = random_hash
 
         if kwargs['sandbox']:

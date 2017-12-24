@@ -6,6 +6,7 @@ import utm
 from random import randint
 from flask import current_app as app
 from werkzeug import secure_filename
+from sqlalchemy import text
 
 from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
 
@@ -63,7 +64,7 @@ class Tree(SurrogatePK, Model):
 
     def __repr__(self):
         """Represent instance as a unique string."""
-        return '<Tree({code})>'.format(code=self.code)
+        return '<Tree({id})>'.format(id=self.id)
 
     @property
     def image(self):
@@ -95,13 +96,14 @@ class Tree(SurrogatePK, Model):
 
     @classmethod
     def random(cls):
-        random_id = randint(1, cls.query.count())
-        tree = cls.query.offset(random_id).first()
-        return tree
+        if cls.query.count() > 0:
+            random_id = randint(1, cls.query.count())
+            tree = cls.query.offset(random_id).first()
+            return tree
 
     @classmethod
     def adopted(cls):
-        return Sponsorship.query.filter("status='confirmed'").count()
+        return Sponsorship.query.filter(text("status='confirmed'")).count()
 
 
 class Sponsorship(SurrogatePK, Model):
@@ -117,7 +119,7 @@ class Sponsorship(SurrogatePK, Model):
     currency = Column(db.String, nullable=False)
     reference = Column(db.String, nullable=False)
 
-    status = Column(db.Enum(('pending', 'confirmed', 'cancelled')))
+    status = Column(db.String, nullable=False)
     just_test = Column(db.Boolean(), default=False)
 
     def __init__(self, **kwargs):

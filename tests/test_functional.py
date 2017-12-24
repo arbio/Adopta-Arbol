@@ -74,7 +74,7 @@ class TestRegistering:
         # Goes to homepage
         res = testapp.get('/')
         # Clicks Create Account button
-        res = res.click('Create account')
+        res = res.click('Registrarse')
         # Fills out the form
         form = res.forms['registerForm']
         form['username'] = 'foobar'

@@ -6,13 +6,13 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf.csrf import CsrfProtect
+from flask_wtf.csrf import CSRFProtect
 from flask_flatpages import FlatPages
-from flask.ext.restless import APIManager
-from flask.ext.hookserver import Hooks
+from flask_restless import APIManager
+from flask_hookserver import Hooks
 
 bcrypt = Bcrypt()
-csrf_protect = CsrfProtect()
+csrf_protect = CSRFProtect()
 login_manager = LoginManager()
 db = SQLAlchemy()
 migrate = Migrate()

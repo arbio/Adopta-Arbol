@@ -5,10 +5,12 @@ from flask import Flask, render_template, jsonify
 from adoptarbol import public, user, tree
 from adoptarbol.assets import assets
 from adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, \
-                                  login_manager, migrate, pages, api_manager, hooks
+    login_manager, migrate, pages, api_manager, hooks
 from adoptarbol.settings import ProdConfig
 
 import subprocess
+import requests
+
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -20,7 +22,18 @@ def create_app(config_object=ProdConfig):
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
-    register_hooks(app)
+    try:
+        register_hooks(app)
+    except Exception:
+        pass
+
+    @app.route('/', defaults={'path': ''})
+    @app.route('/<path:path>')
+    def catch_all(path):
+        if app.debug:
+            return requests.get('http://localhost:8080/{}'.format(path)).text
+        return render_template("index.html")
+
     return app
 
 
@@ -47,11 +60,12 @@ def register_blueprints(app):
     app.register_blueprint(user.views.blueprint)
     return None
 
+
 def register_hooks(app):
     def ping(data, delivery):
         return 'pong'
     hooks.register_hook('ping', ping)
-    
+
     def new_code(data, delivery):
         print('New push to %s' % data['ref'])
         try:
@@ -59,12 +73,13 @@ def register_hooks(app):
                 ['git', 'pull', 'origin', 'master'],)
             return jsonify({'msg': str(cmd_output)})
         except subprocess.CalledProcessError as error:
-            print ("Code deployment failed", error.output)
+            print("Code deployment failed", error.output)
             return jsonify({'msg': str(error.output)})
         return 'Thanks'
     hooks.register_hook('push', new_code)
 
     return None
+
 
 def register_errorhandlers(app):
     """Register error handlers."""

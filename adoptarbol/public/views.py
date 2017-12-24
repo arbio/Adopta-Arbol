@@ -10,7 +10,6 @@ from adoptarbol.user.models import User
 from adoptarbol.tree.models import Tree, Sponsorship
 from adoptarbol.utils import flash_errors
 
-import pypay
 import json
 
 from random import choice
@@ -56,11 +55,18 @@ def home(tree_id=None):
         tree = Tree.random()
     else:
         tree = Tree.get_by_id(tree_id)
-    tree.comments = tree.comments or get_random_item('sobremi')
 
-    nav = {}
-    nav['before'] = tree.before.id
-    nav['after'] = tree.after.id
+    nav = image = None
+    if tree:
+        tree.comments = tree.comments or get_random_item('sobremi')
+
+        nav = {}
+        nav['before'] = tree.before.id
+        nav['after'] = tree.after.id
+
+        image = tree.image
+    else:
+        tree = Tree(0)
 
     count = {}
     count['total'] = Tree.query.count()
@@ -86,72 +92,7 @@ def home(tree_id=None):
         else:
             flash_errors(form)
     return render_template('public/home.html', loginform=form, tree=tree, count=count, \
-                            image=tree.image, banner=banner, nav=nav)
-
-@blueprint.route('/pay/', methods=['POST'])
-def pay():
-    tree = Tree.get_by_id( request.form['tree_id'] )
-
-    # Paypal
-    if 'pp_submit' in request.form:
-        sponsorship = Sponsorship.create(
-                       tree_id=tree.id,
-                       user_id=current_user.get_id(),
-                       amount=tree.cost,
-                       currency=tree.currency,
-                       reference=json.dumps({'opcode':request.form['opcode'], \
-                                          'name':request.form['name'], \
-                                          'email':request.form['email']}),
-                       status='pending')
-        return 'OK'
-
-    flash(u'PROCESO DE PAGO: Operador desconocido.')
-    return redirect(url_for('public.home'))
-
-@blueprint.route('/cancel/')
-def cancel():
-    print (request.args)
-    flash(u'PROCESO DE PAGO: Operacion cancelada.')
-    return redirect(url_for('public.home'))
-
-@blueprint.route('/ipn', methods=['POST'])
-def confirm_ipn():
-    query_string = request.get_data()
-    sandbox = request.form.get('test_ipn')
-    print ('IPN_GOT :' + query_string)
-
-    response = pypay.ipn_confirm(query_string, sandbox=sandbox)
-
-    if response.confirmed:
-        print ('IPN CONFIRMED!')
-    else:
-        print ('IPN FAILED!')
-
-    return 'OK'
-
-@blueprint.route('/confirm2/') # pp_sandbox
-@blueprint.route('/confirm/')
-def confirm():
-    if 'confirm2' in request.path:
-        id_token = 'LwhcHjbn_BmF4Lsf7XNYrJTZ6orZF-Wtlp_rPOlKczX_OGSht9ETIyK0mny'
-        sandbox = True
-    else:
-        id_token = 'z97zgbJXSuHADnkx56wfgKEWkNIWkfMQ-k0u6kxpSOgKH98a7DHyh0qDjg4'
-        sandbox = False
-
-    id_transaction = request.args['tx']
-
-    print (request.args)
-
-    response = pypay.pdt_confirm(id_transaction, id_token, sandbox=sandbox)
-
-    print (response.details)
-
-    if response.confirmed:
-        flash(u'QUERIDO AMIGO: Muchas gracias por tu aporte. Nos estaremos comunicando contigo a la brevedad.')
-    else:
-        flash(u'Algo ha salido mal.')
-    return redirect(url_for('public.home'))
+                            image=image, banner=banner, nav=nav)
 
 @blueprint.route('/adopt/')
 @blueprint.route('/adopt/<int:tree_id>')
@@ -165,24 +106,24 @@ def adopt(tree_id=None):
 
     terminos = pages.get('terminosadopcion')
 
-    print (request.args.get('sandbox'))
+    print(request.args.get('sandbox'))
     form = SponsorshipForm(request.form, sandbox=request.args.get('sandbox'))
 
-    explanation = { 'wood':u'Es maderable',
-                    'bird':u'Es hogar de aves',
-                    'mammal':u'Es hogar de mamíferos',
-                    'soil':u'Es mejorador del suelo',
-                    'community':u'Es importante para las comunidades nativas',
-                    'medicine':u'Es medicinal' }
-    tree.comments = tree.comments or get_random_item('sobremi')
+    explanation = {'wood': u'Es maderable',
+                   'bird': u'Es hogar de aves',
+                   'mammal': u'Es hogar de mamíferos',
+                   'soil': u'Es mejorador del suelo',
+                   'community': u'Es importante para las comunidades nativas',
+                   'medicine': u'Es medicinal'}
+    tree.comments = tree['comments'] or get_random_item('sobremi')
 
-    functions = [] # tree ecosystemic icons
+    functions = []  # tree ecosystemic icons
     for function in tree.function.split(","):
-        functions.append ( { 'icon':"%s.png" % function,
-                             'desc':explanation[function] } )
+        functions.append({'icon': "%s.png" % function,
+                          'desc': explanation[function]})
 
-    return render_template('public/adopt.html', tree=tree, terminos=terminos, \
-                            image=tree.image, form=form, functions=functions)
+    return render_template('public/adopt.html', tree=tree, terminos=terminos,
+                           image=tree.image, form=form, functions=functions)
 
 
 @blueprint.route('/buscar/')
@@ -204,7 +145,7 @@ def logout():
 @blueprint.route('/register/', methods=['GET', 'POST'])
 def register():
     """Register new user."""
-    form = RegisterForm(request.form, csrf_enabled=False)
+    form = RegisterForm(request.form, csrf=False)
     if form.validate_on_submit():
         User.create(username=form.username.data, email=form.email.data, password=form.password.data, active=True)
         flash('Thank you for registering. You can now log in.', 'success')
