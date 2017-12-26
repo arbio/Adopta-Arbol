@@ -11,8 +11,8 @@
 
   <div class="well well-sm col-lg-5 text-center">
     <form id="adoptForm" method="POST" class="form form-inline" action="/pay/">
-      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-      <input type="hidden" name="opcode" value="{{  csrf_token()|truncate(12, False, "") }}"/>
+      <!--input type="hidden" name="csrf_token" value="{ { csrf_token() } }"/-->
+      <!--input type="hidden" name="opcode" value="{ {  csrf_token()|truncate(12, False, "") } }"/-->
       <input type="hidden" name="tree_id" value="{{ tree.id }}"/>
       <input type="hidden" name="tree_code" value="{{ tree.code }}"/>
       <div class="form-group">

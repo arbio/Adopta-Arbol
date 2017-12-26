@@ -48,3 +48,6 @@ env/
 .direnv/
 
 _orig/
+dist/
+.cache/
+__javascript__/

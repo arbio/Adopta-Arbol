@@ -4,12 +4,11 @@ from flask import Flask, render_template, jsonify
 
 from adoptarbol import public, user, tree
 from adoptarbol.assets import assets
-from adoptarbol.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, \
-    login_manager, migrate, pages, api_manager, hooks
+from adoptarbol.extensions import bcrypt, cache, db, debug_toolbar, \
+    login_manager, migrate, pages, api_manager, hooks, cors  # csrf_protect
 from adoptarbol.settings import ProdConfig
 
 import subprocess
-import requests
 
 
 def create_app(config_object=ProdConfig):
@@ -27,13 +26,6 @@ def create_app(config_object=ProdConfig):
     except Exception:
         pass
 
-    @app.route('/', defaults={'path': ''})
-    @app.route('/<path:path>')
-    def catch_all(path):
-        if app.debug:
-            return requests.get('http://localhost:8080/{}'.format(path)).text
-        return render_template("index.html")
-
     return app
 
 
@@ -43,13 +35,14 @@ def register_extensions(app):
     bcrypt.init_app(app)
     cache.init_app(app)
     db.init_app(app)
-    csrf_protect.init_app(app)
+    #csrf_protect.init_app(app)
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     pages.init_app(app)
     api_manager.init_app(app)
     hooks.init_app(app)
+    cors(app, resources={r"/api/*": {"origins": "*"}})
     return None
 
 

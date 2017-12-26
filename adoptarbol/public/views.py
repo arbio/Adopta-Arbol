@@ -1,20 +1,19 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-from flask import Blueprint, flash, redirect, render_template, request, url_for, jsonify, make_response
-from flask_login import login_required, login_user, logout_user, current_user
+from flask import Blueprint, flash, redirect, render_template
+from flask import request, url_for, jsonify, stream_with_context
+from flask_login import login_required, login_user, logout_user
+from flask import current_app as app
 
-from adoptarbol.extensions import login_manager, pages, api_manager
+from adoptarbol.extensions import login_manager, pages
 from adoptarbol.public.forms import LoginForm, SponsorshipForm
 from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
-from adoptarbol.tree.models import Tree, Sponsorship
+from adoptarbol.tree.models import Tree
 from adoptarbol.utils import flash_errors
 
-import json
-
-from random import choice
+from random import choice, randint
 import requests
-from itertools import chain
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
@@ -31,11 +30,13 @@ def page(path):
     template = page.meta.get('template', 'public/flatpages.html')
     return render_template(template, page=page)
 
+
 @blueprint.route('/api/pages/<path:path>/_random')
 def get_random_item(path):
     page = pages.get_or_404(path)
-    lines =  [line for line in page.body.split('\n') if line.startswith('- ')]
+    lines = [line for line in page.body.split('\n') if line.startswith('- ')]
     return choice(lines)[2:]
+
 
 @blueprint.route('/api/pages/<path:path>')
 def get_page(path):
@@ -47,7 +48,7 @@ def get_page(path):
     return jsonify(page.meta)
 
 
-@blueprint.route('/', methods=['GET', 'POST'])
+@blueprint.route('/home', methods=['GET', 'POST'])
 @blueprint.route('/selected/<int:tree_id>')
 def home(tree_id=None):
     """Home page."""
@@ -91,8 +92,9 @@ def home(tree_id=None):
             return redirect(redirect_url)
         else:
             flash_errors(form)
-    return render_template('public/home.html', loginform=form, tree=tree, count=count, \
-                            image=image, banner=banner, nav=nav)
+    return render_template('public/home.html', loginform=form, tree=tree, count=count,
+                           image=image, banner=banner, nav=nav)
+
 
 @blueprint.route('/adopt/')
 @blueprint.route('/adopt/<int:tree_id>')
@@ -154,6 +156,23 @@ def register():
         flash_errors(form)
     return render_template('public/register.html', form=form)
 
+
 @blueprint.route('/debug/')
 def debug():
-    raise Error
+    raise Exception
+
+
+@blueprint.route('/', defaults={'path': ''})
+@blueprint.route('/<path:path>')
+def catch_all(path):
+    if app.debug:
+        return requests.get('http://localhost:8080/{}'.format(path)).text
+    return render_template("index.html")
+
+
+@blueprint.route('/api/random')
+def random_number():
+    response = {
+        'randomNumber': randint(1, 100)
+    }
+    return jsonify(response)
