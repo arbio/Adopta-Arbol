@@ -14,6 +14,7 @@ I_like_python()
 export default {
   name: 'app'
 }
+
 </script>
 
 <style>

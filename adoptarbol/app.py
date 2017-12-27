@@ -6,10 +6,12 @@ from adoptarbol import public, user, tree
 from adoptarbol.assets import assets
 from adoptarbol.extensions import bcrypt, cache, db, debug_toolbar, \
     login_manager, migrate, pages, api_manager, hooks, cors  # csrf_protect
-from adoptarbol.settings import ProdConfig
+from adoptarbol.settings import ProdConfig, DevConfig
 
 import subprocess
 
+def create_dev_app():
+    return create_app(config_object=DevConfig)
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.

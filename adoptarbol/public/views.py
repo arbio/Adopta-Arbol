@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-from flask import Blueprint, flash, redirect, render_template
+from flask import Blueprint, flash, redirect, render_template, Response
 from flask import request, url_for, jsonify, stream_with_context
 from flask_login import login_required, login_user, logout_user
 from flask import current_app as app
@@ -165,8 +165,14 @@ def debug():
 @blueprint.route('/', defaults={'path': ''})
 @blueprint.route('/<path:path>')
 def catch_all(path):
+
     if app.debug:
-        return requests.get('http://localhost:8080/{}'.format(path)).text
+        url = 'http://localhost:8080/{}'.format(path)
+        req = requests.get(url, stream=True)
+        return Response(stream_with_context(req.raw.stream(decode_content=False)),
+                        content_type=req.headers['content-type'])
+        # return requests.get('http://localhost:8080/{}'.format(path)).text
+
     return render_template("index.html")
 
 

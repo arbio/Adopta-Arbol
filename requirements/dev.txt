@@ -9,6 +9,9 @@ factory-boy==2.9.2
 # Management script
 Flask-Script==2.0.6
 
+# CORS for api
+flask_cors==3.0.3
+
 # Github webhook
 Flask-Hookserver==1.1.0
 
