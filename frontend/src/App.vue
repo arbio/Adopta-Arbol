@@ -7,14 +7,13 @@
 
 <script>
 
-import I_like_python from './test'
+import iLikePython from './test'
 
-I_like_python()
+iLikePython()
 
 export default {
   name: 'app'
 }
-
 </script>
 
 <style>

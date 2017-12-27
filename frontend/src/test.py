@@ -1,6 +1,6 @@
 
-def I_like_python():
+def iLikePython():
     print(True is bool(1))
     #alert('bien!')
 
-module.exports = I_like_python
+module.exports = iLikePython
