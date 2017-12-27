@@ -12,8 +12,8 @@ from flask_script.commands import Clean, ShowUrls
 from adoptarbol.app import create_app
 from adoptarbol.database import db
 from adoptarbol.settings import DevConfig, ProdConfig
+from adoptarbol.tree.models import Sponsorship, Tree
 from adoptarbol.user.models import User
-from adoptarbol.tree.models import Tree,Sponsorship
 
 CONFIG = ProdConfig if os.environ.get('adoptarbol_ENV') == 'prod' else DevConfig
 HERE = os.path.abspath(os.path.dirname(__file__))

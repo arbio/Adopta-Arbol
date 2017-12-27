@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
-from flask import Flask, render_template, jsonify
-
-from adoptarbol import public, user, tree
-from adoptarbol.assets import assets
-from adoptarbol.extensions import bcrypt, cache, db, debug_toolbar, \
-    login_manager, migrate, pages, api_manager, hooks, cors  # csrf_protect
-from adoptarbol.settings import ProdConfig, DevConfig
-
 import subprocess
+
+from flask import Flask, jsonify, render_template
+
+from adoptarbol import public, tree, user
+from adoptarbol.assets import assets
+from adoptarbol.extensions import (api_manager, bcrypt, cache, cors, db, debug_toolbar, hooks,  # csrf_protect
+                                   login_manager, migrate, pages)
+from adoptarbol.settings import DevConfig, ProdConfig
+
 
 def create_dev_app():
     return create_app(config_object=DevConfig)
+
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -37,14 +39,14 @@ def register_extensions(app):
     bcrypt.init_app(app)
     cache.init_app(app)
     db.init_app(app)
-    #csrf_protect.init_app(app)
+    # csrf_protect.init_app(app)
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     pages.init_app(app)
     api_manager.init_app(app)
     hooks.init_app(app)
-    cors(app, resources={r"/api/*": {"origins": "*"}})
+    cors(app, resources={r'/api/*': {'origins': '*'}})
     return None
 
 
@@ -68,7 +70,7 @@ def register_hooks(app):
                 ['git', 'pull', 'origin', 'master'],)
             return jsonify({'msg': str(cmd_output)})
         except subprocess.CalledProcessError as error:
-            print("Code deployment failed", error.output)
+            print('Code deployment failed', error.output)
             return jsonify({'msg': str(error.output)})
         return 'Thanks'
     hooks.register_hook('push', new_code)

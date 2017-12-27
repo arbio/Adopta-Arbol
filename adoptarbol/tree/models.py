@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 """Tree and sponsorship models."""
-import os
 import datetime as dt
-import utm
+import os
 from random import randint
+
+import utm
 from flask import current_app as app
-from werkzeug import secure_filename
 from sqlalchemy import text
+from werkzeug import secure_filename
 
 from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
+
 
 def convert_lat(context):
     utm_e = context.current_parameters.get('coord_utm_e')
@@ -17,6 +19,7 @@ def convert_lat(context):
     utm_zone_letter = context.current_parameters.get('coord_utm_zone_letter')
     lat, lon = utm.to_latlon(utm_e, utm_n, utm_zone_n, utm_zone_letter)
     return lat
+
 
 def convert_lon(context):
     utm_e = context.current_parameters.get('coord_utm_e')
@@ -51,7 +54,7 @@ class Tree(SurrogatePK, Model):
     diameter = Column(db.Integer, nullable=False)
     height = Column(db.Integer, nullable=False)
 
-    comments  = Column(db.String(500))
+    comments = Column(db.String(500))
 
     cost = Column(db.Float, nullable=False, default=50)
     currency = Column(db.String, nullable=False, default='USD')
@@ -68,19 +71,19 @@ class Tree(SurrogatePK, Model):
 
     @property
     def image(self):
-        common_photo_file = "%s.jpg" % secure_filename(self.common_name.lower())
-        common_photo_path = os.path.join(app.static_folder, 'images', \
-                                        'common_trees', common_photo_file)
+        common_photo_file = '%s.jpg' % secure_filename(self.common_name.lower())
+        common_photo_path = os.path.join(app.static_folder, 'images',
+                                         'common_trees', common_photo_file)
         if self.photo:
-            return {'exists':True, 'src':self.photo}
+            return {'exists': True, 'src': self.photo}
         elif os.path.exists(common_photo_path) and os.path.isfile(common_photo_path):
-            return {'exists':True, 'src':"/static/images/common_trees/%s" % common_photo_file}
+            return {'exists': True, 'src': '/static/images/common_trees/%s' % common_photo_file}
         else:
-            return {'exists':False, 'src':"/static/images/common_trees/reference_tree.jpg"}
+            return {'exists': False, 'src': '/static/images/common_trees/reference_tree.jpg'}
 
     @property
     def before(self):
-        if self==Tree.query.first():
+        if self == Tree.query.first():
             return Tree.query.offset(Tree.query.count() - 1).first()
 
         tree = Tree.get_by_id(self.id - 1)
@@ -88,7 +91,7 @@ class Tree(SurrogatePK, Model):
 
     @property
     def after(self):
-        if self==Tree.query.offset(Tree.query.count() - 1).first():
+        if self == Tree.query.offset(Tree.query.count() - 1).first():
             return Tree.query.first()
 
         tree = Tree.get_by_id(self.id + 1)
@@ -129,4 +132,3 @@ class Sponsorship(SurrogatePK, Model):
     def __repr__(self):
         """Represent instance as a unique string."""
         return '<Sponsorship({code})>'.format(code=self.tree_id)
-

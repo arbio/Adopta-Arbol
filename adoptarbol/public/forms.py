@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 """Public forms."""
+import hashlib
+import random
+import time
+
 from flask_wtf import Form
-from wtforms import PasswordField, StringField, BooleanField, HiddenField
+from wtforms import BooleanField, HiddenField, PasswordField, StringField
 from wtforms.validators import DataRequired
 
 from adoptarbol.user.models import User
 
-import time
-import hashlib
-import random
 
 class SponsorshipForm(Form):
     """Sponsorship form."""
@@ -17,7 +18,7 @@ class SponsorshipForm(Form):
     email = StringField('Email', validators=[DataRequired()])
     gift = BooleanField('Es un regalo')
 
-    ## Payments
+    # Payments
     opcode = HiddenField('opcode')
     pp_button_id = HiddenField('pp_button_id')
     pp_target = HiddenField('pp_target')

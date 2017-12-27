@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-from flask import Blueprint, flash, redirect, render_template, Response
-from flask import request, url_for, jsonify, stream_with_context
-from flask_login import login_required, login_user, logout_user
+from random import choice, randint
+
+import requests
 from flask import current_app as app
+from flask import Blueprint, Response, flash, jsonify, redirect, render_template, request, stream_with_context, url_for
+from flask_login import login_required, login_user, logout_user
 
 from adoptarbol.extensions import login_manager, pages
 from adoptarbol.public.forms import LoginForm, SponsorshipForm
+from adoptarbol.tree.models import Tree
 from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
-from adoptarbol.tree.models import Tree
 from adoptarbol.utils import flash_errors
-
-from random import choice, randint
-import requests
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
@@ -120,8 +119,8 @@ def adopt(tree_id=None):
     tree.comments = tree['comments'] or get_random_item('sobremi')
 
     functions = []  # tree ecosystemic icons
-    for function in tree.function.split(","):
-        functions.append({'icon': "%s.png" % function,
+    for function in tree.function.split(','):
+        functions.append({'icon': '%s.png' % function,
                           'desc': explanation[function]})
 
     return render_template('public/adopt.html', tree=tree, terminos=terminos,
@@ -173,7 +172,7 @@ def catch_all(path):
                         content_type=req.headers['content-type'])
         # return requests.get('http://localhost:8080/{}'.format(path)).text
 
-    return render_template("index.html")
+    return render_template('index.html')
 
 
 @blueprint.route('/api/random')
