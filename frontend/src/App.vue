@@ -1,18 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/censarbol.png">
     <router-view/>
+        {{ trees }}
   </div>
 </template>
 
 <script>
 
-import iLikePython from './test'
+import axios from 'axios'
 
-iLikePython()
+window.requests = axios.create({
+    baseURL: 'http://localhost:5000/api'
+})
 
 export default {
-  name: 'app'
+  name: 'app',
+  data: () => ( { trees : window.forest } )
 }
 </script>
 
@@ -24,5 +28,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+body {
+    background-color: Peru;
 }
 </style>
