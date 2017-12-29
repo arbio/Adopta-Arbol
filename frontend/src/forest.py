@@ -16,8 +16,9 @@ class Forest:
 
     async def update(self):
         response = await window.requests.js_get('trees',
-                                                {'params':
-                                                 {'page': self.page}}
+                                                {'params': {
+                                                 'results_per_page': 12,
+                                                 'page': self.page}}
                                                 )
 
         self.trees = response.data.objects
