@@ -38,14 +38,11 @@ export default {
     }
   },
   mounted: function() {
-    this.init()
+    setTimeout( () => {
+      window.forest = Forest(this.fetchData, this.$route.query.page)
+    }, 300)
   },
   methods: {
-    init() {
-        setTimeout( () => {
-      window.forest = Forest(this.fetchData, this.$route.query.page)
-        }, 300)
-    },
     fetchData() {
       this.forest = forest.trees
       this.total = forest.total
