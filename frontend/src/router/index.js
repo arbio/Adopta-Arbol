@@ -5,6 +5,8 @@ const routerOptions = [
   { path: '/about', component: 'About' },
   { path: '/tree/:id', component: 'Tree' },
   { path: '/cart', component: 'Cart' },
+  { path: '/admin/trees', component: 'TreeList' },
+  { path: '/admin/tree/:id', component: 'TreeAdmin' },
   { path: '*', component: 'NotFound' }
 ]
 const routes = routerOptions.map(route => {

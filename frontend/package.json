@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "py-loader": "/home/icarito/Proyectos/python-webpack-loader/",
+    "babel-preset-es2015": "^6.24.1",
+    "py-loader": "https://github.com/martim00/python-webpack-loader",
     "uglifyjs-webpack-plugin": "^1.1.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"

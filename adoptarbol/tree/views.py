@@ -9,7 +9,7 @@ from adoptarbol.tree.models import Sponsorship, Tree
 
 # from adoptarbol.user.models import User
 
-blueprint = Blueprint('tree', __name__, static_folder='../static')
+blueprint = Blueprint('tree', __name__, static_folder='../flask_static')
 
 api_manager.create_api(Tree)
 api_manager.create_api(Sponsorship)

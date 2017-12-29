@@ -14,7 +14,7 @@ from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
 from adoptarbol.utils import flash_errors
 
-blueprint = Blueprint('public', __name__, static_folder='../static')
+blueprint = Blueprint('public', __name__, static_folder='../flask_static')
 
 
 @login_manager.user_loader
