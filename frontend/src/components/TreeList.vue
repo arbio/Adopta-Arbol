@@ -8,6 +8,7 @@
               <th class="c-table__cell">ID</th>
               <th class="c-table__cell">Especie</th>
               <th class="c-table__cell">Diámetro</th>
+              <th class="c-table__cell">Acciones</th>
           </tr>
         </thead>
         <tbody class="c-table__body">
@@ -15,6 +16,9 @@
               <td class="c-table__cell">{{ tree.id }}</td>
               <td class="c-table__cell">{{ tree.common_name }}</td>
               <td class="c-table__cell">{{ tree.diameter }} cm</td>
+              <td class="c-table__cell">
+                  <router-link :tree="tree.diameter" :to="{ path: 'trees/'+tree.id}" class="btn btn-primary">Ver</router-link>
+              </td>
           </tr>
         </tbody>
     </table>
