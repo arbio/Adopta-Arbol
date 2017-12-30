@@ -20,7 +20,7 @@ def create_app(config_object=ProdConfig):
 
     :param config_object: The configuration object to use.
     """
-    app = Flask(__name__, static_url_path='/flask_static')
+    app = Flask(__name__, static_url_path='/static')
     # Also may need:  static_folder="./dist/static", template_folder="./dist")
     app.config.from_object(config_object)
     register_extensions(app)

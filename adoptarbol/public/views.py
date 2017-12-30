@@ -4,7 +4,8 @@ from random import choice, randint
 
 import requests
 from flask import current_app as app
-from flask import Blueprint, Response, flash, jsonify, redirect, render_template, request, stream_with_context, url_for
+from flask import Blueprint, Response, flash, jsonify, redirect, render_template,\
+    request, stream_with_context, url_for, send_from_directory
 from flask_login import login_required, login_user, logout_user
 
 from adoptarbol.extensions import login_manager, pages
@@ -14,7 +15,7 @@ from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
 from adoptarbol.utils import flash_errors
 
-blueprint = Blueprint('public', __name__, static_folder='../flask_static')
+blueprint = Blueprint('public', __name__, static_folder='../static')
 
 
 @login_manager.user_loader
@@ -165,7 +166,7 @@ def debug():
 @blueprint.route('/<path:path>')
 def catch_all(path):
 
-    if app.debug:
+    if False:  # app.debug:
         url = 'http://localhost:8080/{}'.format(path)
         req = requests.get(url, stream=True)
         return Response(stream_with_context(req.raw.stream(decode_content=False)),
@@ -173,6 +174,12 @@ def catch_all(path):
         # return requests.get('http://localhost:8080/{}'.format(path)).text
 
     return render_template('index.html')
+
+
+# Custom static data
+@blueprint.route('/assets/<path:filename>')
+def custom_static(filename):
+    return send_from_directory('../dist/assets', filename)
 
 
 @blueprint.route('/api/random')
