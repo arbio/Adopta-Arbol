@@ -2,7 +2,7 @@
 """Extensions module. Each extension is initialized in the app factory located in app.py."""
 from flask_admin import Admin
 from flask_bcrypt import Bcrypt
-from flask_cache import Cache
+from flask_caching import Cache
 from flask_cors import CORS
 from flask_debugtoolbar import DebugToolbarExtension
 # from flask_wtf.csrf import CSRFProtect
