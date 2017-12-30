@@ -1,0 +1,2 @@
+webpackJsonp([2],{"3/6V":function(e,t,n){"use strict";var r={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",[n("h1",[e._v(e._s(e.name))])])},staticRenderFns:[]};t.a=r},J9kh:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n("ob2t"),a=n("3/6V"),u=n("VU/8")(r.a,a.a,!1,null,null,null);t.default=u.exports},ob2t:function(e,t,n){"use strict";t.a={name:"TreeAdmin",props:["tree"],data:function(){return{name:"Nombre"}}}}});
+//# sourceMappingURL=2.650b9fe1e5eec67a3a95.js.map
