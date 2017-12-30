@@ -7,7 +7,7 @@ from flask import Flask, jsonify, render_template
 from adoptarbol import public, tree, user
 from adoptarbol.assets import assets
 from adoptarbol.extensions import (api_manager, bcrypt, cache, cors, db, debug_toolbar, hooks,  # csrf_protect
-                                   login_manager, migrate, pages)
+                                   login_manager, migrate, pages, admin)
 from adoptarbol.settings import DevConfig, ProdConfig
 
 
@@ -21,7 +21,6 @@ def create_app(config_object=ProdConfig):
     :param config_object: The configuration object to use.
     """
     app = Flask(__name__, static_url_path='/static')
-    # Also may need:  static_folder="./dist/static", template_folder="./dist")
     app.config.from_object(config_object)
     register_extensions(app)
     register_blueprints(app)
@@ -36,6 +35,7 @@ def create_app(config_object=ProdConfig):
 
 def register_extensions(app):
     """Register Flask extensions."""
+    admin.init_app(app)
     assets.init_app(app)
     bcrypt.init_app(app)
     cache.init_app(app)

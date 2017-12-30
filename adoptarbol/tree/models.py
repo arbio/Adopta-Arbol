@@ -13,21 +13,25 @@ from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, r
 
 
 def convert_lat(context):
-    utm_e = context.current_parameters.get('coord_utm_e')
-    utm_n = context.current_parameters.get('coord_utm_n')
-    utm_zone_n = context.current_parameters.get('coord_utm_zone_n')
-    utm_zone_letter = context.current_parameters.get('coord_utm_zone_letter')
-    lat, lon = utm.to_latlon(utm_e, utm_n, utm_zone_n, utm_zone_letter)
-    return lat
+    if context:
+        utm_e = context.current_parameters.get('coord_utm_e')
+        utm_n = context.current_parameters.get('coord_utm_n')
+        utm_zone_n = context.current_parameters.get('coord_utm_zone_n')
+        utm_zone_letter = context.current_parameters.get('coord_utm_zone_letter')
+        if utm_e and utm_n:
+            lat, lon = utm.to_latlon(utm_e, utm_n, utm_zone_n, utm_zone_letter)
+            return lat
 
 
 def convert_lon(context):
-    utm_e = context.current_parameters.get('coord_utm_e')
-    utm_n = context.current_parameters.get('coord_utm_n')
-    utm_zone_n = context.current_parameters.get('coord_utm_zone_n')
-    utm_zone_letter = context.current_parameters.get('coord_utm_zone_letter')
-    lat, lon = utm.to_latlon(utm_e, utm_n, utm_zone_n, utm_zone_letter)
-    return lon
+    if context:
+        utm_e = context.current_parameters.get('coord_utm_e')
+        utm_n = context.current_parameters.get('coord_utm_n')
+        utm_zone_n = context.current_parameters.get('coord_utm_zone_n')
+        utm_zone_letter = context.current_parameters.get('coord_utm_zone_letter')
+        if utm_e and utm_n:
+            lat, lon = utm.to_latlon(utm_e, utm_n, utm_zone_n, utm_zone_letter)
+            return lon
 
 
 class Tree(SurrogatePK, Model):
@@ -61,9 +65,9 @@ class Tree(SurrogatePK, Model):
 
     function = Column(db.String(500))
 
-    def __init__(self, code, **kwargs):
+    def __init__(self, **kwargs):
         """Create instance."""
-        db.Model.__init__(self, code=code, **kwargs)
+        db.Model.__init__(self, **kwargs)
 
     def __repr__(self):
         """Represent instance as a unique string."""

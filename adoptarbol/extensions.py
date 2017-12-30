@@ -11,9 +11,11 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_restless import APIManager
 from flask_sqlalchemy import SQLAlchemy
+from flask_admin import Admin
 
 bcrypt = Bcrypt()
 # csrf_protect = CSRFProtect()
+admin = Admin(name='Adopta Árbol')
 login_manager = LoginManager()
 db = SQLAlchemy()
 migrate = Migrate()

@@ -67,7 +67,7 @@ def home(tree_id=None):
 
         image = tree.image
     else:
-        tree = Tree(0)
+        tree = Tree(code=0)
 
     count = {}
     count['total'] = Tree.query.count()
