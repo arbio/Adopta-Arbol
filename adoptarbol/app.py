@@ -6,8 +6,8 @@ from flask import Flask, jsonify, render_template
 
 from adoptarbol import public, tree, user
 from adoptarbol.assets import assets
-from adoptarbol.extensions import (api_manager, bcrypt, cache, cors, db, debug_toolbar, hooks,  # csrf_protect
-                                   login_manager, migrate, pages, admin)
+from adoptarbol.extensions import (admin, api_manager, bcrypt, cache, cors, db, debug_toolbar, hooks,  # csrf_protect
+                                   login_manager, migrate, pages)
 from adoptarbol.settings import DevConfig, ProdConfig
 
 

@@ -3,7 +3,7 @@
 from flask import Blueprint, jsonify, redirect, url_for
 from flask_admin.contrib.sqla import ModelView
 
-from adoptarbol.extensions import api_manager, admin, db
+from adoptarbol.extensions import admin, api_manager, db
 from adoptarbol.tree.models import Sponsorship, Tree
 
 # from flask_login import login_required, login_user, logout_user
