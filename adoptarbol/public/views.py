@@ -4,8 +4,8 @@ from random import choice, randint
 
 import requests
 from flask import current_app as app
-from flask import Blueprint, Response, flash, jsonify, redirect, render_template,\
-    request, stream_with_context, url_for, send_from_directory
+from flask import (Blueprint, Response, flash, jsonify, redirect, render_template, request, send_from_directory,
+                   stream_with_context, url_for)
 from flask_login import login_required, login_user, logout_user
 
 from adoptarbol.extensions import login_manager, pages
@@ -166,7 +166,7 @@ def debug():
 @blueprint.route('/<path:path>')
 def catch_all(path):
 
-    if False:  # app.debug:
+    if app.debug:
         url = 'http://localhost:8080/{}'.format(path)
         req = requests.get(url, stream=True)
         return Response(stream_with_context(req.raw.stream(decode_content=False)),
