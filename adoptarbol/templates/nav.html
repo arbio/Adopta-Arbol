@@ -25,7 +25,7 @@
       <li><a href="{{ url_for('public.adopt') }}">Adopta ahora</a></li>
       <li><a href="{{ url_for('public.page', path='concesionarios') }}">¿Tienes un bosque?</a></li>
     </ul>
-    {% if current_user and current_user.is_authenticated() %}
+    {% if current_user and current_user.is_authenticated %}
     <ul class="nav navbar-nav navbar-right">
         <li>
             <p class="navbar-text"><a class="navbar-link" href="{{ url_for('user.members') }}">Bienvenido(a) {{ current_user.username }}</a></p>
