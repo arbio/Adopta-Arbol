@@ -1,14 +1,13 @@
 
 """Tree API, including trees and sponsorships."""
 from flask import Blueprint, jsonify, redirect, url_for
-from flask_admin.contrib.sqla import ModelView
 
+from adoptarbol.database import RestrictedModelView
 from adoptarbol.extensions import admin, api_manager, db
 from adoptarbol.tree.models import Sponsorship, Tree
 
 # from flask_login import login_required, login_user, logout_user
 
-# from adoptarbol.user.models import User
 
 blueprint = Blueprint('tree_manager', __name__, static_folder='../static')
 
@@ -29,5 +28,5 @@ def random_tree_endpoint():
     return jsonify(dict(Tree.random()))
 
 
-admin.add_view(ModelView(Tree, db.session))
-admin.add_view(ModelView(Sponsorship, db.session))
+admin.add_view(RestrictedModelView(Tree, db.session))
+admin.add_view(RestrictedModelView(Sponsorship, db.session))

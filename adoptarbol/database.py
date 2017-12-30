@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """Database module, including the SQLAlchemy database object and DB-related utilities."""
+from flask_admin.contrib.sqla import ModelView
+from flask_login import current_user
 from sqlalchemy.inspection import inspect
 from sqlalchemy.orm import relationship
 
@@ -9,6 +11,13 @@ from .extensions import db
 # Alias common SQLAlchemy names
 Column = db.Column
 relationship = relationship
+
+
+# Create customized model view class
+class RestrictedModelView(ModelView):
+
+    def is_accessible(self):
+        return current_user.is_authenticated
 
 
 class CRUDMixin(object):
