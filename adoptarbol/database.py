@@ -15,6 +15,7 @@ relationship = relationship
 
 # Create customized model view class
 class RestrictedModelView(ModelView):
+    page_size = 6 
 
     def is_accessible(self):
         return current_user.is_authenticated

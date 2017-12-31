@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Administración de Árboles</h1>
+    <h1>Árboles</h1>
     <div id="showcase">
     <table class="treelist c-table u-high">
         <thead class="c-table__head">

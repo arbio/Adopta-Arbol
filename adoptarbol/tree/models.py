@@ -38,7 +38,7 @@ class Tree(SurrogatePK, Model):
     """A tree to adopt."""
 
     __tablename__ = 'trees'
-    code = Column(db.String(80), unique=True, nullable=False)
+    code = Column(db.String(80), unique=True)
     common_name = Column(db.String(80), nullable=False)
     scientific_name = Column(db.String(80), nullable=False)
     family = Column(db.String(80), nullable=False)
@@ -56,14 +56,22 @@ class Tree(SurrogatePK, Model):
     coord_lon = Column(db.Float, default=convert_lon)
 
     diameter = Column(db.Integer, nullable=False)
+    circ = Column(db.Integer, nullable=False)
     height = Column(db.Integer, nullable=False)
 
-    comments = Column(db.String(500))
+    notes = Column(db.String(500))
+    observation = Column(db.String(500))
+
+    surveyed_on = Column(db.DateTime, nullable=True, default=dt.datetime.utcnow)
+    base_area = Column(db.Float)
+    size_class = Column(db.String(80))
+    quality = Column(db.Float)
 
     cost = Column(db.Float, nullable=False, default=50)
     currency = Column(db.String, nullable=False, default='USD')
 
-    function = Column(db.String(500))
+    phenology = Column(db.String(500))
+    relevance = Column(db.String(500))
 
     def __init__(self, **kwargs):
         """Create instance."""

@@ -16,6 +16,7 @@ class Config(object):
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLATPAGES_EXTENSION = '.md'
+    UPLOAD_FOLDER = os.path.join(APP_DIR, os.pardir, "upload")
 
 
 class ProdConfig(Config):

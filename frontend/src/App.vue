@@ -10,8 +10,8 @@
 
     <span class="c-nav__item">Árbol</span>
 
-    <router-link to="/admin/trees">
-    <span class="c-nav__item c-nav__item--right u-xsmall">
+    <router-link to="/">
+    <span id="infobox" class="c-nav__item c-nav__item--right u-xsmall">
         {{ total }} árboles</span>
     </router-link>
     </ul>
@@ -74,5 +74,10 @@ body {
 #nav {
     background-color: #93c54b;
     border-bottom: 1px solid black;
+}
+
+#infobox {
+    position: absolute;
+        right: 0px;
 }
 </style>

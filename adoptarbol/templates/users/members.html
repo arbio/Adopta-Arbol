@@ -1,7 +1,11 @@
 
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Welcome {{ session.username }}</h1>
-    <h3>This is the members-only page.</h3>
+    <h1>Bienvenido {{ current_user.full_name }}</h1>
+    <h2>Cargar árboles</h2>
+    <form method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
 {% endblock %}
 
