@@ -62,7 +62,7 @@ def home(tree_id=None):
         try:
             if not tree.comments:
                 tree.comments = get_random_item('sobremi')
-        except TypeError:
+        except AttributeError:
             tree.comments = get_random_item('sobremi')
 
         nav = {}
@@ -117,21 +117,29 @@ def adopt(tree_id=None):
     print(request.args.get('sandbox'))
     form = SponsorshipForm(request.form, sandbox=request.args.get('sandbox'))
 
+    """
     explanation = {'wood': u'Es maderable',
                    'bird': u'Es hogar de aves',
                    'mammal': u'Es hogar de mamíferos',
                    'soil': u'Es mejorador del suelo',
                    'community': u'Es importante para las comunidades nativas',
                    'medicine': u'Es medicinal'}
-    tree.comments = tree['comments'] or get_random_item('sobremi')
+    """
 
+    try:
+        tree.comments = tree['comments']
+    except AttributeError:
+        tree.comments = get_random_item('sobremi')
+
+    """
     functions = []  # tree ecosystemic icons
     for function in tree.function.split(','):
         functions.append({'icon': '%s.png' % function,
                           'desc': explanation[function]})
+    """
 
     return render_template('public/adopt.html', tree=tree, terminos=terminos,
-                           image=tree.image, form=form, functions=functions)
+                           image=tree.image, form=form)
 
 
 @blueprint.route('/buscar/')
