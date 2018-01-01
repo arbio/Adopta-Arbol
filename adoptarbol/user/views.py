@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 """User views."""
 import os
-from flask import Blueprint, render_template, request, flash, redirect, current_app, url_for
+
+from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
 from flask_login import login_required
+from werkzeug.utils import secure_filename
 
 from adoptarbol.database import RestrictedModelView
 from adoptarbol.extensions import admin, db
 from adoptarbol.user.models import User
-
-from werkzeug.utils import secure_filename
+from loader import load
 
 blueprint = Blueprint('user_manager', __name__, url_prefix='/users', static_folder='../static')
 
-from loader import load
 
 @login_required
 @blueprint.route('/', methods=['GET', 'POST'])

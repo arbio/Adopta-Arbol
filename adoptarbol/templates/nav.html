@@ -13,7 +13,7 @@
 </a>
 
 {% if count %}
-<a href="/ver">
+<a style="color: blue" href="/ver">
 <span id="infobox" class="c-nav__item c-nav__item--right u-xsmall">
     {{ count.total }} árboles</span>
 </a>
@@ -59,7 +59,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="{{ url_for('public.register') }}">Registrarse</a></li>
     </ul>
-    <form id="loginForm" method="POST" class="navbar-form form-inline navbar-right" action="/home" role="login">
+    <form id="loginForm" method="POST" class="navbar-form form-inline navbar-right" action="/" role="login">
       <!--input type="hidden" name="csrf_token" value="{ { csrf_token() } }"/-->
       <div class="form-group">
         {{ loginform.username(placeholder="Username", class_="form-control") }}

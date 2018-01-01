@@ -1,22 +1,20 @@
-import os
+
 import csv
+
 from dateutil.parser import parse
+from flask_script import Manager
 
-from flask.ext.script import Manager
 
-#from adoptarbol.app import create_app
+"""
+import os
+from adoptarbol.app import create_app
 # from adoptarbol.database import db
-#from adoptarbol.settings import DevConfig, ProdConfig
+from adoptarbol.settings import DevConfig, ProdConfig
 from adoptarbol.tree.models import Tree
 
-#CONFIG = ProdConfig if os.environ.get('adoptarbol_ENV') == 'prod' else DevConfig
+CONFIG = ProdConfig if os.environ.get('adoptarbol_ENV') == 'prod' else DevConfig
+"""
 
-if  __name__ =='__main__':
-    app = create_app(CONFIG)
-    manager = Manager(app)
-
-    with app.app_context():
-        load()
 
 def load(filename):
     with open(filename) as f:
@@ -29,13 +27,13 @@ def load(filename):
         def float_or_none(string):
             try:
                 return(float(string))
-            except:
+            except TypeError:
                 return None
 
-        print ("HEADER:", header)
+        print("HEADER:", header)
         for row in reader:
-            #codigo = str(row[pos_for('codigo')]),
-            print('Procesando ' , row)
+            # codigo = str(row[pos_for('codigo')]),
+            print('Procesando ', row)
 
             tree = {'code': row[pos_for('codigo')],
                     'common_name': row[pos_for('especie')],
@@ -63,3 +61,11 @@ def load(filename):
 
             t = Tree(**tree)
             t.save()
+
+
+if __name__ == '__main__':
+    app = create_app(CONFIG)
+    manager = Manager(app)
+
+    with app.app_context():
+        load()
