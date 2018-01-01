@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 43b8a252a5ff
+Revision ID: 3fa3eca4d8a7
 Revises: 
-Create Date: 2017-12-31 12:51:17.564366
+Create Date: 2018-01-01 06:54:43.640768
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '43b8a252a5ff'
+revision = '3fa3eca4d8a7'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,7 +36,7 @@ def upgrade():
     sa.Column('height', sa.Integer(), nullable=False),
     sa.Column('notes', sa.String(length=500), nullable=True),
     sa.Column('observation', sa.String(length=500), nullable=True),
-    sa.Column('sponsored_on', sa.DateTime(), nullable=True),
+    sa.Column('surveyed_on', sa.DateTime(), nullable=True),
     sa.Column('base_area', sa.Float(), nullable=True),
     sa.Column('size_class', sa.String(length=80), nullable=True),
     sa.Column('quality', sa.Float(), nullable=True),
@@ -44,8 +44,7 @@ def upgrade():
     sa.Column('currency', sa.String(), nullable=False),
     sa.Column('phenology', sa.String(length=500), nullable=True),
     sa.Column('relevance', sa.String(length=500), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('code')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),

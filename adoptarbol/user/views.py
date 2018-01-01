@@ -12,6 +12,7 @@ from werkzeug.utils import secure_filename
 
 blueprint = Blueprint('user_manager', __name__, url_prefix='/users', static_folder='../static')
 
+from loader import load
 
 @login_required
 @blueprint.route('/', methods=['GET', 'POST'])
@@ -29,7 +30,9 @@ def upload_file():
             return redirect(request.url)
         if file.filename.endswith('.csv'):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            full_filename = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+            file.save(full_filename)
+            load(full_filename)
             return redirect(url_for('user_manager.upload_file',
                                     filename=filename))
     return render_template('users/members.html')

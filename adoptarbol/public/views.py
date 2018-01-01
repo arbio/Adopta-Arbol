@@ -48,7 +48,7 @@ def get_page(path):
     return jsonify(page.meta)
 
 
-@blueprint.route('/home', methods=['GET', 'POST'])
+@blueprint.route('/', methods=['GET', 'POST'])
 @blueprint.route('/selected/<int:tree_id>')
 def home(tree_id=None):
     """Home page."""
@@ -59,7 +59,11 @@ def home(tree_id=None):
 
     nav = image = None
     if tree:
-        tree.comments = tree.comments or get_random_item('sobremi')
+        try:
+            if not tree.comments:
+                tree.comments = get_random_item('sobremi')
+        except:
+            tree.comments = get_random_item('sobremi')
 
         nav = {}
         nav['before'] = tree.before.id
@@ -88,7 +92,7 @@ def home(tree_id=None):
         if form.validate_on_submit():
             login_user(form.user)
             flash('You are logged in.', 'success')
-            redirect_url = request.args.get('next') or url_for('user_manager.members')
+            redirect_url = request.args.get('next') or url_for('user_manager.upload_file')
             return redirect(redirect_url)
         else:
             flash_errors(form)
@@ -102,6 +106,8 @@ def adopt(tree_id=None):
     """adopt a tree."""
     if not tree_id:
         tree = Tree.random()
+        if not tree:
+            return redirect(url_for('public.page', path='getting_started'))
         return redirect(url_for('public.adopt', tree_id=tree.id))
     else:
         tree = Tree.get_by_id(tree_id)
@@ -162,7 +168,7 @@ def debug():
     raise Exception
 
 
-@blueprint.route('/', defaults={'path': ''})
+# @blueprint.route('/', defaults={'path': ''})
 @blueprint.route('/<path:path>')
 def catch_all(path):
 
@@ -178,7 +184,7 @@ def catch_all(path):
 
 # Custom static data
 @blueprint.route('/assets/<path:filename>')
-def custom_static(filename):
+def front_assets(filename):
     return send_from_directory('../dist/assets', filename)
 
 

@@ -3,9 +3,23 @@
 {% block content %}
     <h1>Bienvenido {{ current_user.full_name }}</h1>
     <h2>Cargar árboles</h2>
+    <br>
+    <br>
+    <div style="width:50%; margin: auto">
     <form method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
+            <input type=file name=file>
+            <br>
+        <label class="btn btn-default btn-success btn-block">
+            <i class="fa fa-send fa-2x" aria-hidden="true"></i>
+            <input type=submit style="display:none" value=Upload>
+            - Cargar archivo CSV
+        </label>
     </form>
+    <br>
+    <a class="btn btn-default btn-success btn-block" href="/admin">
+        <i class="fa fa-database fa-2x" aria-hidden="true"></i>
+        - Administrar la base de datos
+    </a>
+    </div>
 {% endblock %}
 

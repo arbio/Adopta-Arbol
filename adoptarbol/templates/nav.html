@@ -1,5 +1,28 @@
+<ul id="nav" class="c-nav c-nav--inline c-nav--top u-high">
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<a style="color:white" href="/">
+<span class="c-nav__item">Adopta</span>
+</a>
+
+<span class="c-nav__content u-window-box--none">
+  <img class="o-image" src="/static/censarbol.png">
+</span>
+
+<a style="color:white" href="/">
+<span class="c-nav__item">Árbol</span>
+</a>
+
+{% if count %}
+<a href="/ver">
+<span id="infobox" class="c-nav__item c-nav__item--right u-xsmall">
+    {{ count.total }} árboles</span>
+</a>
+{% endif %}
+</ul>
+
+<!-- ---------------------------------------------------- -->
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
   <div class="container">
 
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -12,7 +35,7 @@
     </button>
     <a class="navbar-brand" href="{{ url_for('public.home') }}">
 
-      Adopta un Árbol Amazónico
+      Adopta Árbol
 
     </a>
   </div>
@@ -20,9 +43,8 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <!--<li><a href="{{ url_for('public.home') }}">Home</a></li>-->
-      <li><a href="{{ url_for('public.page', path='acercade') }}">Sobre Nosotros</a></li>
-      <li><a href="{{ url_for('public.pick') }}">Buscar</a></li>
-      <li><a href="{{ url_for('public.adopt') }}">Adopta ahora</a></li>
+      <li><a href="{{ url_for('public.page', path='acercade') }}">Acerca de</a></li>
+      <li><a href="{{ url_for('public.pick') }}">Adopta</a></li>
       <li><a href="{{ url_for('public.page', path='concesionarios') }}">¿Tienes un bosque?</a></li>
     </ul>
     {% if current_user and current_user.is_authenticated %}

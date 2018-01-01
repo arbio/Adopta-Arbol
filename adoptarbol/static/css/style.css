@@ -6,10 +6,7 @@
 
 html {
   overflow-y: scroll;
-}
-
-body {
-  padding-top: 120px;
+  padding-bottom: 60px;
 }
 
 section {
@@ -100,4 +97,51 @@ footer .footer-nav {
     display: inline-block;
     vertical-align: bottom;
     float: none;
+}
+
+/* *********************************** V2 ****** */
+#app {
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+body {
+    background-color: Peru;
+}
+
+#nav {
+    background-color: #93c54b;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+#infobox {
+    position: absolute;
+    right: 0px;
+}
+
+.form-control {
+    display: inline-block;
+}
+.form-group {
+    display: inline-block;
+}
+footer {
+    color: RoyalBlue;
+}
+footer a {
+    color: Blue;
+}
+
+#registerForm {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.well, .btn, .navbar, .panel {
+    box-shadow: 0 0 1px hsla(0,0%,7%,.6), 0 5px 10px -3px hsla(0,0%,7%,.4);
 }

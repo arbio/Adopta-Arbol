@@ -22,19 +22,12 @@
 
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='libs/font-awesome4/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('public.front_assets', filename='blaze.min.css') }}"> 
   {% assets "css_all" %}
     <link rel="stylesheet" href="{{ ASSET_URL }}">
   {% endassets %}
 
   {% block css %}{% endblock %}
-
-  {% if image %}
-  <meta property="og:image" content="http://arbio.somosazucar.org{{image.src}}" />
-  {% endif %}
-  {% if tree %}
-  <meta property="og:title" content="Adóptame soy un {{tree.common_name}}" />
-  <meta property="og:description" content="{{tree.comments}}" />
-  {% endif %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
 {% block body %}
@@ -43,7 +36,7 @@
 {% endwith %}
 
 <header>{% block header %}{% endblock %}</header>
-<div class="{% block content_class %}container{% endblock content_class %}">
+<div id="app" class="{% block content_class %}container{% endblock content_class %}">
 
   <div role="main">
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -71,7 +64,6 @@
 <!-- JavaScript at the bottom for fast page loading -->
 {% assets "js_all" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-540aba6060a5a758"></script>
 {% endassets %}
 {% block js %}{% endblock %}
 <!-- end scripts -->

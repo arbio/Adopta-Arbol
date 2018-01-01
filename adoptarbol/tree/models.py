@@ -38,7 +38,7 @@ class Tree(SurrogatePK, Model):
     """A tree to adopt."""
 
     __tablename__ = 'trees'
-    code = Column(db.String(80), unique=True)
+    code = Column(db.String(80))  # , unique=True)
     common_name = Column(db.String(80), nullable=False)
     scientific_name = Column(db.String(80), nullable=False)
     family = Column(db.String(80), nullable=False)
@@ -52,8 +52,8 @@ class Tree(SurrogatePK, Model):
     coord_utm_zone_n = Column(db.Integer, default=19)
     coord_utm_zone_letter = Column(db.String, default='L')
 
-    coord_lat = Column(db.Float, default=convert_lat)
-    coord_lon = Column(db.Float, default=convert_lon)
+    coord_lat = Column(db.Float)  # , default=convert_lat)
+    coord_lon = Column(db.Float)  # , default=convert_lon)
 
     diameter = Column(db.Integer, nullable=False)
     circ = Column(db.Integer, nullable=False)
