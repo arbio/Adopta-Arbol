@@ -62,7 +62,7 @@ def home(tree_id=None):
         try:
             if not tree.comments:
                 tree.comments = get_random_item('sobremi')
-        except:
+        except TypeError:
             tree.comments = get_random_item('sobremi')
 
         nav = {}

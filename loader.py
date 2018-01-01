@@ -1,19 +1,8 @@
-
 import csv
 
 from dateutil.parser import parse
-from flask_script import Manager
 
-
-"""
-import os
-from adoptarbol.app import create_app
-# from adoptarbol.database import db
-from adoptarbol.settings import DevConfig, ProdConfig
 from adoptarbol.tree.models import Tree
-
-CONFIG = ProdConfig if os.environ.get('adoptarbol_ENV') == 'prod' else DevConfig
-"""
 
 
 def load(filename):
@@ -30,7 +19,6 @@ def load(filename):
             except TypeError:
                 return None
 
-        print("HEADER:", header)
         for row in reader:
             # codigo = str(row[pos_for('codigo')]),
             print('Procesando ', row)
@@ -63,9 +51,11 @@ def load(filename):
             t.save()
 
 
+"""
 if __name__ == '__main__':
     app = create_app(CONFIG)
     manager = Manager(app)
 
     with app.app_context():
         load()
+"""
