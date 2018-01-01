@@ -15,7 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 bcrypt = Bcrypt()
 # csrf_protect = CSRFProtect()
-admin = Admin(name='Admin Adopta Árbol')
+admin = Admin(name='Admin Adopta Árbol', base_template='admin/adoptarbol.html')
 login_manager = LoginManager()
 db = SQLAlchemy()
 migrate = Migrate()
