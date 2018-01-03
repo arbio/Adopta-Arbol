@@ -43,6 +43,9 @@ window.onload = function () {
 
     {% for tree in trees %}
 
+    var None = 'None'
+    if ({{tree.coord_lat}}!='None' && {{tree.coord_lat}}!='None') {
+
     var circle = L.circle([{{tree.coord_lat}}, {{tree.coord_lon}}], 5, {
         color: 'green',
         fillColor: 'yellow',
@@ -60,6 +63,9 @@ window.onload = function () {
             location.href = '/adopt/{{tree.id}}';
         }
     );
+
+    }
+
     {% endfor %}
 
 }

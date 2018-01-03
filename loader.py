@@ -16,7 +16,7 @@ def load(filename):
         def float_or_none(string):
             try:
                 return(float(string))
-            except TypeError:
+            except ValueError:
                 return None
 
         for row in reader:
@@ -31,15 +31,15 @@ def load(filename):
                     'coord_utm_n': float_or_none(row[pos_for('utm_y')].replace(',', '.')),
                     'coord_utm_zone_letter': row[pos_for('utm_zone')],
                     'coord_utm_zone_n': row[pos_for('utm_south')],
-                    'coord_lat': float_or_none(row[pos_for('lat')]),
-                    'coord_lon': float_or_none(row[pos_for('long')]),
+                    'coord_lat': float_or_none(row[pos_for('lat')].replace(',', '.')),
+                    'coord_lon': float_or_none(row[pos_for('long')].replace(',', '.')),
                     'photo': row[pos_for('fotos')],
                     'diameter': row[pos_for('dia')],
                     'height': row[pos_for('alt')],
                     'circ': row[pos_for('circ')],
-                    'base_area': float_or_none(row[pos_for('areabasal')]),
+                    'base_area': float_or_none(row[pos_for('areabasal')].replace(',', '.')),
                     'size_class': row[pos_for('clasetamano')],
-                    'quality': float_or_none(row[pos_for('calidad')]),
+                    'quality': float_or_none(row[pos_for('calidad')].replace(',', '.')),
                     'relevance': row[pos_for('relevancia')],
                     'notes': row[pos_for('notas')],
                     'phenology': row[pos_for('fenologia')],
