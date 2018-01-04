@@ -107,7 +107,7 @@ def adopt(tree_id=None):
     if not tree_id:
         tree = Tree.random()
         if not tree:
-            return redirect(url_for('public.page', path='getting_started'))
+            return redirect(url_for('public.page', path='error/notree'))
         return redirect(url_for('public.adopt', tree_id=tree.id))
     else:
         tree = Tree.get_by_id(tree_id)
