@@ -50,3 +50,4 @@ env/
 _orig/
 .cache/
 __javascript__/
+dev.db

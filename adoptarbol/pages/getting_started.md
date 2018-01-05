@@ -1,0 +1,3 @@
+# Cómo empezar a usar Adopta-Árbol
+
+Para subir árboles...
