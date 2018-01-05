@@ -18,7 +18,7 @@ class RestrictedModelView(ModelView):
     page_size = 12
     column_exclude_list = ['photo', 'coord_utm_e', 'coord_utm_n', 'coord_utm_zone_letter',
                            'coord_utm_zone_n', 'coord_lat', 'coord_lon', 'circ', 'height',
-                           'cost', 'currency', 'family']
+                           'cost', 'currency', 'family', 'password']
     create_modal = True
     edit_modal = True
 
