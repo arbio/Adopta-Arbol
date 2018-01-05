@@ -101,16 +101,19 @@ footer .footer-nav {
 
 /* *********************************** V2 ****** */
 #app {
-  font-family: 'Cabin', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* background: no-repeat center center;
+  background-image: url("/static/images/bg-index.jpg"); */
 }
 
 body {
-    background-color: Peru;
+  margin-top: 70px;
+  background: repeat-y center center radial-gradient(circle, white, Peru);
+  font-family: 'Noto Mono', 'Lucida Console', Monaco, monospace;
+  font-size: 16;
 }
 
 #nav {

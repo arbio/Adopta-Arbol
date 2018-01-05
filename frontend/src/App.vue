@@ -44,11 +44,12 @@ export default {
   mounted: function() {
     setTimeout( () => {
       window.forest = Forest(this.fetchData, this.$route.query.page)
-    }, 300)
+    }, 300) /// XXX Why? - No idea. Asked here:
+            /// https://stackoverflow.com/questions/48023208
   },
   methods: {
     fetchData() {
-      this.forest = forest.trees
+      this.forest = forest
       this.total = forest.total
     },
     prevPage() {
@@ -63,16 +64,19 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Mono', 'Lucida Console', Monaco, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  /* background: no-repeat center center;
+  background-image: url("/static/images/bg-index.jpg"); */
 }
 
 body {
-    background-color: Peru;
+  margin-top: 70px;
+  background: repeat-y center center radial-gradient(circle, white, Peru);
 }
 
 #nav {
