@@ -1,107 +1,39 @@
 
 {% extends "layout.html" %}
 {% block content %}
-<div class="well">
-  <h2 class="text-right">{{banner.a|safe}}</h2>
-</div><!-- /.well -->
 
-<div class="body-content">
-  <div class="row">
-    <div class="col-lg-6">
-      <table class="table table-condensed"><tbody>
-      <tr>
-        <td class="text-right"><h2>Árboles certificados:</h2>
-        <td class="text-right"><h2>{{count.total}}</h2>
-      </tr><tr>
-        <td class="text-right"><h2>Árboles adoptados:</h2>
-        <td class="text-right"><h2>{{count.sponsored}}</h2>
-      </tr>
-      <tr><td class="text-right" colspan="2"><br>
-      <a href="{{url_for('public.adopt', tree_id=tree.id)}}" class="btn btn-warning lead">¡Ayúdanos a llegar a {{count.target}}!</a>
-      </td></tr>
-      </tbody></table>
-    </div>
-    <div class="col-lg-2"></div>
-    <div class="col-lg-4 text-center panel panel-default control-group">
-    <br>
-      <h3>¡Un árbol nativo <br> es para tí!</h3>
-      <h3><a href="{{url_for('public.pick')}}" class="btn btn-warning"><i class="fa fa-binoculars"></i>&nbsp; Buscar &raquo;</a></h3>
-    <br>
-    </div>
-  </div><!-- /.row -->
+<div class="c-card">
+  <div class="c-card__item c-card__item--info">
+  <h2>{{banner.a|safe}}</h2>
+  </div>
 </div>
 
-
-<div class="well well-sm" id="treeselector">
-
+<div class="c-card">
+  <div class="c-card__item c-card__item--success c-card__item--divider">
+  <h2>Árboles certificados: {{count.total}}</h2>
+  <h2>Árboles adoptados: {{count.sponsored}}</h2>
+  <a href="/ver" class="c-button c-button--warning u-higher">¡Ayúdanos a llegar a {{count.target}}!</a>
+  <br><br>
+  </div>
+  <div class="c-card__item c-card__item--error c-card__item--divider">
   <h4 class="text-center">Adopta árboles nativos amazónicos certificados por &nbsp;<a class="lead label label-large label-success" data-toggle="popover" data-title="Arbio realiza el censo de verificación del buen estado de los árboles para que sean 'certificados'." data-content="Arbio trabaja en la conservación de 916 hectáreas de bosque amazónico en Tambopata, Madre de Dios, generando soluciones económicamente viables y sostenibles para los guardianes del bosque.">ARBIO</a></h4>
-</div><!-- /.well -->
-
-<div class="body-content">
-  <div class="row">
-
-    {% include "public/selector.html" %}
-
-    <div class="col-lg-5 text-center panel panel-default control-group">
-      <h3><small>Sabías que...</small>
-      <br><br>
-      {{banner.c}}</h3>
-      <br><br>
-    </div>
-
-  </div><!-- /.row -->
+  </div>
 </div>
-<br>
 
-<div class="jumbotron text-center">
-  <h2>¿Porqué adoptar un árbol nativo amazónico?<h2>
-  <h3>{{banner.d}}</h3>
-</div><!-- /.jumbotron -->
-
-<div class="jumbotron text-center">
-  <h2><a href="{{url_for('public.page', path='concesionarios')}}">¿Tienes un bosque?</a><h2>
-  <h3> 1. Inscribe tu bosque &raquo; &nbsp;
-       2. Mapea tus árboles nativos &raquo; &nbsp;
-       3. Certifícate</h3>
-</div><!-- /.jumbotron -->
-
-<div class="panel panel-default" style="overflow:hidden" align="center">
-  <p>Con el apoyo de:</p>
-  <div class="col-lg-4">
-    <a href="http://www.minam.gob.pe/">
-    <img class="img-responsive" src="/static/images/logos/ministerio-del-ambiente.jpg"></a>
-  </div>
-  <div class="col-lg-4">
-    <br>
-    <a href="http://www.spda.org.pe/">
-    <img class="img-responsive" src="/static/images/logos/spda.jpg"></a>
-    <br>
-  </div>
-  <div class="col-lg-4">
-    <a href="http://www.ue.edu.pe/">
-    <img class="img-responsive" src="/static/images/logos/esan.jpg"></a>
-  </div>
-</div><!-- /.panel -->
-
-<div class="panel panel-default" style="overflow:hidden;" align="center">
+<div class="c-card">
   <p>Una iniciativa de:</p>
   <br>
-  <div class="col-lg-3 vbottom">
+  <div>
     <a href="http://arbioperu.org/"><img class="img-responsive" src="/static/images/logos/arbio.jpg"></a>
     <p>Asociación para la Resiliencia del Bosque frente a la Inter-Oceánica</p>
   </div><!--
---><div class="col-lg-5 vbottom">
+  --><div>
     <a href="http://somosazucar.org/"><img class="img-responsive" src="/static/images/logos/somosazucar.png"></a>
     <br>
     <p>Tecnología Libre para la Educación Pública</p>
     <br>
   </div>
-</div><!-- /.panel -->
-<script src="https://code.jquery.com/jquery-2.x-git.min.js"></script>
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-});
-</script>
+</div>
+
 {% endblock %}
 

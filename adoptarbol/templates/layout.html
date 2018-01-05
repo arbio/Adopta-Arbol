@@ -10,7 +10,7 @@
 
   <title>{% block page_title %}
   
-    Adopta un Árbol Amazónico
+    Adopta Árbol
   
     {% endblock %}
   </title>
@@ -36,22 +36,19 @@
 {% endwith %}
 
 <header>{% block header %}{% endblock %}</header>
-<div id="app" class="{% block content_class %}container{% endblock content_class %}">
+<div id="app">
 
-  <div role="main">
+
+  <div class="o-container o-container--medium">
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-    <div class="row">
-      <div class="col-md-12">
         {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">
-          <a class="close" title="Close" href="#" data-dismiss="alert">&times;</a>
-         {{message}}
-        </div><!-- end .alert -->
+        <div class="c-alert c-alert--{{ category }}">
+          <button class="c-button c-button--close">&times;</button>
+          {{message}}
+        </div>
         {% endfor %}
-      </div><!-- end col-md -->
-    </div><!-- end row -->
-        {% endif %}
+    {% endif %}
     {% endwith %}
 
     {% block content %}{% endblock %}

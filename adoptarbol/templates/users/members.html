@@ -4,22 +4,17 @@
     <h1>Bienvenido {{ current_user.full_name }}</h1>
     <h2>Cargar árboles</h2>
     <br>
-    <br>
-    <div style="width:50%; margin: auto">
     <form method=post enctype=multipart/form-data>
-            <input type=file name=file>
-            <br>
-        <label class="btn btn-default btn-success btn-block">
+            <input class="c-button c-button--success" type=file name=file value="Examinar">
+            <button class="c-button c-button--success" type=submit value=Upload>
             <i class="fa fa-send fa-2x" aria-hidden="true"></i>
-            <input type=submit style="display:none" value=Upload>
-            - Cargar archivo CSV
-        </label>
+            Cargar archivo CSV
+            </button>
     </form>
     <br>
-    <a class="btn btn-default btn-success btn-block" href="/admin">
-        <i class="fa fa-database fa-2x" aria-hidden="true"></i>
-        - Administrar la base de datos
+    <a class="c-button c-button--success" href="/admin">
+        <i class="fa fa-gear fa-2x" aria-hidden="true"></i>
+        Gestionar Árboles y Adopciones
     </a>
-    </div>
 {% endblock %}
 
