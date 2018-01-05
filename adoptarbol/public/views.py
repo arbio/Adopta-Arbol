@@ -48,8 +48,7 @@ def get_page(path):
     return jsonify(page.meta)
 
 
-@blueprint.route('/', methods=['GET', 'POST'])
-@blueprint.route('/selected/<int:tree_id>')
+@blueprint.route('/')
 def home(tree_id=None):
     """Home page."""
     if not tree_id:
@@ -86,17 +85,7 @@ def home(tree_id=None):
     banner['c'] = get_random_item('sabiasque')
     banner['d'] = get_random_item('porqueadoptar')
 
-    form = LoginForm(request.form)
-    # Handle logging in
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            login_user(form.user)
-            flash('You are logged in.', 'success')
-            redirect_url = request.args.get('next') or url_for('user_manager.upload_file')
-            return redirect(redirect_url)
-        else:
-            flash_errors(form)
-    return render_template('public/home.html', loginform=form, tree=tree, count=count,
+    return render_template('public/home.html', tree=tree, count=count,
                            image=image, banner=banner, nav=nav)
 
 
@@ -142,11 +131,19 @@ def adopt(tree_id=None):
                            image=tree.image, form=form)
 
 
-@blueprint.route('/buscar/')
-def pick(page=1):
-    """pick a tree."""
-    trees = Tree.query.all()
-    return render_template('public/map.html', trees=trees)
+@blueprint.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm(request.form)
+    # Handle logging in
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            login_user(form.user)
+            flash('You are logged in.', 'success')
+            redirect_url = request.args.get('next') or url_for('user_manager.upload_file')
+            return redirect(redirect_url)
+        else:
+            flash_errors(form)
+    return render_template('public/login.html', loginform=form)
 
 
 @blueprint.route('/logout/')
