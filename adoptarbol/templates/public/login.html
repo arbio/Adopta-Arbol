@@ -1,0 +1,18 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-narrow">
+  <h1>Acceso</h1>
+    <br/>
+    <form id="loginForm" method="POST" action="/login" role="login">
+      <!--input type="hidden" name="csrf_token" value="{ { csrf_token() } }"/-->
+      <div class="form-group">
+        {{ loginform.username(placeholder="Usuario", class_="form-control") }}
+        {{ loginform.password(placeholder="Contraseña", class_="form-control") }}
+      </div>
+      <button type="submit" class="c-button c-button--success">Entrar</button>
+    <a class="c-button c-button--info" href="{{ url_for('public.register') }}">Registrarse</a></li>
+    </form>
+</div>
+{% endblock %}
+
