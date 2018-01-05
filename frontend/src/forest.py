@@ -40,5 +40,4 @@ class Forest:
             self.update()
 
 
-
 module.exports = Forest

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 const routerOptions = [
-  { path: '/ver', component: 'TreeList', props: true },
+  { path: '/ver', component: 'TreeList', props: (route) => ({ page: route.query.page }) },
   { path: '/cart', component: 'Cart' },
   { path: '/tree/:id', component: 'TreeAdmin', props: true },
   { path: '*', component: 'NotFound' }
