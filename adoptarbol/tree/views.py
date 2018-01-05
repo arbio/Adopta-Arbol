@@ -11,7 +11,8 @@ from adoptarbol.tree.models import Sponsorship, Tree
 
 blueprint = Blueprint('tree_manager', __name__, static_folder='../static')
 
-api_manager.create_api(Tree)
+api_manager.create_api(Tree, exclude_columns=['coord_lat', 'coord_lon', 'coord_utm_e',
+                       'coord_utm_n', 'coord_utm_zone_n', 'coord_utm_zone_letter'])
 api_manager.create_api(Sponsorship)
 
 
