@@ -51,3 +51,4 @@ _orig/
 .cache/
 __javascript__/
 dev.db
+upload/
