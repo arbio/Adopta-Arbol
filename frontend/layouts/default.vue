@@ -2,19 +2,19 @@
   <div id="app">
     <ul id="nav" class="c-nav c-nav--inline c-nav--top u-high">
 
-    <a style="color:white" href="/">
-    <span class="c-nav__item">Adopta</span>
-    </a>
+    <router-link to="/">
+    <span style="color:white" class="c-nav__item">Adopta</span>
+    </router-link>
 
     <span class="c-nav__content u-window-box--none">
       <img class="o-image" src="~/assets/censarbol.png">
     </span>
 
-    <a style="color:white" href="/">
-    <span class="c-nav__item">Árbol</span>
-    </a>
+    <router-link to="/">
+    <span style="color:white" class="c-nav__item">Árbol</span>
+    </router-link>
 
-    <router-link to="/ver">
+    <router-link to="/trees">
     <span id="infobox" class="c-nav__item c-nav__item--right u-xsmall">
         {{ this.$store.state.total }} árboles</span>
     </router-link>

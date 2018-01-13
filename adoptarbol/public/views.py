@@ -177,6 +177,7 @@ def debug():
 @blueprint.route('/<path:path>')
 def catch_all(path):
 
+    #print ('***** ', path)
     #if app.debug:
     #    url = 'http://localhost:3000/{}'.format(path)
     #    req = requests.get(url, stream=True)
@@ -190,6 +191,8 @@ def catch_all(path):
 # Custom static data
 @blueprint.route('/_nuxt/<path:filename>')
 def front_assets(filename):
+    if app.debug:
+        return catch_all('_nuxt/' + filename)
     return send_from_directory('../frontend/dist/_nuxt', filename)
 
 

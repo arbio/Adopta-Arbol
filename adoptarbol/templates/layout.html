@@ -21,13 +21,156 @@
   <meta name="viewport" content="width=device-width">
 
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='libs/font-awesome4/css/font-awesome.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('public.front_assets', filename='blaze.min.css') }}"> 
-  {% assets "css_all" %}
-    <link rel="stylesheet" href="{{ ASSET_URL }}">
-  {% endassets %}
+  <!-- link rel="stylesheet" href="{{ url_for('static', filename='libs/font-awesome4/css/font-awesome.min.css') }}" -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='blaze.min.css') }}"> 
 
   {% block css %}{% endblock %}
+<style>
+html {
+  overflow-y: scroll;
+  padding-bottom: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.large {
+  font-size: 72px; */
+}
+.waiter {
+  display: none;
+}
+
+.btn {
+  font-size: 18px;
+}
+
+.container-narrow{
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* Forms */
+
+.navbar-form input[type="text"],
+.navbar-form input[type="password"] {
+  width: 180px;
+}
+
+
+.form-register {
+  width: 50%;
+}
+
+.form-register .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999999;
+}
+
+footer a {
+  color: #999999;
+}
+
+footer p {
+  float: right;
+  margin-right: 25px;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+footer .company {
+  float: left;
+  margin-left: 25px;
+}
+
+footer .footer-nav {
+  float: right;
+  margin-right: 25px;
+  list-style: none;
+}
+
+.vbottom {
+    display: inline-block;
+    vertical-align: bottom;
+    float: none;
+}
+
+/* *********************************** V2 ****** */
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  /* background: no-repeat center center;
+  background-image: url("/static/images/bg-index.jpg"); */
+}
+
+body {
+  margin-top: 70px;
+  background: repeat-y center center radial-gradient(circle, white, Peru);
+  font-family: 'Noto Mono', 'Lucida Console', Monaco, monospace;
+  font-size: 16;
+}
+
+#nav {
+    background-color: #93c54b;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+#infobox {
+    position: absolute;
+    right: 0px;
+}
+
+.form-control {
+    display: inline-block;
+}
+.form-group {
+    display: inline-block;
+}
+footer {
+    color: RoyalBlue;
+}
+footer a {
+    color: Blue;
+}
+
+#registerForm {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.well, .btn, .navbar, .panel {
+    box-shadow: 0 0 1px hsla(0,0%,7%,.6), 0 5px 10px -3px hsla(0,0%,7%,.4);
+}
+</style>
 </head>
 <body class="{% block body_class %}{% endblock %}">
 {% block body %}
@@ -58,10 +201,6 @@
 
 {% include "footer.html" %}
 
-<!-- JavaScript at the bottom for fast page loading -->
-{% assets "js_all" %}
-    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-{% endassets %}
 {% block js %}{% endblock %}
 <!-- end scripts -->
 {% endblock %}
