@@ -43,7 +43,7 @@ module.exports = {
     '@nuxtjs/axios',
   ],
   axios: {
-    baseURL: 'http://localhost:5000/api'
+    baseURL: '/api'
     // proxyHeaders: false
   }
 }
