@@ -48,7 +48,7 @@ def get_page(path):
     return jsonify(page.meta)
 
 
-@blueprint.route('/')
+@blueprint.route('/home')
 def home(tree_id=None):
     """Home page."""
     if not tree_id:
@@ -173,24 +173,24 @@ def debug():
     raise Exception
 
 
-# @blueprint.route('/', defaults={'path': ''})
+@blueprint.route('/', defaults={'path': ''})
 @blueprint.route('/<path:path>')
 def catch_all(path):
 
-    if app.debug:
-        url = 'http://localhost:3000/{}'.format(path)
-        req = requests.get(url, stream=True)
-        return Response(stream_with_context(req.raw.stream(decode_content=False)),
-                        content_type=req.headers['content-type'])
-        # return requests.get('http://localhost:8080/{}'.format(path)).text
+    #if app.debug:
+    #    url = 'http://localhost:3000/{}'.format(path)
+    #    req = requests.get(url, stream=True)
+    #    return Response(stream_with_context(req.raw.stream(decode_content=False)),
+    #                    content_type=req.headers['content-type'])
+    #    # return requests.get('http://localhost:8080/{}'.format(path)).text
 
-    return render_template('index.html')
+    return send_from_directory('../frontend/dist/', 'index.html')
 
 
 # Custom static data
-@blueprint.route('/assets/<path:filename>')
+@blueprint.route('/_nuxt/<path:filename>')
 def front_assets(filename):
-    return send_from_directory('../dist/assets', filename)
+    return send_from_directory('../frontend/dist/_nuxt', filename)
 
 
 @blueprint.route('/api/random')

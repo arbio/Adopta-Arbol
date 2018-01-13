@@ -7,7 +7,7 @@
     </a>
 
     <span class="c-nav__content u-window-box--none">
-      <img class="o-image" src="/censarbol.png">
+      <img class="o-image" src="~/assets/censarbol.png">
     </span>
 
     <a style="color:white" href="/">

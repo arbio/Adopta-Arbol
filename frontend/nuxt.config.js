@@ -13,7 +13,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     link: [
-      { rel: 'stylesheet', href: '/blaze.min.css' }
+      { rel: 'stylesheet', href: '/static/blaze.min.css' }
     ]
   },
   /*

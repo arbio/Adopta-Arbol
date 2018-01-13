@@ -11,7 +11,8 @@ from adoptarbol.extensions import admin, db
 from adoptarbol.user.models import User
 from loader import load
 
-blueprint = Blueprint('user_manager', __name__, url_prefix='/users', static_folder='../static')
+blueprint = Blueprint('user_manager', __name__, url_prefix='/users',
+                      static_folder='../static')
 
 
 @login_required
