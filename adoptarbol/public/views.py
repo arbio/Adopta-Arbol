@@ -2,10 +2,10 @@
 """Public section, including homepage and signup."""
 from random import choice, randint
 
-import requests
 from flask import current_app as app
-from flask import (Blueprint, Response, flash, jsonify, redirect, render_template, request, send_from_directory,
-                   stream_with_context, url_for)
+# import requests
+from flask import Blueprint, flash, jsonify, redirect, render_template, request, send_from_directory, url_for
+# from flask import Response, stream_with_context
 from flask_login import login_required, login_user, logout_user
 
 from adoptarbol.extensions import login_manager, pages
@@ -177,8 +177,8 @@ def debug():
 @blueprint.route('/<path:path>')
 def catch_all(path):
 
-    #print ('***** ', path)
-    #if app.debug:
+    # print ('***** ', path)
+    # if app.debug:
     #    url = 'http://localhost:3000/{}'.format(path)
     #    req = requests.get(url, stream=True)
     #    return Response(stream_with_context(req.raw.stream(decode_content=False)),
