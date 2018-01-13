@@ -178,7 +178,7 @@ def debug():
 def catch_all(path):
 
     if app.debug:
-        url = 'http://localhost:8080/{}'.format(path)
+        url = 'http://localhost:3000/{}'.format(path)
         req = requests.get(url, stream=True)
         return Response(stream_with_context(req.raw.stream(decode_content=False)),
                         content_type=req.headers['content-type'])

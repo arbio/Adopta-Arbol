@@ -7,7 +7,7 @@
     </a>
 
     <span class="c-nav__content u-window-box--none">
-      <img class="o-image" src="./assets/censarbol.png">
+      <img class="o-image" src="/censarbol.png">
     </span>
 
     <a style="color:white" href="/">
@@ -16,51 +16,15 @@
 
     <router-link to="/ver">
     <span id="infobox" class="c-nav__item c-nav__item--right u-xsmall">
-        {{ total }} árboles</span>
+        {{ this.$store.state.total }} árboles</span>
     </router-link>
     </ul>
 
     <br>
 
-    <router-view :forest="forest"/>
+    <nuxt/>
   </div>
 </template>
-
-<script>
-import Forest from './forest'
-
-export default {
-  name: 'app',
-  data: () => ( { forest: [],
-                  total: 'N/A' } ),
-  watch: {
-    '$route' (to, from) {
-      if (to.query.page === undefined && from.query.page != undefined) {
-        forest.page = 1
-        forest.py_update()
-      }
-    }
-  },
-  mounted: function() {
-    setTimeout( () => {
-      window.forest = Forest(this.fetchData, this.$route.query.page)
-    }, 300) /// XXX Why? - No idea. Asked here:
-            /// https://stackoverflow.com/questions/48023208
-  },
-  methods: {
-    fetchData() {
-      this.forest = forest
-      this.total = forest.total
-    },
-    prevPage() {
-      forest.prevPage()
-    },
-    nextPage() {
-      forest.nextPage()
-    }
-  }
-}
-</script>
 
 <style>
 #app {
@@ -77,6 +41,12 @@ export default {
 body {
   margin-top: 70px;
   background: repeat-y center center radial-gradient(circle, white, Peru);
+  overflow:hidden;
+}
+
+.o-drawer {
+    z-index: 100;
+    padding-top: 60px;
 }
 
 #nav {
@@ -86,6 +56,6 @@ body {
 
 #infobox {
     position: absolute;
-        right: 0px;
+    right: 0px;
 }
 </style>
