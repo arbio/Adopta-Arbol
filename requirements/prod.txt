@@ -54,5 +54,5 @@ utm==0.4.2
 requests>=2.10.0
 
 # Images
-python-thumbnails>=0.5.1
+git+https://github.com/bschollnick/python-thumbnails@python-thumbnails/master#egg=python-thumbnails
 Pillow>=5.0.0
