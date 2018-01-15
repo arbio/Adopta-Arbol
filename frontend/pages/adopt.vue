@@ -73,9 +73,6 @@ export default {
 </script>
 
 <style scoped>
-#container {
-    padding-bottom: 480px;  /* leave room for adoption cart */
-}
 .c-card {
     margin-bottom: 30px;
 }

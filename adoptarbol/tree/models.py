@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 """Tree and sponsorship models."""
+import base64
 import datetime as dt
 import os
-import base64
-from adoptarbol.compat import BytesIO
 from random import randint
 
 import utm
 from flask import current_app as app
 from sqlalchemy import text
-from werkzeug import secure_filename
-from adoptarbol.extensions import api_manager, pages
 from thumbnails import get_thumbnail
+from werkzeug import secure_filename
 
+# from adoptarbol.compat import BytesIO
 from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
+from adoptarbol.extensions import api_manager, pages
 
 
 def convert_lat(context):
@@ -177,7 +177,7 @@ def postprocessor(result=None, **kw):
             except FileNotFoundError:
                 generic = os.path.join('../pictures', '_generic.jpg')
                 thumbnail = get_thumbnail(generic, '200x200', crop='center')
-            with open(thumbnail.path, "rb") as image_file:
+            with open(thumbnail.path, 'rb') as image_file:
                 img_str = base64.b64encode(image_file.read())
             # buffer = BytesIO()
             # thumbnail.image.save(buffer, format="JPEG")

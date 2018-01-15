@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Helper utilities and decorators."""
+import os
+
 from flask import flash
 from werkzeug import secure_filename
-import os
 
 
 def flash_errors(form, category='warning'):
