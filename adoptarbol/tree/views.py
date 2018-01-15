@@ -1,7 +1,7 @@
-
 """Tree API, including trees and sponsorships."""
 import json
-from flask import Blueprint, jsonify, redirect, url_for, request
+
+from flask import Blueprint, jsonify, redirect, request, url_for
 
 from adoptarbol.database import RestrictedModelView
 from adoptarbol.extensions import admin, db
