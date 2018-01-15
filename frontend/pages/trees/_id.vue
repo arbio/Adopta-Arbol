@@ -1,6 +1,6 @@
 <template>
 <div v-if="tree">
-  <div class="c-overlay c-overlay--visible"></div>
+  <div class="c-overlay c-overlay--visible" @click="closeTree()"></div>
     <div class="o-modal">
       <div class="c-card">
         <header class="c-card__header">
@@ -10,13 +10,15 @@
           <div class="c-heading__sub">{{ tree.diameter }}cm de diametro</div>
         </h2>
         </header>
-        <div class="c-card__body">
+        <img class="o-image" :src="currentPic" @click="closePic()" />
+        <div class="c-card__body" v-if="!(currentPic)">
           <div class="c-card__item c-card__item--info o-media">
             <div class="o-media__body">
               <h2 class="c-heading">{{ tree.scientific_name }}<br><span class="c-heading__sub">{{ tree.common_name }}</span></h2>
               <h2 class="c-heading"><br><span class="c-heading__sub">Notas</span></h2>
               <p class="c-paragraph">
                 {{ tree.notes }}
+                {{ currentPic }}
               </p>
               <h2 class="c-heading"><br><span class="c-heading__sub">Observaciones</span></h2>
               <p class="c-paragraph">
@@ -24,9 +26,11 @@
               </p>
             </div>
             <div class="o-grid o-grid--wrap o-grid--demo">
-              <div v-for="photo in tree.photos" class="o-grid__cell o-grid__cell--width-50">
+              <div v-for="(photo,url) in tree.photos" class="o-grid__cell o-grid__cell--width-50">
                 <div class="o-grid-text">
-                    <img :src="'data:image/jpeg;base64,' + photo" />
+                    <a @click="show(url)">
+                        <img class="o-image" :src="'data:image/jpeg;base64,' + photo" />
+                    </a>
                 </div>
               </div>
             </div>
@@ -41,10 +45,14 @@
           </div>
         </div>
         <footer class="c-card__footer">
-        <div class="c-input-group u-display-block u-right">
+        <div v-if="!(currentPic)" class="c-input-group u-display-block u-right">
           <button @click="closeTree()" type="button" class="c-button c-button--brand">Cerrar</button>&nbsp;
           <button v-if="!in_cart(tree.id)" @click="adopt(tree.id)" class="c-button c-button--warning u-high">Adoptar</button>
           <button v-if="in_cart(tree.id)" @click="$store.commit('dropIntent', tree.id)" class="c-button">No deseo adoptar este árbol</button>
+        </div>
+        <div v-if="currentPic" class="c-input-group u-display-block u-right">
+          <button @click="closePic()" type="button" class="c-button c-button--success">Volver</button>&nbsp;
+          <button v-if="!in_cart(tree.id)" @click="adopt(tree.id)" class="c-button c-button--warning u-high">Adoptar</button>
         </div>
         </footer>
       </div>
@@ -57,6 +65,9 @@ export default {
   validate ({ params }) {
     return !isNaN(+params.id)
   },
+  data: () => ({
+    currentPic: undefined
+  }),
   created: function () {
     if (!(this.tree)) {
       this.$store.dispatch('getTree', this.$route.params.id)
@@ -81,6 +92,12 @@ export default {
       this.$router.push({
         path: '/trees',
         query: { page: this.$store.state.page } })
+    },
+    closePic: function () {
+      this.currentPic = undefined
+    },
+    show: function (url) {
+      this.currentPic = '/pictures/' + url
     }
   }
 }

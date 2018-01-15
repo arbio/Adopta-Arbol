@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
+import os
 from random import choice, randint
 
 import requests
@@ -198,6 +199,17 @@ def front_assets(filename):
     if app.debug:
         return catch_all('_nuxt/' + filename)
     return send_from_directory('../frontend/dist/_nuxt', filename)
+
+
+# Pictures data
+@blueprint.route('/pictures/<path:filename>')
+def front_pictures(filename):
+    # filename = secure_path(filename)  # XXX - check
+    print('trying to serve ' + os.path.join('pictures', filename))
+    if os.path.exists(os.path.join('pictures', filename)):
+        return send_from_directory('../pictures', filename)
+    else:
+        return redirect(url_for('public.front_pictures', filename='_generic.jpg'))
 
 
 @blueprint.route('/api/random')
