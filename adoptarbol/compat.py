@@ -19,4 +19,8 @@ else:
     unicode = str
     basestring = (str, bytes)
 
+try:
+    FileNotFoundError = FileNotFoundError
+except NameError:
+    FileNotFoundError = IOError
 BytesIO = BytesIO
