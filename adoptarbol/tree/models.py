@@ -2,12 +2,16 @@
 """Tree and sponsorship models."""
 import datetime as dt
 import os
+import base64
+from adoptarbol.compat import BytesIO
 from random import randint
 
 import utm
 from flask import current_app as app
 from sqlalchemy import text
 from werkzeug import secure_filename
+from adoptarbol.extensions import api_manager, pages
+from thumbnails import get_thumbnail
 
 from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col, relationship
 
@@ -120,6 +124,12 @@ class Tree(SurrogatePK, Model):
     def adopted(cls):
         return Sponsorship.query.filter(text("status='confirmed'")).count()
 
+    @classmethod
+    def query(cls):
+        original_query = db.session.query(cls)
+        condition = (Tree.diameter)
+        return original_query.filter(condition)
+
 
 class Sponsorship(SurrogatePK, Model):
     """A tree adoption."""
@@ -144,3 +154,41 @@ class Sponsorship(SurrogatePK, Model):
     def __repr__(self):
         """Represent instance as a unique string."""
         return '<Sponsorship({code})>'.format(code=self.tree_id)
+
+
+def postprocessor(result=None, **kw):
+    if 'common_name' in result:
+        path = 'especies/' + secure_filename(result['common_name']).lower()
+        print('Intentando leer: ' + path)
+        page = pages.get(path)
+        if page:
+            result['description'] = page.html
+        else:
+            page = pages.get('especies/_generic')
+            if page:
+                result['description'] = page.html
+    if 'photo' in result:
+        photos = result['photo'].split(',')
+        encoded = {}
+        for photo in photos:
+            filename = os.path.join('../pictures', photo)
+            try:
+                thumbnail = get_thumbnail(filename, '200x200', crop='center')
+            except FileNotFoundError:
+                generic = os.path.join('../pictures', '_generic.jpg')
+                thumbnail = get_thumbnail(generic, '200x200', crop='center')
+            with open(thumbnail.path, "rb") as image_file:
+                img_str = base64.b64encode(image_file.read())
+            # buffer = BytesIO()
+            # thumbnail.image.save(buffer, format="JPEG")
+            # img_str = base64.b64encode(buffer.getvalue())
+            encoded[photo] = img_str.decode('UTF-8')
+
+        result['photos'] = encoded
+
+
+postprocessors = {'GET_SINGLE': [postprocessor]}
+
+api_manager.create_api(Tree, postprocessors=postprocessors, exclude_columns=['coord_lat', 'coord_lon', 'coord_utm_e',
+                       'coord_utm_n', 'coord_utm_zone_n', 'coord_utm_zone_letter'])
+api_manager.create_api(Sponsorship)

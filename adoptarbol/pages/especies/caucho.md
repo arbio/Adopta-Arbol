@@ -1,0 +1,3 @@
+
+Soy el árbol del caucho.  Vivo en la cuenca amazónica y alcanzo los 40 metros de altura.  De mi corteza se extrae un latex que se utiliza como jebe para fabricar pelotas, guantes, impermeables, adhesivos, pinturas e impermeabilizantes, sufriendo gran explotación en el siglo pasado tanto de mi especie como de la Hevea o shiringa (Hevea brasiliensis).
+La medicina tradicional atribuye a mi latex propiedades para tratar dislocaciones y fracturas, contra la ronquera, para mejorar la vista, combatir los abscesos y la supuración.  Mis frutos son alimento de variedad de aves y de mamíferos en el bosque.

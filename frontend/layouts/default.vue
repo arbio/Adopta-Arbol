@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="o-container o-container--large">
     <ul id="nav" class="c-nav c-nav--inline c-nav--top u-high">
 
     <router-link to="/">
@@ -31,7 +31,6 @@
   font-family: 'Noto Mono', 'Lucida Console', Monaco, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
   /* background: no-repeat center center;
@@ -41,17 +40,22 @@
 body {
   margin-top: 70px;
   background: repeat-y center center radial-gradient(circle, white, Peru);
-  overflow:hidden;
+  overflow-x:hidden;
 }
 
 .o-drawer {
     z-index: 100;
-    padding-top: 60px;
+}
+
+.treelist {
+    // border: 1px solid black;
+    background-color: LightYellow;
 }
 
 #nav {
     background-color: #93c54b;
     border-bottom: 1px solid black;
+    text-align: center;
 }
 
 #infobox {

@@ -52,3 +52,7 @@ utm==0.4.2
 
 # Useful for dealing with APIs
 requests>=2.10.0
+
+# Images
+python-thumbnails>=0.5.1
+Pillow>=5.0.0

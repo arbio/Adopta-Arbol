@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import Vuex from 'vuex'
 
 const createStore = () => {
@@ -8,7 +9,7 @@ const createStore = () => {
       trees: {},
       view: [],
       num_pages: 1,
-      page: 1,
+      page: undefined,
       cart: []
     },
     actions: {
@@ -19,9 +20,16 @@ const createStore = () => {
             'page': state.page}}
         )
         commit('setView', data)
+      },
+      async getTree ({ commit, state }, id) {
+        let { data } = await this.$axios.get('trees/' + id)
+        commit('setTree', data)
       }
     },
     mutations: {
+      setTree (state, tree) {
+        Vue.set(state.trees, tree.id, tree)
+      },
       setView (state, data) {
         state.view = data.objects
         state.total = data.num_results
@@ -29,7 +37,7 @@ const createStore = () => {
         for (var id in state.view) {
           var tree = state.view[id]
           if (!(tree.id in state.trees)) {
-            state.trees[tree.id] = tree
+            Vue.set(state.trees, tree.id, tree)
           }
         }
       },
@@ -41,6 +49,16 @@ const createStore = () => {
       },
       prevPage (state) {
         state.page--
+      },
+      intentAdopt (state, id) {
+        if (!(state.cart.includes(id))) {
+          state.cart.push(id)
+        }
+      },
+      dropIntent (state, id) {
+        if (state.cart.includes(id)) {
+          state.cart.splice(state.cart.indexOf(id), 1)
+        }
       }
     }
   })

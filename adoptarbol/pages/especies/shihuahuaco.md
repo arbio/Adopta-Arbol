@@ -1,0 +1,4 @@
+
+Soy uno de los árboles más altos del bosque amazónico, puedo alcanzar hasta 50 m de altura.  Soy considerado clave para el mantenimiento de la diversidad biológica de los bosques amazónicos.
+
+Mi madera es pesada y muy demandada tanto en la carpintería como en pisos de parquet, apreciándose su resistencia a ataques biológicos; por ello me están talando y poniendo en peligro mi especie. Mi vida es muy longeva, para crecer un metro de diámetro de tronco me demoro 500 años, soy un abuelo del bosque amazónico. En mi copa anida el Águila Harpía, el ave rapaz más grande de américa.  Mis frutos son alimento de múltiples especies de mamíferos terrestres y voladores (murciélagos, ardillas, añujes), quienes dispersan mis semillas para mantener la estructura y composición del bosque. Además, cumplo un rol muy importante en el secuestro y almacenamiento de carbono.  Un solo árbol como yo puede almacenar 38 toneladas de carbono!!

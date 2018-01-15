@@ -3,9 +3,9 @@
 from random import choice, randint
 
 from flask import current_app as app
-# import requests
+import requests
 from flask import Blueprint, flash, jsonify, redirect, render_template, request, send_from_directory, url_for
-# from flask import Response, stream_with_context
+from flask import Response, stream_with_context
 from flask_login import login_required, login_user, logout_user
 
 from adoptarbol.extensions import login_manager, pages
@@ -13,7 +13,7 @@ from adoptarbol.public.forms import LoginForm, SponsorshipForm
 from adoptarbol.tree.models import Tree
 from adoptarbol.user.forms import RegisterForm
 from adoptarbol.user.models import User
-from adoptarbol.utils import flash_errors
+from adoptarbol.utils import flash_errors, secure_path
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
@@ -26,6 +26,7 @@ def load_user(user_id):
 
 @blueprint.route('/page/<path:path>/')
 def page(path):
+    path = secure_path(path.lower())
     page = pages.get_or_404(path)
     template = page.meta.get('template', 'public/flatpages.html')
     return render_template(template, page=page)
@@ -33,6 +34,7 @@ def page(path):
 
 @blueprint.route('/api/pages/<path:path>/_random')
 def get_random_item(path):
+    path = secure_path(path.lower())
     page = pages.get_or_404(path)
     lines = [line for line in page.body.split('\n') if line.startswith('- ')]
     return choice(lines)[2:]
@@ -89,8 +91,8 @@ def home(tree_id=None):
                            image=image, banner=banner, nav=nav)
 
 
-@blueprint.route('/adopt/')
-@blueprint.route('/adopt/<int:tree_id>')
+@blueprint.route('/home/adopt/')
+@blueprint.route('/home/adopt/<int:tree_id>')
 def adopt(tree_id=None):
     """adopt a tree."""
     if not tree_id:
@@ -176,14 +178,15 @@ def debug():
 @blueprint.route('/', defaults={'path': ''})
 @blueprint.route('/<path:path>')
 def catch_all(path):
+    # path = secure_path(path)  # XXX - check
 
-    # print ('***** ', path)
-    # if app.debug:
-    #    url = 'http://localhost:3000/{}'.format(path)
-    #    req = requests.get(url, stream=True)
-    #    return Response(stream_with_context(req.raw.stream(decode_content=False)),
-    #                    content_type=req.headers['content-type'])
-    #    # return requests.get('http://localhost:8080/{}'.format(path)).text
+    print('***** ', path)
+    if app.debug:
+        url = 'http://localhost:3000/{}'.format(path)
+        req = requests.get(url, stream=True)
+        return Response(stream_with_context(req.raw.stream(decode_content=False)),
+                        content_type=req.headers['content-type'])
+        # return requests.get('http://localhost:8080/{}'.format(path)).text
 
     return send_from_directory('../frontend/dist/', 'index.html')
 
@@ -191,6 +194,7 @@ def catch_all(path):
 # Custom static data
 @blueprint.route('/_nuxt/<path:filename>')
 def front_assets(filename):
+    # filename = secure_path(filename)  # XXX - check
     if app.debug:
         return catch_all('_nuxt/' + filename)
     return send_from_directory('../frontend/dist/_nuxt', filename)

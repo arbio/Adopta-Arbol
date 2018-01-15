@@ -10,11 +10,11 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Sistema de adopción' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
-    link: [
-      { rel: 'stylesheet', href: '/static/blaze.min.css' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/static/blaze.min.css' },
+      { rel: 'stylesheet', href: '/static/font-awesome.min.css' },
     ]
+
   },
   /*
   ** Customize the progress bar color

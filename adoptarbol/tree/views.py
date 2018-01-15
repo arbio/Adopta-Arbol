@@ -3,17 +3,13 @@
 from flask import Blueprint, jsonify, redirect, url_for
 
 from adoptarbol.database import RestrictedModelView
-from adoptarbol.extensions import admin, api_manager, db
+from adoptarbol.extensions import admin, db
 from adoptarbol.tree.models import Sponsorship, Tree
 
 # from flask_login import login_required, login_user, logout_user
 
 
 blueprint = Blueprint('tree_manager', __name__, static_folder='../static')
-
-api_manager.create_api(Tree, exclude_columns=['coord_lat', 'coord_lon', 'coord_utm_e',
-                       'coord_utm_n', 'coord_utm_zone_n', 'coord_utm_zone_letter'])
-api_manager.create_api(Sponsorship)
 
 
 @blueprint.route('/api')
