@@ -99,23 +99,23 @@ class Tree(SurrogatePK, Model):
 
     @property
     def before(self):
-        if self == Tree.query.first():
-            return Tree.query.offset(Tree.query.count() - 1).first()
+        if self == Tree.query().first():
+            return Tree.query().offset(Tree.query().count() - 1).first()
 
         tree = Tree.get_by_id(self.id - 1)
         return tree or tree.before
 
     @property
     def after(self):
-        if self == Tree.query.offset(Tree.query.count() - 1).first():
-            return Tree.query.first()
+        if self == Tree.query().offset(Tree.query().count() - 1).first():
+            return Tree.query().first()
 
         tree = Tree.get_by_id(self.id + 1)
         return tree or tree.after
 
     @classmethod
     def random(cls):
-        if cls.query.count() > 0:
+        if cls.query().count() > 0:
             random_id = randint(1, cls.query.count())
             tree = cls.query.offset(random_id).first()
             return tree

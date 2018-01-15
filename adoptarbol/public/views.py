@@ -75,7 +75,7 @@ def home(tree_id=None):
         tree = Tree(code=0)
 
     count = {}
-    count['total'] = Tree.query.count()
+    count['total'] = Tree.query().count()
     count['sponsored'] = Tree.adopted()
     # clever way to get next multiple of 5
     count['target'] = count['sponsored'] + (5 - count['sponsored'] % 5)
