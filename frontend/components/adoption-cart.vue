@@ -11,7 +11,7 @@
             <div class="o-grid__cell o-grid__cell--width-50">
               <div class="o-grid-text">
               <nuxt-link to="/adopt">
-                <a class="c-button c-button--block c-button--warning">Seguir</a>
+                <a class="c-button c-button--block c-button--warning u-xlarge">Seguir</a>
               </nuxt-link>
               </div>
             </div>

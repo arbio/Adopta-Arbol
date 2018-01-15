@@ -10,7 +10,17 @@ const createStore = () => {
       view: [],
       num_pages: 1,
       page: undefined,
-      cart: []
+      cart: [],
+      adoptions: []
+    },
+    getters: {
+      totalCost: function (state) {
+        var cost = 0
+        for (var id of state.cart) {
+          cost = cost + state.trees[id].cost
+        }
+        return cost
+      }
     },
     actions: {
       async getTrees ({ commit, state }) {
@@ -24,9 +34,21 @@ const createStore = () => {
       async getTree ({ commit, state }, id) {
         let { data } = await this.$axios.get('trees/' + id)
         commit('setTree', data)
+      },
+      async postAdopt ({ commit, state, getters }) {
+        let { data } = await this.$axios.post('trees/adopt',
+          {'params': {
+            'trees': state.cart,
+            'amount': getters.totalCost
+          }}
+        )
+        commit('adoptResult', data)
       }
     },
     mutations: {
+      adoptResult (state, result) {
+        state.adoptions.push(result)
+      },
       setTree (state, tree) {
         Vue.set(state.trees, tree.id, tree)
       },

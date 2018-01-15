@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="o-container o-container--large">
+  <div id="app" class="o-container o-container--medium">
     <ul id="nav" class="c-nav c-nav--inline c-nav--top u-high">
 
     <router-link to="/">

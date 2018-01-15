@@ -19,8 +19,8 @@ class RestrictedModelView(ModelView):
     column_exclude_list = ['photo', 'coord_utm_e', 'coord_utm_n', 'coord_utm_zone_letter',
                            'coord_utm_zone_n', 'coord_lat', 'coord_lon', 'circ', 'height',
                            'cost', 'currency', 'family', 'password']
-    create_modal = True
-    edit_modal = True
+    # create_modal = True
+    # edit_modal = True
 
     def is_accessible(self):
         return current_user.is_authenticated

@@ -1,6 +1,7 @@
 
 """Tree API, including trees and sponsorships."""
-from flask import Blueprint, jsonify, redirect, url_for
+import json
+from flask import Blueprint, jsonify, redirect, url_for, request
 
 from adoptarbol.database import RestrictedModelView
 from adoptarbol.extensions import admin, db
@@ -23,6 +24,22 @@ def api_docs():
 def random_tree_endpoint():
     """random tree."""
     return jsonify(dict(Tree.random()))
+
+
+@blueprint.route('/api/trees/adopt', methods=['POST', 'GET'])
+def adopt_tree_endpoint():
+    """random tree."""
+    data = request.get_json(force=True)['params']
+    print(data)
+
+    s = Sponsorship()
+    s.reference = json.dumps(data)
+    s.amount = data['amount']
+    s.currency = 'USD'
+    s.status = 'alpha-test'
+    s.save()
+
+    return jsonify(data)
 
 
 admin.add_view(RestrictedModelView(Tree, db.session))

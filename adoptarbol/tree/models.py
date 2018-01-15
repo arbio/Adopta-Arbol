@@ -50,7 +50,7 @@ class Tree(SurrogatePK, Model):
 
     photo = Column(db.String(256))
 
-    sponsor = relationship('Sponsorship', backref='tree')
+    # sponsor = relationship('Sponsorship', backref='tree')
 
     coord_utm_e = Column(db.Float)
     coord_utm_n = Column(db.Float)
@@ -137,8 +137,8 @@ class Sponsorship(SurrogatePK, Model):
 
     __tablename__ = 'sponsorships'
 
-    tree_id = reference_col('trees', nullable=True)
-    user_id = reference_col('users', nullable=True)
+    # tree_id = reference_col('trees', nullable=True)
+    # user_id = reference_col('users', nullable=True)
 
     sponsored_on = Column(db.DateTime, nullable=True, default=dt.datetime.utcnow)
     amount = Column(db.Float, nullable=False)

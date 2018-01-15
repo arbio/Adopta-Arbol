@@ -1,7 +1,25 @@
 <template>
   <div id="container">
-    <h1>Paso 3: Genera tu Certificado</h1>
-    <p>Hola
+    <h1>Paso Final: Selecciona medio de pago</h1>
+    <p>
+    Para concretar tu adopción y emitir tu certificado es necesario recibir una donación.
+    </p>
+    <div class="c-card">
+      <header class="c-card__item u-centered">
+        <h1 class="c-heading">{{ $store.getters.totalCost }} USD</h1>
+      </h2>
+      </header>
+    </div>
+    <p>
+    Elige a continuación:
+    </p>
+    <p>
+    <button @click="$store.dispatch('postAdopt')" class="c-button c-button--info c-button--block u-large">Emitir certificado de prueba</button>
     </p>
   </div>
 </template>
+
+<script>
+export default {
+}
+</script>
