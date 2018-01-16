@@ -201,6 +201,15 @@ def front_assets(filename):
     return send_from_directory('../frontend/dist/_nuxt', filename)
 
 
+# Custom static data
+@blueprint.route('/fonts/<path:filename>')
+def font_assets(filename):
+    # filename = secure_path(filename)  # XXX - check
+    if app.debug:
+        return catch_all('_nuxt/' + filename)
+    return send_from_directory('../frontend/dist/fonts', filename)
+
+
 # Pictures data
 @blueprint.route('/pictures/<path:filename>')
 def front_pictures(filename):
