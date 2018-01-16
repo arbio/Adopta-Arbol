@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="u-centered">
     <div class="c-card">
       <div class="c-card__item c-card__item--info">
       <h2>  banner  </h2>
