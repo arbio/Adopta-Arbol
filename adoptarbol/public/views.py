@@ -206,7 +206,7 @@ def front_assets(filename):
 def font_assets(filename):
     # filename = secure_path(filename)  # XXX - check
     if app.debug:
-        return catch_all('_nuxt/' + filename)
+        return catch_all('fonts/' + filename)
     return send_from_directory('../frontend/dist/fonts', filename)
 
 
