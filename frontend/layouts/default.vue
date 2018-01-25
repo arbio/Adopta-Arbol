@@ -47,11 +47,6 @@ body {
     z-index: 100;
 }
 
-.treelist {
-    // border: 1px solid black;
-    background-color: LightYellow;
-}
-
 #nav {
     background-color: #93c54b;
     border-bottom: 1px solid black;

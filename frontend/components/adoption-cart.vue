@@ -31,7 +31,7 @@
          <tbody class="c-table__body">
            <tr class="c-table__row  c-table__row--clickable" v-for="id in this.$store.state.cart" @click="select(id)">
              <td class="c-table__cell"><a href="#" @click.stop="$store.commit('dropIntent', tree(id).id)">
-               <i class="fa fa-minus" aria-hidden="true"></i>
+               <i class="fa fa-times" aria-hidden="true"></i>
              </a></td>
              <td class="c-table__cell">{{ tree(id).code }}</td>
              <td class="c-table__cell">{{ tree(id).common_name }}</td>
