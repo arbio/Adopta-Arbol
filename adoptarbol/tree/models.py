@@ -128,7 +128,7 @@ class Tree(SurrogatePK, Model):
     @classmethod
     def query(cls):
         original_query = db.session.query(cls)
-        condition = (Tree.diameter)
+        condition = (Tree.diameter and Tree.coord_lat)
         return original_query.filter(condition)
 
 
@@ -190,6 +190,10 @@ def postprocessor(result=None, **kw):
 
 postprocessors = {'GET_SINGLE': [postprocessor]}
 
-api_manager.create_api(Tree, postprocessors=postprocessors, exclude_columns=['coord_lat', 'coord_lon', 'coord_utm_e',
-                       'coord_utm_n', 'coord_utm_zone_n', 'coord_utm_zone_letter'])
+api_manager.create_api(Tree, postprocessors=postprocessors)
+
+# NOTE: Alternatively use the following to exclude coordinates from API calls.
+# api_manager.create_api(Tree, postprocessors=postprocessors, exclude_columns=['coord_lat', 'coord_lon', 'coord_utm_e',
+#                       'coord_utm_n', 'coord_utm_zone_n', 'coord_utm_zone_letter'])
+
 api_manager.create_api(Sponsorship)
