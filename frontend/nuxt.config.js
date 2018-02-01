@@ -12,7 +12,7 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: '/static/blaze.min.css' },
-      { rel: 'stylesheet', href: '/static/font-awesome.min.css' },
+      { rel: 'stylesheet', href: '/static/font-awesome.min.css' }
     ]
 
   },
@@ -40,7 +40,7 @@ module.exports = {
     }
   },
   modules: [
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
   axios: {
     baseURL: '/api'

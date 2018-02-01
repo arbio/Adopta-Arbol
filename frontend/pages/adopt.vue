@@ -9,7 +9,7 @@
       <div class="o-grid__cell">
         <div class="c-card">
           <div v-for="id in this.$store.state.cart" class="c-card__item">
-              <label class="c-card__item"><b>{{tree(id).cost}} USD</b> : {{tree(id).common_name}} <i>({{tree(id).code}})</i></label>
+              <label class="c-card__item"><b>{{tree(id).cost}} USD</b>/a : {{tree(id).common_name}} <i>({{tree(id).code}})</i></label>
           </div>
         </div>
       </div>
@@ -52,12 +52,11 @@
                 <label class="c-label">
                   Para:
                   <input class="c-field c-field--label">
-                  <div class="c-hint">Siempre te lo agradecerá</div>
+                  <div class="c-hint">Te lo agradecerá</div>
                 </label>
                 <label class="c-label">
                   Mensaje:
                   <textarea class="c-field" placeholder="Escribe un mensaje o dedicatoria..."></textarea>
-                  <div class="c-hint">Siempre te lo agradecerá</div>
                 </label>
               </div>
           </div>
@@ -68,7 +67,22 @@
     <div class="o-container o-container--medium">
         <div id="checkout" class="c-card">
           <div class="c-card__item c-card__item--error u-large">
-             Costo total: {{ totalCost }} USD.
+            <div class="o-grid o-grid--demo">
+              <div id="por_label" class="o-grid__cell o-grid__cell--width-10 u-center-block">
+                <div class="o-grid-text u-center-block__content u-center-block__content--vertical">Por</div>
+              </div>
+              <div style="padding:0px" class="o-grid__cell o-grid__cell--width-10">
+                <select v-model="years" id="year_select" class="c-field">
+                  <option v-for="i in [1,2,3,4,5,6,7,8,9,10]" v-bind:selected="i=='3'" v-bind:value="i">{{ i }}</option>
+                </select>
+              </div>
+              <div class="o-grid__cell o-grid__cell--width-20 u-center-block">
+                 <div class="o-grid-text u-center-block__content u-center-block__content--vertical">años.</div>
+              </div>
+              <div class="o-grid__cell o-grid__cell--width-70 u-center-block">
+                 <div class="o-grid-text u-absolute-center">Costo total: {{ $store.getters.totalCost }} USD.</div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -93,15 +107,16 @@ export default {
     }
   },
   computed: {
+    years: {
+      get: function () {
+        return this.$store.state.years
+      },
+      set: function (y) {
+        this.$store.commit('setYears', y)
+      }
+    },
     total: function () {
       return this.$store.state.cart.length
-    },
-    totalCost: function () {
-      var cost = 0
-      for (var id of this.$store.state.cart) {
-        cost = cost + this.$store.state.trees[id].cost
-      }
-      return cost
     }
   }
 }
@@ -119,5 +134,16 @@ export default {
 }
 #checkout {
     text-align: right;
+}
+#year_select {
+    text-align-last: right;
+    width: 3em;
+}
+#por_label {
+    padding-right: 0px;
+    text-align: right;
+}
+option {
+    direction: rtl;
 }
 </style>

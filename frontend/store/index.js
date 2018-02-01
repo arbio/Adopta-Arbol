@@ -11,7 +11,8 @@ const createStore = () => {
       num_pages: 1,
       page: undefined,
       cart: [],
-      adoptions: []
+      adoptions: [],
+      years: 3
     },
     getters: {
       totalCost: function (state) {
@@ -19,7 +20,7 @@ const createStore = () => {
         for (var id of state.cart) {
           cost = cost + state.trees[id].cost
         }
-        return cost
+        return cost * state.years
       }
     },
     actions: {
@@ -39,6 +40,7 @@ const createStore = () => {
         let { data } = await this.$axios.post('trees/adopt',
           {'params': {
             'trees': state.cart,
+            'years': state.years,
             'amount': getters.totalCost
           }}
         )
@@ -71,6 +73,9 @@ const createStore = () => {
       },
       prevPage (state) {
         state.page--
+      },
+      setYears (state, years) {
+        state.years = years
       },
       intentAdopt (state, id) {
         if (!(state.cart.includes(id))) {

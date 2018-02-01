@@ -24,11 +24,11 @@
 export default {
   name: 'TreeAdmin',
   computed: {
-      tree: async function() {
-              return this.forest.__get__(this.$route.params.id)
-      }
+    tree: async function () {
+      return this.forest.__get__(this.$route.params.id)
+    }
   },
-  props: 
+  props:
       ['forest']
 }
 </script>
