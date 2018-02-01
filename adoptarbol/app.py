@@ -70,7 +70,7 @@ def register_hooks(app):
                 ['git', 'pull', 'origin', 'master'],)
             os.chdir('frontend')
             cmd_output = cmd_output + subprocess.check_output(
-                ['npm', 'build'],)
+                ['npm', 'run', 'build'],)
             os.chdir('..')
             return jsonify({'msg': str(cmd_output)})
         except subprocess.CalledProcessError as error:
