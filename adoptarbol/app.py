@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
+import os
 import subprocess
 
 from flask import Flask, jsonify, render_template
@@ -67,6 +68,10 @@ def register_hooks(app):
         try:
             cmd_output = subprocess.check_output(
                 ['git', 'pull', 'origin', 'master'],)
+            os.chdir('frontend')
+            cmd_output = cmd_output + subprocess.check_output(
+                ['npm', 'build'],)
+            os.chdir('..')
             return jsonify({'msg': str(cmd_output)})
         except subprocess.CalledProcessError as error:
             print('Code deployment failed', error.output)
