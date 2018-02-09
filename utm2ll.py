@@ -1,9 +1,11 @@
 import os
-import utm
+
 import tqdm
+import utm
+
 from adoptarbol.app import create_app
-from adoptarbol.tree.models import Tree
 from adoptarbol.settings import DevConfig, ProdConfig
+from adoptarbol.tree.models import Tree
 
 CONFIG = ProdConfig if os.environ.get('adoptarbol_ENV') == 'prod' else DevConfig
 
