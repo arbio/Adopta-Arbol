@@ -21,7 +21,7 @@ def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
-            flash('No file part')
+            flash('No ha subido un archivo.')
             return redirect(request.url)
         file = request.files['file']
         # if user does not select file, browser also
@@ -33,7 +33,11 @@ def upload_file():
             filename = secure_filename(file.filename)
             full_filename = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
             file.save(full_filename)
-            load(full_filename)
+            try:
+                load(full_filename)
+            except ValueError:
+                flash('El archivo que ha intentado subir no tiene las ' +
+                      'columnas requeridas.', category='error')
             return redirect(url_for('user_manager.upload_file',
                                     filename=filename))
     return render_template('users/members.html')
