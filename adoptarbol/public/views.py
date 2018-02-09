@@ -4,9 +4,9 @@ import os
 from random import choice, randint
 
 import requests
+from flask import Blueprint, Response
 from flask import current_app as app
-from flask import (Blueprint, Response, flash, jsonify, redirect, render_template, request, send_from_directory,
-                   stream_with_context, url_for)
+from flask import flash, jsonify, redirect, render_template, request, send_from_directory, stream_with_context, url_for
 from flask_login import login_required, login_user, logout_user
 
 from adoptarbol.extensions import login_manager, pages
