@@ -1,19 +1,19 @@
 # Everything needed in production
 
-setuptools==38.2.5
+setuptools==38.5.1
 wheel==0.30.0
 
 # Flask
 Flask==0.12.2
 MarkupSafe==1.0
-Werkzeug==0.13
+Werkzeug==0.14.1
 Jinja2==2.10
 itsdangerous==0.24
 
 # Database
 Flask-SQLAlchemy==2.3.2
-psycopg2==2.7.3.2
-SQLAlchemy==1.2.0
+psycopg2==2.7.4
+SQLAlchemy==1.2.2
 
 # Migrations
 Flask-Migrate==2.1.1
