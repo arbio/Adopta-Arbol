@@ -129,7 +129,7 @@ class Tree(SurrogatePK, Model):
     def query(cls):
         original_query = db.session.query(cls)
         condition = (Tree.diameter and Tree.coord_utm_n
-                     and Tree.height and Tree.common_name)
+                     and Tree.height and bool(Tree.common_name))
         return original_query.filter(condition)
 
 
