@@ -27,7 +27,7 @@ const createStore = () => {
       async getTrees ({ commit, state }) {
         let { data } = await this.$axios.get('trees',
           {'params': {
-            'results_per_page': 12,
+            'results_per_page': 9,
             'page': state.page}}
         )
         commit('setView', data)

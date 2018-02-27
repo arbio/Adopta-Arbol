@@ -29,7 +29,7 @@
               <div v-for="(photo,url) in tree.photos" class="o-grid__cell o-grid__cell--width-50">
                 <div class="o-grid-text">
                     <a @click="show(url)">
-                        <img class="o-image" :src="'data:image/jpeg;base64,' + photo" />
+                        <img height="200px" width="200px" :src="'data:image/jpeg;base64,' + photo" />
                     </a>
                 </div>
               </div>

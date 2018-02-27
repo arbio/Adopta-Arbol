@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="container">
     <h1>Paso 1: Escoge tu Árbol</h1>
     <p>
       <button class="navbut c-button c-button--success u-high" @click="prev">« anterior</button>&nbsp;
@@ -7,37 +7,59 @@
     </p>
     <div id="showcase" class="o-container o-container--large">
 
-    <div id="tree-drawer" class="o-drawer u-highest o-drawer--right o-drawer--visible">
-        <table class="treelist c-table u-high">
-            <thead class="c-table__head">
-              <tr class="c-table__row c-table__row--heading">
-                  <th class="c-table__cell">Adoptar</th>
-                  <th class="c-table__cell">Especie</th>
-              </tr>
-            </thead>
-            <tbody class="c-table__body">
-              <tr class="c-table__row c-table__row--clickable" v-for="tree in this.$store.state.view" @click="select(tree.id)">
-                  <td class="c-table__cell">
-                    <a v-if="!in_cart(tree.id)" href="#" @click.stop="adopt(tree.id)">
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                    </a>
-                    <a v-if="in_cart(tree.id)" href="#" @click.stop="$store.commit('dropIntent', tree.id)">
-                      <i class="fa fa-times" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                  <td class="c-table__cell">{{ tree.common_name }}</td>
-              </tr>
-            </tbody>
-        </table></div>
     </div>
 
     <v-map id="mapita" ref="mapita" :zoom=17 :center="[-12.1716094, -69.3869664]">
       <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
-      <v-marker v-for="tree in this.$store.state.view" :key="tree.id" :lat-lng="[tree.coord_lat, tree.coord_lon]" @l-click="select(tree.id)"></v-marker>
+      <template v-for="tree in this.$store.state.view">
+      <v-marker v-if="tree.coord_lat" :key="tree.id" :lat-lng="[tree.coord_lat, tree.coord_lon]" @l-click="select(tree.id)"></v-marker>
+      </template>
     </v-map>
 
     <nuxt-child :key="$route.params.id"/>
     <adoption-cart></adoption-cart>
+
+    <div id="carousel">
+      <carousel-3d :width="300" :height="390" :loop="true"
+          :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" 
+          :controls-width="30" :controls-height="60"
+          :display="this.$store.state.view.length"
+          :count="this.$store.state.total">
+      <slide v-for="(tree, index) in this.$store.state.view" :key="tree.id" :index="index">
+        <div class="c-card">
+          <div class="c-card__item o-media">
+            <div class="o-media__image o-media__image--top">
+                <a v-if="!in_cart(tree.id)" href="#" @click.stop="adopt(tree.id)">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </a>
+                <a v-if="in_cart(tree.id)" href="#" @click.stop="$store.commit('dropIntent', tree.id)">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="o-media__body">
+                <h2 class="c-heading">{{ tree.common_name }}</h2>
+              <p class="c-paragraph">
+              {{ tree.family }}
+              </p>
+            </div>
+
+          </div>
+          <figure>
+              <figcaption>
+                  <a @click="select(tree.id)">
+                      <img class="o-image" :src="'data:image/jpeg;base64,' + tree.preview" />
+                  </a>
+                  {{ tree.scientific_name }}
+              </figcaption>
+          </figure>
+        </div>
+
+      </slide>
+      </carousel-3d>
+    </div>
+
+    <GlobalEvents @keyup.left="prev"
+                  @keyup.right="next" />
   </div>
 </template>
 
@@ -45,6 +67,8 @@
 import Vue from 'vue'
 import L from 'leaflet'
 import Vue2Leaflet from 'vue2-leaflet'
+import { Carousel3d, Slide } from 'vue-carousel-3d'
+import GlobalEvents from 'vue-global-events'
 
 // Build icon assets.
 delete L.Icon.Default.prototype._getIconUrl
@@ -61,9 +85,14 @@ Vue.component('v-marker', Vue2Leaflet.Marker)
 
 export default {
   components: {
-    'adoption-cart': () => import('~/components/adoption-cart')
+    'adoption-cart': () => import('~/components/adoption-cart'),
+    GlobalEvents,
+    Carousel3d,
+    Slide
   },
   mounted: function () {
+    var map = this.$refs.mapita.mapObject
+    map.removeControl(map.zoomControl)
     if (this.$store.state.page === undefined) {
       this.$store.commit('setPage', this.$route.query.page || 1)
     }
@@ -117,7 +146,12 @@ export default {
 </script>
 
 <style scoped>
+
 @import "~leaflet/dist/leaflet.css";
+
+#container {
+    text-align: center;
+}
 
 #mapita {
     z-index: -5000;
@@ -157,5 +191,28 @@ button {
 
 .fa-heart {
     color: DeepPink;
+}
+
+#carousel {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.carousel-3d-container figure {
+  margin:0;
+}
+
+.carousel-3d-container figcaption {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  bottom: 0;
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  font-size: 12px;
+  min-width: 100%;
+  box-sizing: border-box;
 }
 </style>
