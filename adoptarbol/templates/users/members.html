@@ -5,11 +5,12 @@
     <h2>Cargar árboles</h2>
     <br>
     <form method=post enctype=multipart/form-data>
-            <input class="c-button c-button--success" type=file name=file value="Examinar">
-            <button class="c-button c-button--success" type=submit value=Upload>
-            <i class="fa fa-send fa-2x" aria-hidden="true"></i>
-            Cargar archivo CSV
-            </button>
+       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+       <input class="c-button c-button--success" type=file name=file value="Examinar">
+       <button class="c-button c-button--success" type=submit value=Upload>
+       <i class="fa fa-send fa-2x" aria-hidden="true"></i>
+           Cargar archivo CSV
+       </button>
     </form>
     <br>
     <a class="c-button c-button--success" href="/admin">
