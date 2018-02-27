@@ -21,13 +21,13 @@ def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
-            flash('No ha subido un archivo.')
+            flash('No se ha subido un archivo.')
             return redirect(request.url)
         file = request.files['file']
         # if user does not select file, browser also
         # submit a empty part without filename
         if file.filename == '':
-            flash('No selected file')
+            flash('No se ha seleccionado un archivo.')
             return redirect(request.url)
         if file.filename.endswith('.csv'):
             filename = secure_filename(file.filename)
