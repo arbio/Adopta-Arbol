@@ -6,7 +6,7 @@ from adoptarbol.tree.models import Tree
 
 
 def load(filename):
-    with open(filename) as f:
+    with open(filename, encoding='utf-8') as f:
         reader = csv.reader(f)
         header = next(reader)
 
