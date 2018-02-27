@@ -181,7 +181,6 @@ def debug():
 def catch_all(path):
     # path = secure_path(path)  # XXX - check
 
-    print('***** ', path)
     if app.debug:
         url = 'http://localhost:3000/{}'.format(path)
         req = requests.get(url, stream=True)
@@ -214,8 +213,8 @@ def font_assets(filename):
 @blueprint.route('/pictures/<path:filename>')
 def front_pictures(filename):
     # filename = secure_path(filename)  # XXX - check
-    print('trying to serve ' + os.path.join('pictures', filename))
     if os.path.exists(os.path.join('pictures', filename)):
+        print('serving ' + os.path.join('pictures', filename))
         return send_from_directory('../pictures', filename)
     else:
         return redirect(url_for('public.front_pictures', filename='_generic.jpg'))
