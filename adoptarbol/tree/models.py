@@ -128,7 +128,7 @@ class Tree(SurrogatePK, Model):
     @classmethod
     def query(cls):
         original_query = db.session.query(cls)
-        condition = (Tree.diameter and Tree.coord_utm_n
+        condition = (Tree.diameter and Tree.coord_lat and Tree.coord_lon
                      and Tree.height and bool(Tree.common_name))
         return original_query.filter(condition)
 
@@ -158,7 +158,9 @@ class Sponsorship(SurrogatePK, Model):
         return '<Sponsorship({code})>'.format(code=self.tree_id)
 
 
-def postprocessor(result=None, **kw):
+def single_postprocessor(result=None, **kw):
+    # For individual trees
+
     if 'common_name' in result:
         path = 'especies/' + secure_filename(result['common_name']).lower()
         print('Intentando leer: ' + path)
@@ -173,23 +175,41 @@ def postprocessor(result=None, **kw):
         photos = result['photo'].split(',')
         encoded = {}
         for photo in photos:
-            filename = os.path.join('../pictures', photo)
-            try:
-                thumbnail = get_thumbnail(filename, '200x200', crop='center')
-            except FileNotFoundError:
-                generic = os.path.join('../pictures', '_generic.jpg')
-                thumbnail = get_thumbnail(generic, '200x200', crop='center')
-            with open(thumbnail.path, 'rb') as image_file:
-                img_str = base64.b64encode(image_file.read())
-            # buffer = BytesIO()
-            # thumbnail.image.save(buffer, format="JPEG")
-            # img_str = base64.b64encode(buffer.getvalue())
-            encoded[photo] = img_str.decode('UTF-8')
+            encoded[photo] = load_photo(photo)
 
         result['photos'] = encoded
 
 
-postprocessors = {'GET_SINGLE': [postprocessor]}
+def load_photo(photo):
+    filename = os.path.join('../pictures', photo)
+    try:
+        thumbnail = get_thumbnail(filename, '200x200', crop='center')
+    except FileNotFoundError:
+        generic = os.path.join('../pictures', '_generic.jpg')
+        thumbnail = get_thumbnail(generic, '200x200', crop='center')
+    with open(thumbnail.path, 'rb') as image_file:
+        img_str = base64.b64encode(image_file.read())
+    # buffer = BytesIO()
+    # thumbnail.image.save(buffer, format="JPEG")
+    # img_str = base64.b64encode(buffer.getvalue())
+    return img_str.decode('UTF-8')
+
+
+def many_postprocessor(result=None, **kw):
+    # For tree lists
+    if 'num_results' in result:
+        for tree in result['objects']:
+            if 'photo' in tree:
+                if ',' in tree['photo']:
+                    photo = tree['photo'].split(',')[0]
+                else:
+                    photo = tree['photo']
+                if photo:
+                    tree['preview'] = load_photo(photo)
+
+
+postprocessors = {'GET_SINGLE': [single_postprocessor],
+                  'GET_MANY': [many_postprocessor]}
 
 api_manager.create_api(Tree, postprocessors=postprocessors)
 
