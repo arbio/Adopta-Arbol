@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_caching import Cache
 from flask_cors import CORS
 from flask_debugtoolbar import DebugToolbarExtension
-# from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CSRFProtect
 from flask_flatpages import FlatPages
 from flask_hookserver import Hooks
 from flask_login import LoginManager
@@ -14,7 +14,7 @@ from flask_restless import APIManager
 from flask_sqlalchemy import SQLAlchemy
 
 bcrypt = Bcrypt()
-# csrf_protect = CSRFProtect()
+csrf_protect = CSRFProtect()
 admin = Admin(name='Admin Adopta Árbol', base_template='admin/adoptarbol.html')
 login_manager = LoginManager()
 db = SQLAlchemy()
