@@ -43,6 +43,7 @@ class DevConfig(Config):
     VALIDATE_IP = False
     VALIDATE_SIGNATURE = False
     WTF_CSRF_ENABLED = False
+    MAIL_PORT = 2525
 
 
 class TestConfig(Config):

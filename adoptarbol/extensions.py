@@ -12,6 +12,7 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_restless import APIManager
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail
 
 bcrypt = Bcrypt()
 csrf_protect = CSRFProtect()
@@ -25,3 +26,4 @@ pages = FlatPages()
 api_manager = APIManager(flask_sqlalchemy_db=db)
 hooks = Hooks(url='/hooks')
 cors = CORS
+mail = Mail()

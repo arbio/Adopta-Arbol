@@ -58,3 +58,6 @@ pathlib2>=2.3.0  # for compatibility of below backport (py2)
 pathlib>=1.0.1   # same for py(3.3)
 git+https://github.com/bschollnick/python-thumbnails@python-thumbnails/master#egg=python-thumbnails
 Pillow>=5.0.0
+
+# Mail
+Flask-Mail==0.9.1
