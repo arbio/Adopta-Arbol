@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """Tree API, including trees and sponsorships."""
 import datetime
 import json
