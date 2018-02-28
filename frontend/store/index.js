@@ -12,7 +12,14 @@ const createStore = () => {
       page: undefined,
       cart: [],
       adoptions: [],
-      years: 3
+      sponsor: '',
+      country: '',
+      taxid: '',
+      email: '',
+      years: 3,
+      giftTo: '',
+      giftFrom: '',
+      giftDedication: ''
     },
     getters: {
       totalCost: function (state) {
@@ -40,6 +47,13 @@ const createStore = () => {
         let { data } = await this.$axios.post('trees/adopt',
           {'params': {
             'trees': state.cart,
+            'sponsor': state.sponsor,
+            'email': state.email,
+            'taxid': state.taxid,
+            'country': state.country,
+            'giftFrom': state.giftFrom,
+            'giftTo': state.giftTo,
+            'giftDedication': state.giftDedication,
             'years': state.years,
             'amount': getters.totalCost
           }}
@@ -76,6 +90,27 @@ const createStore = () => {
       },
       setYears (state, years) {
         state.years = years
+      },
+      setTaxid (state, taxid) {
+        state.taxid = taxid
+      },
+      setEmail (state, email) {
+        state.email = email
+      },
+      setCountry (state, country) {
+        state.country = country
+      },
+      setGiftFrom (state, giftFrom) {
+        state.giftFrom = giftFrom
+      },
+      setGiftTo (state, giftTo) {
+        state.giftTo = giftTo
+      },
+      setGiftDedication (state, giftDedication) {
+        state.giftDedication = giftDedication
+      },
+      setSponsor (state, sponsor) {
+        state.sponsor = sponsor
       },
       intentAdopt (state, id) {
         if (!(state.cart.includes(id))) {

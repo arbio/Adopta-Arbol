@@ -5,6 +5,7 @@
     ¡Felicidades! has seleccionado {{ total }} árboles para adoptar. A continuación podrás personalizar los certificados de adopción que serán emitidos.
     </p>
 
+    <form name="adoption_form" ref="adoption_form" @submit.prevent="confirm">
     <div class="o-grid o-grid--demo">
       <div class="o-grid__cell">
         <div class="c-card">
@@ -19,22 +20,22 @@
               <div class="c-card__item c-card__item--success">
                 <label class="c-label">
                   Nombre de quien adopta:
-                  <input class="c-field c-field--label">
+                  <input v-model.lazy="sponsor" class="c-field c-field--label">
                   <div class="c-hint">¡Gracias!</div>
                 </label>
                 <label class="c-label">
                   Número de ID tributaria:
-                  <input class="c-field c-field--label">
+                  <input v-model.lazy="taxid" class="c-field c-field--label">
                   <div class="c-hint">¡Gracias!</div>
                 </label>
                 <label class="c-label">
                   Email:
-                  <input class="c-field c-field--label">
+                  <input v-model.lazy="email" class="c-field c-field--label">
                   <div class="c-hint">¡Gracias!</div>
                 </label>
                 <label class="c-label">
                   País:
-                  <input class="c-field c-field--label">
+                  <input v-model.lazy="country" class="c-field c-field--label">
                   <div class="c-hint">¡Gracias!</div>
                 </label>
                 <label class="c-field c-field--choice">
@@ -46,17 +47,17 @@
               <div v-show="isGift" class="c-card__item c-card__item--info">
                 <label class="c-label">
                   De:
-                  <input class="c-field c-field--label">
+                  <input v-model.lazy="giftFrom" class="c-field c-field--label">
                   <div class="c-hint">¡Gracias!</div>
                 </label>
                 <label class="c-label">
                   Para:
-                  <input class="c-field c-field--label">
+                  <input v-model.lazy="giftTo" class="c-field c-field--label">
                   <div class="c-hint">Te lo agradecerá</div>
                 </label>
                 <label class="c-label">
                   Mensaje:
-                  <textarea class="c-field" placeholder="Escribe un mensaje o dedicatoria..."></textarea>
+                  <textarea v-model.lazy="giftDedication" class="c-field" placeholder="Escribe un mensaje o dedicatoria..."></textarea>
                 </label>
               </div>
           </div>
@@ -86,10 +87,9 @@
           </div>
         </div>
 
-        <nuxt-link to="/confirm">
-          <a class="c-button c-button--block c-button--warning u-high u-xlarge">Finalizar</a>
-        </nuxt-link>
+        <input type="submit" class="c-button c-button--block c-button--warning u-high u-xlarge" value="Finalizar" />
     </div>
+    </form>
   </div>
 </template>
 
@@ -104,9 +104,68 @@ export default {
   methods: {
     tree: function (id) {
       return this.$store.state.trees[id]
+    },
+    confirm: function (event) {
+      this.$router.push('/confirm')
     }
   },
   computed: {
+    sponsor: {
+      get: function () {
+        return this.$store.state.sponsor
+      },
+      set: function (sponsor) {
+        this.$store.commit('setSponsor', sponsor)
+      }
+    },
+    taxid: {
+      get: function () {
+        return this.$store.state.taxid
+      },
+      set: function (taxid) {
+        this.$store.commit('setTaxid', taxid)
+      }
+    },
+    email: {
+      get: function () {
+        return this.$store.state.email
+      },
+      set: function (email) {
+        this.$store.commit('setEmail', email)
+      }
+    },
+    country: {
+      get: function () {
+        return this.$store.state.country
+      },
+      set: function (country) {
+        this.$store.commit('setCountry', country)
+      }
+    },
+    giftFrom: {
+      get: function () {
+        return this.$store.state.giftFrom
+      },
+      set: function (giftFrom) {
+        this.$store.commit('setGiftFrom', giftFrom)
+      }
+    },
+    giftTo: {
+      get: function () {
+        return this.$store.state.giftTo
+      },
+      set: function (giftTo) {
+        this.$store.commit('setGiftTo', giftTo)
+      }
+    },
+    giftDedication: {
+      get: function () {
+        return this.$store.state.giftDedication
+      },
+      set: function (giftDedication) {
+        this.$store.commit('setGiftDedication', giftDedication)
+      }
+    },
     years: {
       get: function () {
         return this.$store.state.years
