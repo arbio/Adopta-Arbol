@@ -13,7 +13,7 @@ from werkzeug import secure_filename
 
 from adoptarbol.compat import FileNotFoundError
 # from adoptarbol.compat import BytesIO
-from adoptarbol.database import Column, Model, SurrogatePK, db  # reference_col, relationship
+from adoptarbol.database import Column, Model, SurrogatePK, db, reference_col  # relationship
 from adoptarbol.extensions import api_manager, pages
 
 
@@ -68,6 +68,9 @@ class Tree(SurrogatePK, Model):
     observation = Column(db.String(500))
 
     surveyed_on = Column(db.DateTime, nullable=True, default=dt.datetime.utcnow)
+    sponsored_until = Column(db.DateTime, nullable=True, default=None)
+    sponsorship = reference_col('sponsorships', nullable=True)
+
     base_area = Column(db.Float)
     size_class = Column(db.String(80))
     quality = Column(db.Float)
@@ -138,11 +141,9 @@ class Sponsorship(SurrogatePK, Model):
 
     __tablename__ = 'sponsorships'
 
-    # tree_id = reference_col('trees', nullable=True)
-    # user_id = reference_col('users', nullable=True)
-
     sponsored_on = Column(db.DateTime, nullable=True, default=dt.datetime.utcnow)
     amount = Column(db.Float, nullable=False)
+    period = Column(db.Float, nullable=True, default=3)
     currency = Column(db.String, nullable=False)
     reference = Column(db.String, nullable=False)
 
@@ -180,14 +181,18 @@ def single_postprocessor(result=None, **kw):
         result['photos'] = encoded
 
 
-def load_photo(photo):
+def make_thumb(photo):
     filename = os.path.join('../pictures', photo)
     try:
         thumbnail = get_thumbnail(filename, '200x200', crop='center')
     except FileNotFoundError:
         generic = os.path.join('../pictures', '_generic.jpg')
         thumbnail = get_thumbnail(generic, '200x200', crop='center')
-    with open(thumbnail.path, 'rb') as image_file:
+    return thumbnail
+
+
+def load_photo(photo):
+    with open(make_thumb(photo).path, 'rb') as image_file:
         img_str = base64.b64encode(image_file.read())
     # buffer = BytesIO()
     # thumbnail.image.save(buffer, format="JPEG")
@@ -205,7 +210,8 @@ def many_postprocessor(result=None, **kw):
                 else:
                     photo = tree['photo']
                 if photo:
-                    tree['preview'] = load_photo(photo)
+                    # tree['preview'] = load_photo(photo)
+                    tree['thumbnail'] = make_thumb(photo).url
 
 
 postprocessors = {'GET_SINGLE': [single_postprocessor],
