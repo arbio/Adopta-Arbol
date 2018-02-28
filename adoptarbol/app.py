@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
+import mimetypes
 import os
 import subprocess
 
@@ -7,8 +8,10 @@ from flask import Flask, jsonify, render_template
 
 from adoptarbol import public, tree, user
 from adoptarbol.extensions import (admin, api_manager, bcrypt, cache, cors, db, debug_toolbar, hooks, csrf_protect,
-                                   login_manager, migrate, pages)
+                                   login_manager, migrate, pages, mail)
 from adoptarbol.settings import DevConfig, ProdConfig
+
+mimetypes.add_type('image/svg+xml', '.svg')
 
 
 def create_dev_app():
@@ -47,6 +50,7 @@ def register_extensions(app):
     api_manager.init_app(app)
     hooks.init_app(app)
     cors(app, resources={r'/api/*': {'origins': '*'}})
+    mail.init_app(app)
     return None
 
 

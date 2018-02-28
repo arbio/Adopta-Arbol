@@ -33,6 +33,12 @@ def page(path):
     return render_template(template, page=page)
 
 
+@blueprint.route('/cert/<path:path>/')
+def cert(path):
+    path = secure_path(path.lower())
+    return render_template('cert/certificado_plantilla_light.svg', sponsor='Sebastian Silva')
+
+
 @blueprint.route('/api/pages/<path:path>/_random')
 def get_random_item(path):
     path = secure_path(path.lower())
@@ -218,6 +224,17 @@ def front_pictures(filename):
         return send_from_directory('../pictures', filename)
     else:
         return redirect(url_for('public.front_pictures', filename='_generic.jpg'))
+
+
+# Thumbnails data
+@blueprint.route('/thumbnails/<path:filename>')
+def front_thumbnails(filename):
+    # filename = secure_path(filename)  # XXX - check
+    if os.path.exists(os.path.join('thumbnails-cache', filename)):
+        print('serving ' + os.path.join('thumbnails-cache', filename))
+        return send_from_directory('../thumbnails-cache', filename)
+    else:
+        return redirect(url_for('public.front_thumbnails', filename='_generic.jpg'))
 
 
 @blueprint.route('/api/random')

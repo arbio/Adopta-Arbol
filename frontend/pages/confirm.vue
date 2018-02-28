@@ -4,12 +4,15 @@
     <p>
     Para concretar tu adopción y emitir tu certificado es necesario recibir una donación.
     </p>
-    <div class="c-card">
+    <div class="c-card o-container o-container--xsmall">
       <header class="c-card__item u-centered">
         <h1 class="c-heading">{{ $store.getters.totalCost }} USD</h1>
       </h2>
       </header>
     </div>
+    <p class="c-paragraph">
+      <object id="svg1" width="812" height="580" data="/cert/image.svg" type="image/svg+xml"></object>
+    </p>
     <p>
     Elige a continuación:
     </p>
