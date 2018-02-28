@@ -45,10 +45,10 @@
 
           </div>
           <figure>
+              <a @click="select(tree.id)">
+                  <img class="o-image" :src="tree.thumbnail" />
+              </a>
               <figcaption>
-                  <a @click="select(tree.id)">
-                      <img class="o-image" :src="'data:image/jpeg;base64,' + tree.preview" />
-                  </a>
                   {{ tree.scientific_name }}
               </figcaption>
           </figure>
@@ -196,6 +196,7 @@ button {
 #carousel {
     position: fixed;
     bottom: 0px;
+    left: 0px;
     width: 100%;
 }
 
