@@ -1,10 +1,12 @@
 """Tree API, including trees and sponsorships."""
+import datetime
 import json
 
-from flask import Blueprint, jsonify, redirect, request, url_for
+from flask import Blueprint, jsonify, redirect, request, url_for, render_template
+from flask_mail import Message
 
 from adoptarbol.database import RestrictedModelView
-from adoptarbol.extensions import admin, db
+from adoptarbol.extensions import admin, db, mail
 from adoptarbol.tree.models import Sponsorship, Tree
 
 # from flask_login import login_required, login_user, logout_user
@@ -35,9 +37,32 @@ def adopt_tree_endpoint():
     s = Sponsorship()
     s.reference = json.dumps(data)
     s.amount = data['amount']
+    s.period = data['years']
     s.currency = 'USD'
-    s.status = 'alpha-test'
+    s.status = 'beta-test'
     s.save()
+
+    iso_date = str(datetime.datetime.now())[:10]
+    for tree_id in data['trees']:
+        tree = db.session.query(Tree).filter(Tree.id == tree_id).first()
+        print('saving tree svg cert for ' + tree.common_name)
+
+        msg = Message('Hello',
+                      sender='from@example.com',
+                      recipients=['to@example.com'])
+        mail.send(msg)
+
+        svg = render_template('cert/certificado_plantilla_light.svg',
+                              common_name=tree.common_name,
+                              scientific_name=tree.scientific_name,
+                              family=tree.family,
+                              coord_utm_e=tree.coord_utm_e,
+                              coord_utm_n=tree.coord_utm_n,
+                              sponsored_on=iso_date,
+                              sponsor=data['sponsor'] or 'Anónimo')
+        output_filename = 'certs/' + iso_date + '_sponsored_' + str(tree_id) + '.svg'
+        with open(output_filename, 'w') as text_file:
+            text_file.write(svg)
 
     return jsonify(data)
 
