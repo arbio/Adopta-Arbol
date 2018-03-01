@@ -3,8 +3,11 @@
 """Tree API, including trees and sponsorships."""
 import datetime
 import json
+import os
+import subprocess
 
 from flask import Blueprint, jsonify, redirect, request, url_for, render_template
+from flask import current_app as app
 from flask_mail import Message
 
 from adoptarbol.database import RestrictedModelView
@@ -44,15 +47,31 @@ def adopt_tree_endpoint():
     s.status = 'beta-test'
     s.save()
 
+    if len(data['trees']) == 1:
+        subject = '¡Gracias por adoptar un árbol!'
+    elif len(data['trees']) > 1:
+        subject = '¡Gracias por adoptar ' + str(len(data['trees'])) + ' árboles!'
+
+    msg = Message(subject,
+                  sender='equipo@somosazucar.org',
+                  recipients=[data['email']],
+                  bcc=['equipo@somosazucar.org'])
+
+    body = """¡Hola!\n\n¡Gracias por proteger el bosque! Por favor encuentra
+    adjunto a este correo tu(s) certificado(s) de adopción.\n\n
+    Términos y Condiciones de la Adopción: Gracias a la generosa donación recibida,
+el árbol adoptado recibirá atención Lorem ipsum dolor sit amet consectetur
+adipiscing, elit velit rutrum leo. Odio curabitur senectus magna lacinia neque
+tempus pulvinar, ullamcorper facilisi diam condimentum molestie bibendum ad,
+massa penatibus laoreet ultrices dapibus habitant. Faucibus etiam scelerisque
+felis ullamcorper nunc imperdiet lacus, dapibus ultricies sollicitudin habitant
+sapien aliquam sagittis, viverra ante penatibus eu porttitor aenean.
+"""
+
     iso_date = str(datetime.datetime.now())[:10]
     for tree_id in data['trees']:
         tree = db.session.query(Tree).filter(Tree.id == tree_id).first()
         print('saving tree svg cert for ' + tree.common_name)
-
-        msg = Message('Hello',
-                      sender='from@example.com',
-                      recipients=['to@example.com'])
-        mail.send(msg)
 
         svg = render_template('cert/certificado_plantilla_light.svg',
                               common_name=tree.common_name,
@@ -65,6 +84,14 @@ def adopt_tree_endpoint():
         output_filename = 'certs/' + iso_date + '_sponsored_' + str(tree_id) + '.svg'
         with open(output_filename, 'w') as text_file:
             text_file.write(svg)
+
+        pdf_filename = output_filename[:-3] + 'pdf'
+        subprocess.call(['inkscape', output_filename, '-z', '-A', pdf_filename])
+        with app.open_resource('../' + pdf_filename) as fp:
+            msg.attach(os.path.basename(pdf_filename), 'application/pdf', fp.read())
+
+    msg.body = body
+    mail.send(msg)
 
     return jsonify(data)
 
