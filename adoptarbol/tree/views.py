@@ -53,7 +53,6 @@ def adopt_tree_endpoint():
         subject = '¡Gracias por adoptar ' + str(len(data['trees'])) + ' árboles!'
 
     msg = Message(subject,
-                  sender='equipo@somosazucar.org',
                   recipients=[data['email']],
                   bcc=['equipo@somosazucar.org'])
 
