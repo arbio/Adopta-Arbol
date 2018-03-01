@@ -11,7 +11,7 @@ from flask import current_app as app
 from flask_mail import Message
 
 from adoptarbol.database import RestrictedModelView
-from adoptarbol.extensions import admin, db, mail
+from adoptarbol.extensions import admin, db, mail, csrf
 from adoptarbol.tree.models import Sponsorship, Tree
 
 # from flask_login import login_required, login_user, logout_user
@@ -33,9 +33,9 @@ def random_tree_endpoint():
     return jsonify(dict(Tree.random()))
 
 
+@csrf.exempt
 @blueprint.route('/api/trees/adopt', methods=['POST', 'GET'])
 def adopt_tree_endpoint():
-    """random tree."""
     data = request.get_json(force=True)['params']
     print(data)
 
@@ -66,6 +66,14 @@ massa penatibus laoreet ultrices dapibus habitant. Faucibus etiam scelerisque
 felis ullamcorper nunc imperdiet lacus, dapibus ultricies sollicitudin habitant
 sapien aliquam sagittis, viverra ante penatibus eu porttitor aenean.
 """
+    if '@' in data['giftTo']:
+        body = body + '! Alguien ha adoptado uno o varios ' + \
+            'árboles y lo han dedicado a ti.\n\nDe: ' + data['giftFrom'] + \
+            '\n\nPara: ' + data['giftTo'] + '\n\nDedicatoria:\n  ' + data['giftDedication']
+        if '@' in data['giftTo']:
+            body = body + '\n\n Un email será enviado a ' + data['giftTo']
+        else:
+            body = body + '\n\n Para notificar al beneficiario se debe usar una dirección de correo.'
 
     iso_date = str(datetime.datetime.now())[:10]
     for tree_id in data['trees']:
@@ -91,6 +99,13 @@ sapien aliquam sagittis, viverra ante penatibus eu porttitor aenean.
 
     msg.body = body
     mail.send(msg)
+
+    if '@' in data['giftTo']:
+        msg.recipients = [data['giftTo']]
+        msg.body = 'Se ha protegido el bosque! Alguien ha adoptado uno o varios ' + \
+                   'árboles y lo han dedicado a ti.\n\nDe: ' + data['giftFrom'] + \
+                   '\n\nPara: ' + data['giftTo'] + '\n\nDedicatoria:\n  ' + data['giftDedication']
+        mail.send(msg)
 
     return jsonify(data)
 

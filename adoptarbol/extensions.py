@@ -15,7 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 
 bcrypt = Bcrypt()
-csrf_protect = CSRFProtect()
+csrf = CSRFProtect()
 admin = Admin(name='Admin Adopta Árbol', base_template='admin/adoptarbol.html')
 login_manager = LoginManager()
 db = SQLAlchemy()

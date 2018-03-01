@@ -7,8 +7,8 @@ import subprocess
 from flask import Flask, jsonify, render_template
 
 from adoptarbol import public, tree, user
-from adoptarbol.extensions import (admin, api_manager, bcrypt, cache, cors, db, debug_toolbar, hooks, csrf_protect,
-                                   login_manager, migrate, pages, mail)
+from adoptarbol.extensions import (admin, api_manager, bcrypt, cache, cors, db, debug_toolbar,
+                                   login_manager, migrate, pages, mail, hooks, csrf)
 from adoptarbol.settings import DevConfig, ProdConfig
 
 mimetypes.add_type('image/svg+xml', '.svg')
@@ -42,7 +42,7 @@ def register_extensions(app):
     bcrypt.init_app(app)
     cache.init_app(app)
     db.init_app(app)
-    csrf_protect.init_app(app)
+    csrf.init_app(app)
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)

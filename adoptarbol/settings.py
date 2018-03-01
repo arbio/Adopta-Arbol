@@ -24,7 +24,11 @@ class ProdConfig(Config):
 
     ENV = 'prod'
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'  # TODO: Change me
+    # SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'  # TODO: Change me
+    DB_NAME = 'prod.db'
+    # Put the db file in project root
+    DB_PATH = os.path.join(Config.PROJECT_ROOT, DB_NAME)
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///{0}'.format(DB_PATH)
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
     MAIL_DEFAULT_SENDER = 'equipo@somosazucar.org'
 
@@ -45,6 +49,7 @@ class DevConfig(Config):
     VALIDATE_SIGNATURE = False
     WTF_CSRF_ENABLED = False
     MAIL_PORT = 2525
+    MAIL_DEFAULT_SENDER = 'equipo@somosazucar.org'
 
 
 class TestConfig(Config):
