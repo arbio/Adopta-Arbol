@@ -17,6 +17,7 @@ const createStore = () => {
       taxid: '',
       email: '',
       years: 3,
+      isGift: false,
       giftTo: '',
       giftFrom: '',
       giftDedication: ''
@@ -51,6 +52,7 @@ const createStore = () => {
             'email': state.email,
             'taxid': state.taxid,
             'country': state.country,
+            'isGift': state.isGift,
             'giftFrom': state.giftFrom,
             'giftTo': state.giftTo,
             'giftDedication': state.giftDedication,
@@ -90,6 +92,9 @@ const createStore = () => {
       },
       setYears (state, years) {
         state.years = years
+      },
+      setGift (state, isGift) {
+        state.isGift = isGift
       },
       setTaxid (state, taxid) {
         state.taxid = taxid

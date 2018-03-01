@@ -95,9 +95,6 @@
 
 <script>
 export default {
-  data: () => ({
-    isGift: false
-  }),
   components: {
     'adoption-cart': () => import('~/components/adoption-cart')
   },
@@ -140,6 +137,14 @@ export default {
       },
       set: function (country) {
         this.$store.commit('setCountry', country)
+      }
+    },
+    isGift: {
+      get: function () {
+        return this.$store.state.isGift
+      },
+      set: function (isGift) {
+        this.$store.commit('setGift', isGift)
       }
     },
     giftFrom: {
