@@ -9,6 +9,7 @@ const createStore = () => {
       trees: {},
       view: [],
       num_pages: 1,
+      currently_adopted: '...',
       page: undefined,
       cart: [],
       adoptions: [],
@@ -73,6 +74,7 @@ const createStore = () => {
       setView (state, data) {
         state.view = data.objects
         state.total = data.num_results
+        state.currently_adopted = data.currently_adopted
         state.num_pages = data.total_pages
         for (var id in state.view) {
           var tree = state.view[id]
