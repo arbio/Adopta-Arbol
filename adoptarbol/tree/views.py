@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """Tree API, including trees and sponsorships."""
-import datetime
 import json
 import os
 import subprocess
+from datetime import datetime
 
 from flask import Blueprint, jsonify, redirect, request, url_for, render_template
 from flask import current_app as app
@@ -56,28 +56,42 @@ def adopt_tree_endpoint():
                   recipients=[data['email']],
                   bcc=['equipo@somosazucar.org'])
 
-    body = """¡Hola!\n\n¡Gracias por proteger el bosque! Por favor encuentra
-    adjunto a este correo tu(s) certificado(s) de adopción.\n\n
-    Términos y Condiciones de la Adopción: Gracias a la generosa donación recibida,
-el árbol adoptado recibirá atención Lorem ipsum dolor sit amet consectetur
-adipiscing, elit velit rutrum leo. Odio curabitur senectus magna lacinia neque
-tempus pulvinar, ullamcorper facilisi diam condimentum molestie bibendum ad,
-massa penatibus laoreet ultrices dapibus habitant. Faucibus etiam scelerisque
-felis ullamcorper nunc imperdiet lacus, dapibus ultricies sollicitudin habitant
-sapien aliquam sagittis, viverra ante penatibus eu porttitor aenean.
-"""
+    body = """¡Hola!\n\n¡Gracias por proteger el bosque!\n
+    Por favor encuentra adjunto a este correo tu(s) certificado(s) de adopción.\n
+
+    Términos y Condiciones de la Adopción
+    -------------------------------------
+
+    Gracias a la generosa donación recibida el árbol adoptado
+    recibirá atención Lorem ipsum dolor sit amet consectetur
+    adipiscing, elit velit rutrum leo. Odio curabitur senectus
+    magna lacinia neque tempus pulvinar, ullamcorper facilisi
+    diam condimentum molestie bibendum ad, massa penatibus
+    laoreet ultrices dapibus habitant. Faucibus etiam
+    scelerisque felis ullamcorper nunc imperdiet lacus, dapibus
+    ultricies sollicitudin habitant sapien aliquam sagittis,
+    viverra ante penatibus eu porttitor aenean. """
+
     if '@' in data['giftTo']:
-        body = body + '! Alguien ha adoptado uno o varios ' + \
-            'árboles y lo han dedicado a ti.\n\nDe: ' + data['giftFrom'] + \
+        body = body + '\n\nSe envió la siguiente comunicación:\n\n'
+        body = body + '¡Se ha protegido el bosque! Alguien ha adoptado uno o varios ' + \
+            'árboles amazónicos y te lo han dedicado a ti.\n\nDe: ' + data['giftFrom'] + \
             '\n\nPara: ' + data['giftTo'] + '\n\nDedicatoria:\n  ' + data['giftDedication']
         if '@' in data['giftTo']:
             body = body + '\n\n Un email será enviado a ' + data['giftTo']
         else:
             body = body + '\n\n Para notificar al beneficiario se debe usar una dirección de correo.'
 
-    iso_date = str(datetime.datetime.now())[:10]
+    today = datetime.now()
+    iso_date = str(today)[:10]
+    sponsored_until = today.replace(today.year + data['years'])
     for tree_id in data['trees']:
         tree = db.session.query(Tree).filter(Tree.id == tree_id).first()
+        tree.sponsored_until = sponsored_until
+        tree.sponsorship = s.id
+        tree.save()
+
+        # Make the certificate
         print('saving tree svg cert for ' + tree.common_name)
 
         svg = render_template('cert/certificado_plantilla_light.svg',
@@ -88,7 +102,7 @@ sapien aliquam sagittis, viverra ante penatibus eu porttitor aenean.
                               coord_utm_n=tree.coord_utm_n,
                               sponsored_on=iso_date,
                               sponsor=data['sponsor'] or 'Anónimo')
-        output_filename = 'certs/' + iso_date + '_sponsored_' + str(tree_id) + '.svg'
+        output_filename = 'certs/Cert_Adopt_' + iso_date + '_ID' + str(tree_id) + '.svg'
         with open(output_filename, 'w') as text_file:
             text_file.write(svg)
 
@@ -102,8 +116,8 @@ sapien aliquam sagittis, viverra ante penatibus eu porttitor aenean.
 
     if '@' in data['giftTo']:
         msg.recipients = [data['giftTo']]
-        msg.body = 'Se ha protegido el bosque! Alguien ha adoptado uno o varios ' + \
-                   'árboles y lo han dedicado a ti.\n\nDe: ' + data['giftFrom'] + \
+        msg.body = '¡Se ha protegido el bosque! Alguien ha adoptado uno o varios ' + \
+                   'árboles amazónicos y te lo han dedicado a ti.\n\nDe: ' + data['giftFrom'] + \
                    '\n\nPara: ' + data['giftTo'] + '\n\nDedicatoria:\n  ' + data['giftDedication']
         mail.send(msg)
 
