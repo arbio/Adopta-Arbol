@@ -202,9 +202,12 @@ def load_photo(photo):
 
 def many_postprocessor(result=None, **kw):
     # For tree lists
-    today = dt.datetime.now()
-    result['currently_adopted'] = db.session.query(Tree).filter(Tree.sponsored_until > today).count()
     if 'num_results' in result:
+        today = dt.datetime.now()
+        result['currently_adopted'] = db.session.query(Tree).filter(Tree.sponsored_until > today).count()
+        result['target'] = result['currently_adopted'] + (5 - result['currently_adopted'] % 5)
+        if result['target'] > result['num_results']:
+            result['target'] = result['num_results']
         for tree in result['objects']:
             if 'photo' in tree:
                 if ',' in tree['photo']:
