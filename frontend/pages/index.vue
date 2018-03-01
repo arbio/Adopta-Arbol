@@ -10,7 +10,7 @@
       <div class="c-card__item c-card__item--success c-card__item--divider">
       <h2>Árboles certificados: {{ this.$store.state.total }}</h2>
       <h2>Árboles adoptados: {{ this.$store.state.currently_adopted }}</h2>
-      <nuxt-link to="/trees" class="c-button c-button--warning u-higher">¡Ayúdanos a llegar a X!</nuxt-link>
+      <nuxt-link to="/trees" class="c-button c-button--warning u-higher">¡Ayúdanos a llegar a {{ this.$store.state.target }}!</nuxt-link>
       <br><br>
       </div>
       <div class="c-card__item c-card__item--error c-card__item--divider">

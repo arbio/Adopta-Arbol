@@ -46,7 +46,7 @@
           </div>
           <figure>
               <a @click="select(tree.id)">
-                  <img class="o-image" :src="tree.thumbnail" />
+                  <img width="200px" height="200px" class="o-image" :src="tree.thumbnail" />
               </a>
               <figcaption>
                   {{ tree.scientific_name }}
