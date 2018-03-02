@@ -37,7 +37,7 @@ const createStore = () => {
       async getTrees ({ commit, state }) {
         let { data } = await this.$axios.get('trees',
           {'params': {
-            'results_per_page': 5,
+            'results_per_page': 9,
             'page': state.page}}
         )
         commit('setView', data)
@@ -68,6 +68,7 @@ const createStore = () => {
     mutations: {
       adoptResult (state, result) {
         state.adoptions.push(result)
+        state.cart = []
       },
       setTree (state, tree) {
         Vue.set(state.trees, tree.id, tree)

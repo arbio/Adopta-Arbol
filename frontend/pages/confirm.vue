@@ -10,19 +10,31 @@
       </h2>
       </header>
     </div>
-    <p class="c-paragraph">
+    <p class="paragraph">
       <object id="svg1" width="812" height="580" data="/cert/image.svg" type="image/svg+xml"></object>
     </p>
     <p>
     Elige a continuación:
     </p>
     <p>
-    <button @click="$store.dispatch('postAdopt')" class="c-button c-button--info c-button--block u-large">Emitir certificado de prueba</button>
+    <button @click="postAdopt" class="c-button c-button--info c-button--block u-large">Emitir certificado de prueba</button>
     </p>
   </div>
 </template>
 
 <script>
 export default {
+  methods: {
+    postAdopt: function () {
+      this.$store.dispatch('postAdopt')
+      this.$router.push('checkout')
+    }
+  }
 }
 </script>
+
+<style>
+.paragraph {
+    text-align: center;
+}
+</style>
