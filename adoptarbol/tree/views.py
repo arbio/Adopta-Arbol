@@ -82,9 +82,14 @@ def adopt_tree_endpoint():
         else:
             body = body + '\n\n Para notificar al beneficiario se debe usar una dirección de correo.'
 
-    today = datetime.now()
+    today = datetime.utcnow()
     iso_date = str(today)[:10]
+    if today.month == 2 and today.day == 29:
+        today.day = 28
     sponsored_until = today.replace(today.year + data['years'])
+    iso_until = str(sponsored_until)[:10]
+    data['svg_certs'] = []
+    data['pdf_certs'] = []
     for tree_id in data['trees']:
         tree = db.session.query(Tree).filter(Tree.id == tree_id).first()
         tree.sponsored_until = sponsored_until
@@ -101,13 +106,16 @@ def adopt_tree_endpoint():
                               coord_utm_e=tree.coord_utm_e,
                               coord_utm_n=tree.coord_utm_n,
                               sponsored_on=iso_date,
+                              sponsored_until=iso_until,
                               sponsor=data['sponsor'] or 'Anónimo')
         output_filename = 'certs/Cert_Adopt_' + iso_date + '_ID' + str(tree_id) + '.svg'
+        data['svg_certs'].append(output_filename)
         with open(output_filename, 'w') as text_file:
             text_file.write(svg)
 
         pdf_filename = output_filename[:-3] + 'pdf'
         subprocess.call(['inkscape', output_filename, '-z', '-A', pdf_filename])
+        data['pdf_certs'].append(pdf_filename)
         with app.open_resource('../' + pdf_filename) as fp:
             msg.attach(os.path.basename(pdf_filename), 'application/pdf', fp.read())
 

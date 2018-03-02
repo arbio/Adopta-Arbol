@@ -36,7 +36,7 @@ def page(path):
 @blueprint.route('/cert/<path:path>/')
 def cert(path):
     path = secure_path(path.lower())
-    return render_template('cert/certificado_plantilla_light.svg', sponsor='Sebastian Silva')
+    return render_template('cert/certificado_plantilla_light.svg', sponsor='Juan Perez')
 
 
 @blueprint.route('/api/pages/<path:path>/_random')
@@ -210,9 +210,18 @@ def front_assets(filename):
 @blueprint.route('/fonts/<path:filename>')
 def font_assets(filename):
     # filename = secure_path(filename)  # XXX - check
-    if app.debug:
-        return catch_all('fonts/' + filename)
+    #if app.debug:
+    #    return catch_all('fonts/' + filename)
     return send_from_directory('../frontend/dist/fonts', filename)
+
+
+# Custom static data
+@blueprint.route('/certs/<path:filename>')
+def cert_assets(filename):
+    # filename = secure_path(filename)  # XXX - check
+    #if app.debug:
+    #    return catch_all('certs/' + filename)
+    return send_from_directory('../certs', filename)
 
 
 # Pictures data

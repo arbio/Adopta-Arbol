@@ -2,6 +2,7 @@
 """Tree and sponsorship models."""
 import base64
 import datetime as dt
+from dateutil.parser import parse
 import os
 from random import randint
 
@@ -161,6 +162,12 @@ class Sponsorship(SurrogatePK, Model):
 
 def single_postprocessor(result=None, **kw):
     # For individual trees
+    today = dt.datetime.utcnow()
+    if not result['sponsored_until']:
+        result['adopted'] = False
+    else:
+        sponsored_until = parse(result['sponsored_until'])
+        result['adopted'] = sponsored_until > today
 
     if 'common_name' in result:
         path = 'especies/' + secure_filename(result['common_name']).lower()
@@ -203,12 +210,17 @@ def load_photo(photo):
 def many_postprocessor(result=None, **kw):
     # For tree lists
     if 'num_results' in result:
-        today = dt.datetime.now()
+        today = dt.datetime.utcnow()
         result['currently_adopted'] = db.session.query(Tree).filter(Tree.sponsored_until > today).count()
         result['target'] = result['currently_adopted'] + (5 - result['currently_adopted'] % 5)
         if result['target'] > result['num_results']:
             result['target'] = result['num_results']
         for tree in result['objects']:
+            if not tree['sponsored_until']:
+                tree['adopted'] = False
+            else:
+                sponsored_until = parse(tree['sponsored_until'])
+                tree['adopted'] = sponsored_until > today
             if 'photo' in tree:
                 if ',' in tree['photo']:
                     photo = tree['photo'].split(',')[0]
