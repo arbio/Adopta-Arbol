@@ -10,9 +10,6 @@
       </h2>
       </header>
     </div>
-    <p class="paragraph">
-      <object id="svg1" width="812" height="580" data="/cert/image.svg" type="image/svg+xml"></object>
-    </p>
     <p>
     Elige a continuación:
     </p>

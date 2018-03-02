@@ -52,3 +52,4 @@ _orig/
 __javascript__/
 dev.db
 upload/
+certs/

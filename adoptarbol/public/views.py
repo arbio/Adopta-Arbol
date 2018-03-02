@@ -210,7 +210,7 @@ def front_assets(filename):
 @blueprint.route('/fonts/<path:filename>')
 def font_assets(filename):
     # filename = secure_path(filename)  # XXX - check
-    #if app.debug:
+    # if app.debug:
     #    return catch_all('fonts/' + filename)
     return send_from_directory('../frontend/dist/fonts', filename)
 
@@ -219,7 +219,7 @@ def font_assets(filename):
 @blueprint.route('/certs/<path:filename>')
 def cert_assets(filename):
     # filename = secure_path(filename)  # XXX - check
-    #if app.debug:
+    # if app.debug:
     #    return catch_all('certs/' + filename)
     return send_from_directory('../certs', filename)
 
