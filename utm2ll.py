@@ -16,10 +16,12 @@ def coonvert():
     for tree in tqdm.tqdm(Tree.query(), total=Tree.query().count()):
         utm_e = tree.coord_utm_e
         utm_n = tree.coord_utm_n
-        lat, lon = utm.to_latlon(utm_e, utm_n, 19, northern=False)
-        tree.coord_lat = lat
-        tree.coord_lon = lon
-        tree.save()
+        if utm_e and utm_n:
+            if 100000 < utm_e < 999999 and utm_n:
+                lat, lon = utm.to_latlon(utm_e, utm_n, 19, northern=False)
+                tree.coord_lat = lat
+                tree.coord_lon = lon
+                tree.save()
 
 
 if __name__ == '__main__':
