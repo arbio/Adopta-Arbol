@@ -10,19 +10,13 @@
            <table class="treelist c-card__item c-table c-table--condensed">
              <thead class="c-table__head">
                <tr class="c-table__row c-table__row--heading">
-                   <th class="c-table__cell">Adoptar</th>
                    <th class="c-table__cell">Especie</th>
-                   <th class="c-table__cell">⌀</th>
                    <th class="c-table__cell">h</th>
                </tr>
              </thead>
              <tbody class="c-table__body">
                <tr class="c-table__row  c-table__row--clickable" v-for="id in this.$store.state.cart" @click="select(id)">
-                 <td class="c-table__cell"><a href="#" @click.stop="$store.commit('dropIntent', tree(id).id)">
-                   <i class="fa fa-times" aria-hidden="true"></i>
-                 </a></td>
                  <td class="c-table__cell">{{ tree(id).common_name }}</td>
-                 <td class="c-table__cell">{{ tree(id).diameter }} cm</td>
                  <td class="c-table__cell">{{ tree(id).height }} m</td>
                </tr>
              </tbody>
@@ -67,5 +61,8 @@ export default {
 .c-table__cell {
     display: block;
     text-align: center;
+}
+.blink {
+  color: Deeppink;
 }
 </style>

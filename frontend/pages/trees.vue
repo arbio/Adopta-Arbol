@@ -26,14 +26,14 @@
             <div class="o-media__image o-media__image--top">
                 <template v-if="!(tree.adopted)">
                     <a v-if="!in_cart(tree.id)" href="#" @click.stop="adopt(tree.id)">
-                      <i class="fa fa-life-ring fa-3x heart-enabled" aria-hidden="true"></i>
+                      <i class="fa fa-heart-o fa-3x heart-enabled" aria-hidden="true"></i>
                     </a>
                     <a v-if="in_cart(tree.id)" href="#" @click.stop="$store.commit('dropIntent', tree.id)">
-                      <i class="fa fa-times fa-3x" aria-hidden="true"></i>
+                      <i class="fa fa-heart-o fa-3x blink" aria-hidden="true"></i>
                     </a>
                 </template>
                 <template v-if="tree.adopted">
-                    <i class="fa fa-check-circle heart-disabled fa-3x" aria-hidden="true"></i>
+                    <i class="fa fa-heart heart-disabled fa-3x" aria-hidden="true"></i>
                 </template>
             </div>
             <div class="o-media__body">
@@ -46,12 +46,12 @@
           </div>
           <figure>
               <img width="200px" height="200px" class="o-image" :src="tree.thumbnail" />
-              <statuscaption v-if="tree.adopted">
+              <div class="statuscaption" v-if="tree.adopted">
                   ¡Adoptado!
-              </statuscaption>
-              <selectedcaption v-if="in_cart(tree.id)">
+              </div>
+              <div class="selectedcaption" v-if="in_cart(tree.id)">
                   ** Seleccionado **
-              </selectedcaption>
+              </div>
               <figcaption>
                   {{ tree.scientific_name }}
                   <div class="c-input-group u-display-block u-right">
@@ -87,23 +87,26 @@ L.Icon.Default.mergeOptions({
 })
 
 export default {
+  name: 'tree-selector',
   components: {
     'adoption-cart': () => import('~/components/adoption-cart'),
     'v-map': Vue2Leaflet.Map,
     'v-tilelayer': Vue2Leaflet.TileLayer,
     'v-marker': Vue2Leaflet.Marker,
     'v-popup': Vue2Leaflet.Popup,
-    GlobalEvents,
-    Carousel3d,
-    Slide
+    'GlobalEvents': GlobalEvents,
+    'carousel-3d': Carousel3d,
+    'slide': Slide
   },
   mounted: function () {
-    var map = this.$refs.mapita.mapObject
-    map.removeControl(map.zoomControl)
-    if (this.$store.state.page === undefined) {
-      this.$store.commit('setPage', this.$route.query.page || 1)
+    if (this.$refs.mapita !== undefined) {
+      var map = this.$refs.mapita.mapObject
+      map.removeControl(map.zoomControl)
+      if (this.$store.state.page === undefined) {
+        this.$store.commit('setPage', this.$route.query.page || 1)
+      }
+      this.$store.dispatch('getTrees')
     }
-    this.$store.dispatch('getTrees')
   },
   updated: function () {
     if (this.$refs.treeExplorer !== undefined) {
@@ -125,21 +128,23 @@ export default {
   },
   methods: {
     onSlideChanged: function () {
-      var map = this.$refs.mapita.mapObject
-      var markerRef = this.$refs['mark' + this.current_tree.id]
-      if (markerRef !== undefined) {
-        var marker = markerRef[0].mapObject
-        marker.openPopup()
-        marker._icon.style.outline = 'ForestGreen solid 1px'
-        setTimeout(function () {
-          if (marker._icon !== null) {
-            marker._icon.style.outline = 'none'
-          }
-        }, 500)
+      if (this.$refs.mapita !== undefined) {
+        var map = this.$refs.mapita.mapObject
+        var markerRef = this.$refs['mark' + this.current_tree.id]
+        if (markerRef !== undefined) {
+          var marker = markerRef[0].mapObject
+          marker.openPopup()
+          marker._icon.style.outline = 'ForestGreen solid 1px'
+          setTimeout(function () {
+            if (marker._icon !== null) {
+              marker._icon.style.outline = 'none'
+            }
+          }, 500)
+        }
+        var lat = this.current_tree.coord_lat
+        var lon = this.current_tree.coord_lon
+        map.panTo(new L.LatLng(Number(lat) - 0.0015, lon))
       }
-      var lat = this.current_tree.coord_lat
-      var lon = this.current_tree.coord_lon
-      map.panTo(new L.LatLng(Number(lat) - 0.0015, lon))
     },
     prevItem: function () {
       if (this.$refs.treeExplorer.isPrevPossible) {
@@ -245,7 +250,7 @@ button {
 }
 
 .heart-disabled {
-    color: ForestGreen;
+    color: Pink;
 }
 
 #carousel {
@@ -259,7 +264,8 @@ button {
   margin:0;
 }
 
-.carousel-3d-container selectedcaption {
+.carousel-3d-container .selectedcaption {
+  font-weight: bold;
   position: absolute;
   background-color: DeepPink;
   opacity: 0.7;
@@ -267,13 +273,14 @@ button {
   transform: rotate(-6deg);
   color: #fff;
   text-align: center;
-  top: 250px;
+  top: 150px;
   padding: 15px;
   min-width: 120%;
   box-sizing: border-box;
 }
 
-.carousel-3d-container statuscaption {
+.carousel-3d-container .statuscaption {
+  font-weight: bold;
   position: absolute;
   background-color: ForestGreen;
   opacity: 0.7;
@@ -281,7 +288,7 @@ button {
   transform: rotate(7deg);
   color: #fff;
   text-align: center;
-  top: 250px;
+  top: 150px;
   padding: 15px;
   min-width: 120%;
   box-sizing: border-box;
@@ -297,5 +304,13 @@ button {
   padding: 15px;
   min-width: 100%;
   box-sizing: border-box;
+}
+@keyframes blink {
+  0% { color: Deeppink; }
+  50% { color: pink; transform: scale(1.2, 1.2) }
+  100% { color: Deeppink; }
+}
+.blink {
+  animation: blink 1s linear infinite;
 }
 </style>
