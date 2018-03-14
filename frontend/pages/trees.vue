@@ -5,7 +5,7 @@
     <v-map id="mapita" ref="mapita" :zoom=17 :center="[-12.1716094, -69.3869664]">
       <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
       <template v-for="(tree,index) in this.$store.state.view">
-          <v-marker :ref="'mark' + tree.id" v-if="tree.coord_lat" :key="tree.id" :lat-lng="[tree.coord_lat, tree.coord_lon]" @l-click="pick(index)">
+          <v-marker :ref="'mark' + tree.id" v-if="tree.coord_lat" :key="tree.id" :lat-lng="[tree.coord_lat, tree.coord_lon]" @l-click="pick(index)" :icon="right_icon(tree)">
               <v-popup :content="tree.common_name"></v-popup>
           </v-marker>
       </template>
@@ -134,12 +134,12 @@ export default {
         if (markerRef !== undefined) {
           var marker = markerRef[0].mapObject
           marker.openPopup()
-          marker._icon.style.outline = 'ForestGreen solid 1px'
+          marker._icon.style.outline = 'Lime dotted 2px'
           setTimeout(function () {
             if (marker._icon !== null) {
               marker._icon.style.outline = 'none'
             }
-          }, 500)
+          }, 1000)
         }
         var lat = this.current_tree.coord_lat
         var lon = this.current_tree.coord_lon
@@ -193,6 +193,18 @@ export default {
     },
     in_cart: function (id) {
       return this.$store.state.cart.includes(id)
+    },
+    right_icon: function (tree) {
+      if (tree.adopted) {
+        let options = Object.assign({}, L.Icon.Default.prototype.options)
+        options.iconUrl = require('~/assets/censarbol_adopted.png')
+        let icon = L.icon(options)
+        return icon
+      } else {
+        console.log(L.Icon.Default)
+        console.log(L.Icon.Default.prototype.options)
+        return L.icon.Default
+      }
     }
   },
   data () {
