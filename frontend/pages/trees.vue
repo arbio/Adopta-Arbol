@@ -62,6 +62,8 @@
         </div>
       </slide>
       </carousel-3d>
+      <button class="navbut c-button c-button--success u-high" @click="prevItem">« anterior</button>&nbsp;
+      <button class="navbut c-button c-button--success u-high" @click="nextItem">siguiente »</button>
     </div>
 
     <GlobalEvents @keyup.left="prevItem"
@@ -201,8 +203,6 @@ export default {
         let icon = L.icon(options)
         return icon
       } else {
-        console.log(L.Icon.Default)
-        console.log(L.Icon.Default.prototype.options)
         return L.icon.Default
       }
     }
@@ -246,6 +246,9 @@ h1 {
 
 .navbut {
     background-color: ForestGreen;
+    width: 40%;
+    opacity: 0.8;
+    margin: 10px;
 }
 
 button {
