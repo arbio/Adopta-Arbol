@@ -4,10 +4,25 @@
 <div id="app">
     <h1>Interfaz de Administración</h1>
     <h3>Adopta Arbol</h3>
-    
+
     <div align="center">
         <img class="o-image" src="/static/censarbol_big.png">
     </div>
 
+    {% if current_user.full_name %}
+    <h2>Cargar árboles</h2>
+    <br>
+    <form method=post enctype=multipart/form-data>
+       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+       <input class="c-button c-button--success" type=file name=file value="Examinar">
+       <button class="c-button c-button--success" type=submit value=Upload>
+       <i class="fa fa-send fa-2x" aria-hidden="true"></i>
+           Cargar archivo CSV
+       </button>
+    </form>
+    <a href="/logout">Salir del sistema</a>
+    {% else %}
+    <a href="/login">Ingresar al sistema</a>
+    {% endif %}
 </div>
 {% endblock %}

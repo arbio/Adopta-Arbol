@@ -148,7 +148,7 @@ def login():
         if form.validate_on_submit():
             login_user(form.user)
             flash('You are logged in.', 'success')
-            redirect_url = request.args.get('next') or url_for('user_manager.upload_file')
+            redirect_url = request.args.get('next') or url_for('admin.index')
             return redirect(redirect_url)
         else:
             flash_errors(form)
@@ -161,7 +161,7 @@ def logout():
     """Logout."""
     logout_user()
     flash('You are logged out.', 'info')
-    return redirect(url_for('public.home'))
+    return redirect(url_for('public.catch_all'))
 
 
 @blueprint.route('/register/', methods=['GET', 'POST'])
@@ -229,7 +229,6 @@ def cert_assets(filename):
 def front_pictures(filename):
     # filename = secure_path(filename)  # XXX - check
     if os.path.exists(os.path.join('pictures', filename)):
-        print('serving ' + os.path.join('pictures', filename))
         return send_from_directory('../pictures', filename)
     else:
         return redirect(url_for('public.front_pictures', filename='_generic.jpg'))
@@ -240,7 +239,6 @@ def front_pictures(filename):
 def front_thumbnails(filename):
     # filename = secure_path(filename)  # XXX - check
     if os.path.exists(os.path.join('thumbnails-cache', filename)):
-        print('serving ' + os.path.join('thumbnails-cache', filename))
         return send_from_directory('../thumbnails-cache', filename)
     else:
         return redirect(url_for('public.front_thumbnails', filename='_generic.jpg'))
