@@ -8,7 +8,6 @@ from random import randint
 
 import utm
 from flask import current_app as app
-from sqlalchemy import text
 from thumbnails import get_thumbnail
 from werkzeug import secure_filename
 
@@ -91,6 +90,15 @@ class Tree(SurrogatePK, Model):
         return '<Tree({id})>'.format(id=self.id)
 
     @property
+    def adopted(self):
+        today = dt.datetime.utcnow()
+        if not self['sponsored_until']:
+            return False
+        else:
+            sponsored_until = parse(self['sponsored_until'])
+            return sponsored_until > today
+
+    @property
     def image(self):
         common_photo_file = '%s.jpg' % secure_filename(self.common_name.lower())
         common_photo_path = os.path.join(app.static_folder, 'images',
@@ -124,10 +132,6 @@ class Tree(SurrogatePK, Model):
             random_id = randint(1, cls.query.count())
             tree = cls.query.offset(random_id).first()
             return tree
-
-    @classmethod
-    def adopted(cls):
-        return Sponsorship.query.filter(text("status='confirmed'")).count()
 
     @classmethod
     def query(cls):
@@ -233,6 +237,7 @@ def many_postprocessor(result=None, **kw):
 
 postprocessors = {'GET_SINGLE': [single_postprocessor],
                   'GET_MANY': [many_postprocessor]}
+
 
 api_manager.create_api(Tree, postprocessors=postprocessors)
 

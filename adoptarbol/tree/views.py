@@ -4,7 +4,8 @@
 import json
 import os
 import subprocess
-from datetime import datetime
+from sqlalchemy import Date, cast
+from datetime import datetime, date
 
 from flask import Blueprint, jsonify, redirect, request, url_for, render_template
 from flask import current_app as app
@@ -31,6 +32,16 @@ def api_docs():
 def random_tree_endpoint():
     """random tree."""
     return jsonify(dict(Tree.random()))
+
+
+@blueprint.route('/api/trees/_pending')
+def pending_tree_endpoint():
+    if request.args.get('page'):
+        return redirect(url_for('treesapi0.treesapi', page=request.args.get('page')))
+    num_per_page = request.args.get('results_per_page', 9)
+    pending_tree = db.session.query(Tree).filter(Tree.sponsored_until == None).first()
+    page = int(int(pending_tree.id) / int(num_per_page)) + 1
+    return redirect(url_for('treesapi0.treesapi', page=page))
 
 
 @csrf.exempt
