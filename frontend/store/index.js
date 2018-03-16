@@ -35,7 +35,7 @@ const createStore = () => {
     },
     actions: {
       async getTrees ({ commit, state }) {
-        let { data } = await this.$axios.get('trees',
+        let { data } = await this.$axios.get('trees/_pending',
           {'params': {
             'results_per_page': 9,
             'page': state.page}}
@@ -76,6 +76,7 @@ const createStore = () => {
       setView (state, data) {
         state.view = data.objects
         state.total = data.num_results
+        state.page = data.page
         state.currently_adopted = data.currently_adopted
         state.target = data.target
         state.num_pages = data.total_pages

@@ -83,8 +83,8 @@ import GlobalEvents from 'vue-global-events'
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.imagePath = ''
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('~/assets/censarbol.png'),
-  iconUrl: require('~/assets/censarbol.png'),
+  iconRetinaUrl: require('~/assets/censarbol_adopted.png'),
+  iconUrl: require('~/assets/censarbol_adopted.png'),
   shadowUrl: require('~/assets/censarbol_sombra.png')
 })
 
@@ -104,9 +104,6 @@ export default {
     if (this.$refs.mapita !== undefined) {
       var map = this.$refs.mapita.mapObject
       map.removeControl(map.zoomControl)
-      if (this.$store.state.page === undefined) {
-        this.$store.commit('setPage', this.$route.query.page || 1)
-      }
       this.$store.dispatch('getTrees')
     }
   },
@@ -198,12 +195,13 @@ export default {
     },
     right_icon: function (tree) {
       if (tree.adopted) {
+        return L.icon.Default
+      } else {
         let options = Object.assign({}, L.Icon.Default.prototype.options)
-        options.iconUrl = require('~/assets/censarbol_adopted.png')
+        options.iconUrl = require('~/assets/censarbol.png')
+        options.className = 'shine'
         let icon = L.icon(options)
         return icon
-      } else {
-        return L.icon.Default
       }
     }
   },
@@ -329,3 +327,15 @@ button {
   animation: blink 1s linear infinite;
 }
 </style>
+
+<style>
+@keyframes shine {
+  0% { }
+  50% { opacity: .6 }
+  100% { }
+}
+.shine {
+  animation: shine 1s linear infinite;
+}
+</style>
+

@@ -40,9 +40,6 @@
 <script>
 export default {
   mounted: function () {
-    if (this.$store.state.page === undefined) {
-      this.$store.commit('setPage', this.$route.query.page || 1)
-    }
     this.$store.dispatch('getTrees')
   }
 }
