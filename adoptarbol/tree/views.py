@@ -4,8 +4,7 @@
 import json
 import os
 import subprocess
-from sqlalchemy import Date, cast
-from datetime import datetime, date
+from datetime import datetime
 
 from flask import Blueprint, jsonify, redirect, request, url_for, render_template
 from flask import current_app as app
@@ -39,7 +38,7 @@ def pending_tree_endpoint():
     if request.args.get('page'):
         return redirect(url_for('treesapi0.treesapi', page=request.args.get('page')))
     num_per_page = request.args.get('results_per_page', 9)
-    pending_tree = db.session.query(Tree).filter(Tree.sponsored_until == None).first()
+    pending_tree = db.session.query(Tree).filter(Tree.sponsored_until == None).first()  # noqa
     page = int(int(pending_tree.id) / int(num_per_page)) + 1
     return redirect(url_for('treesapi0.treesapi', page=page))
 
