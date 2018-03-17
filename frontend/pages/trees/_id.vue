@@ -2,67 +2,49 @@
 <div v-if="tree">
   <div class="c-overlay c-overlay--visible" @click="closeTree()"></div>
     <div class="o-modal" v-if="tree.photos!==undefined">
-      <div class="c-card">
         <header class="c-card__header c-card__item--info">
           <button @click="closeTree()" type="button" class="c-button c-button--close">&times;</button>
-          <h1 class="c-heading">{{ tree.code }}</h1>
+
+          <div v-if="!(currentPic)"  style="position: absolute; top: 30px; right: 50px" >
+            <button v-if="!in_cart(tree.id) && !(tree.adopted)" @click="adopt(tree.id)" class="c-button c-button--warning u-high">Adoptar</button>
+            <button v-if="in_cart(tree.id)" @click="$store.commit('dropIntent', tree.id)" class="c-button">No deseo adoptar este árbol</button>
+          </div>
+          <div v-if="currentPic"  style="position: absolute; top: 30px; right: 50px" >
+            <button @click="closePic()" type="button" class="c-button c-button--success">Volver</button>&nbsp;
+          </div>
+
+          <h1 class="c-heading">{{ tree.common_name }}</h1>
           <div class="c-heading__sub">{{ tree.height }}m de altura</div>
           <div class="c-heading__sub">{{ tree.diameter }}cm de diametro</div>
           <br>
+
         </header>
 
-        <div class="c-card" v-if="!(currentPic) && tree.description">
-          <div class="o-panel-container" style="height: 65vh">
-            <div class="o-panel">
+        <div  v-if="!(currentPic) && tree.description" class="o-panel-container" style="height: 80vh">
+          <div class="o-panel" style="height: 100%">
 
-            <div class="o-grid o-grid--wrap o-grid--demo">
-              <header class="c-card__header">
-                <h2 class="c-heading u-center-block__content">{{ tree.common_name }}</h2>
-              </header>
-            </div>
+            <carousel-3d ref="photoExplorer" :space="209" :controls-visible="true"
+                :disable3d="true" :width="200" :height="200" :loop="true">
+            <slide v-for="(photo, url) of tree.photos" :key="url" :index="Object.getOwnPropertyNames(tree.photos).indexOf(url)">
+              <a @click="show(url)">
+                  <img height="200px" width="200px" :src="'data:image/jpeg;base64,' + photo" />
+              </a>
+            </slide>
+            </carousel-3d>
 
-              <carousel-3d ref="photoExplorer" :space="209" :controls-visible="true"
-                  :disable3d="true" :width="200" :height="200" :loop="true">
-              <slide v-for="(photo, url) of tree.photos" :key="url" :index="Object.getOwnPropertyNames(tree.photos).indexOf(url)">
-                <a @click="show(url)">
-                    <img height="200px" width="200px" :src="'data:image/jpeg;base64,' + photo" />
-                </a>
-              </slide>
-              </carousel-3d>
-
-              <div v-html="tree.description" class="c-card__body">
-              </div>
+            <h2 class="c-heading">{{ tree.scientific_name }}</h2>
+            <h2 class="c-heading u-medium c-text--mono">{{ tree.family }}</h2>
+            <div v-html="tree.description" class="c-card__body">
             </div>
           </div>
         </div>
 
-        <div class="o-panel-container" v-if="currentPic" style="height: 70vh">
+        <div class="o-panel-container" v-if="currentPic" style="height: 80vh">
           <div class="o-panel">
             <img class="o-image" :src="currentPic" @click="closePic()" />
           </div>
         </div>
-        <footer class="c-card__footer">
 
-        <div class="o-grid o-grid--demo">
-          <div class="o-grid__cell">
-            <div v-if="!(currentPic)" class="c-input-group u-display-block u-left">
-              <h2 class="c-heading u-medium c-text--mono">{{ tree.scientific_name }}</h2>
-            </div>
-          </div>
-          <div class="o-grid__cell">
-            <div v-if="!(currentPic)" class="c-input-group u-right">
-              <button @click="closeTree()" type="button" class="c-button c-button--brand">Cerrar</button>&nbsp;
-              <button v-if="!in_cart(tree.id) && !(tree.adopted)" @click="adopt(tree.id)" class="c-button c-button--warning u-high">Adoptar</button>
-              <button v-if="in_cart(tree.id)" @click="$store.commit('dropIntent', tree.id)" class="c-button">No deseo adoptar este árbol</button>
-            </div>
-            <div v-if="currentPic" class="c-input-group u-right">
-              <button @click="closePic()" type="button" class="c-button c-button--success">Volver</button>&nbsp;
-              <button @click="adopt(tree.id)" class="c-button c-button--warning u-high">Adoptar</button>
-            </div>
-          </div>
-        </div>
-
-        </footer>
       </div>
     </div>
 </div>

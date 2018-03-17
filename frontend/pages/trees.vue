@@ -42,7 +42,9 @@
               {{ tree.family }}
               </p>
             </div>
-
+             <div v-if="!(tree.adopted)" class="o-media__body u-right">
+               <button v-if="!in_cart(tree.id)" style="margin: 5px; width: 120px;" @click="adopt(tree.id)" class="c-button c-button--warning">Adoptar</button>
+            </div>
           </div>
           <figure>
               <img width="200px" height="200px" class="o-image" :src="tree.thumbnail" />
