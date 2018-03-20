@@ -109,6 +109,10 @@ def adopt_tree_endpoint():
         # Make the certificate
         print('saving tree svg cert for ' + tree.common_name)
 
+        sponsor = data['giftTo'] if data['giftTo'] else\
+            data['sponsor'] if data['sponsor'] else\
+            'Anonimo'
+
         svg = render_template('cert/certificado_plantilla_light.svg',
                               common_name=tree.common_name,
                               scientific_name=tree.scientific_name,
@@ -117,7 +121,7 @@ def adopt_tree_endpoint():
                               coord_utm_n=tree.coord_utm_n,
                               sponsored_on=iso_date,
                               sponsored_until=iso_until,
-                              sponsor=data['sponsor'] or 'Anónimo')
+                              sponsor=sponsor)
         output_filename = 'certs/Cert_Adopt_' + iso_date + '_ID' + str(tree_id) + '.svg'
         data['svg_certs'].append(output_filename)
         with open(output_filename, 'w') as text_file:
@@ -130,7 +134,11 @@ def adopt_tree_endpoint():
             msg.attach(os.path.basename(pdf_filename), 'application/pdf', fp.read())
 
     msg.body = body
-    mail.send(msg)
+    try:
+        mail.send(msg)
+    except ConnectionRefusedError:
+        print('Error: Connection refused sending mail.')
+
 
     if '@' in data['giftTo']:
         msg.recipients = [data['giftTo']]
