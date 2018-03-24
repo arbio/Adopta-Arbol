@@ -139,10 +139,10 @@ def adopt_tree_endpoint():
     except ConnectionRefusedError:
         print('Error: Connection refused sending mail.')
 
-
-    if '@' in data['giftTo']:
-        msg.recipients = [data['giftTo']]
-        msg.body = '¡Se ha protegido el bosque! Alguien ha adoptado uno o varios ' + \
+    if '@' in data['emailTo']:
+        msg.recipients = [data['emailTo']]
+        msg.body = 'Hola ' + data['giftTo'] + \
+                   '\n\n¡Se ha protegido el bosque! Alguien ha adoptado uno o varios ' + \
                    'árboles amazónicos y te lo han dedicado a ti.\n\nDe: ' + data['giftFrom'] + \
                    '\n\nPara: ' + data['giftTo'] + '\n\nDedicatoria:\n  ' + data['giftDedication']
         mail.send(msg)
