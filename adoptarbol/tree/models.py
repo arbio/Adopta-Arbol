@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Tree and sponsorship models."""
+import json
 import base64
 import datetime as dt
 from dateutil.parser import parse
@@ -7,7 +8,7 @@ import os
 from random import randint
 
 import utm
-from flask import current_app as app
+from flask import current_app as app, Markup
 from thumbnails import get_thumbnail
 from werkzeug import secure_filename
 
@@ -154,6 +155,19 @@ class Sponsorship(SurrogatePK, Model):
 
     status = Column(db.String, nullable=False)
     just_test = Column(db.Boolean(), default=False)
+
+    @property
+    def __reference__(self):
+        ref = json.loads(self.reference)
+        out = ''
+        out += Markup('<a href="mailto:' + ref['email'] +
+                      '"><b>' + (ref['sponsor'] or 'Anonimo') + '</b></a><br>')
+        for tree in ref['trees']:
+            query = db.session.query(Tree)
+            tree = query.offset(tree).first()
+            out += Markup('<a href="http://localhost:5000/admin/tree/edit/?id=' + str(tree.id) +
+                          '">' + tree.code + '(' + tree.common_name + ')</a><br>')
+        return out
 
     def __init__(self, **kwargs):
         """Create instance."""
