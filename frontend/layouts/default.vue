@@ -37,10 +37,15 @@
   background-image: url("/static/images/bg-index.jpg"); */
 }
 
+html {
+  overscroll-behavior: contain;
+}
+
 body {
   margin-top: 70px;
   background: repeat-y center center radial-gradient(circle, white, Peru);
-  overflow-x:hidden;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 .o-drawer {
@@ -51,6 +56,7 @@ body {
     background-color: #93c54b;
     border-bottom: 1px solid black;
     text-align: center;
+    position: fixed;
 }
 
 #infobox {

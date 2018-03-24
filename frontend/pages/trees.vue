@@ -1,6 +1,6 @@
 <template>
   <div id="container">
-    <h1>Paso 1: Escoge tu Árbol</h1>
+    <h1 style="pointer-events: none; user-select: none">Paso 1: Escoge tu Árbol</h1>
 
     <v-map id="mapita" ref="mapita" :zoom=17 :center="[-12.1716094, -69.3869664]">
       <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
@@ -15,7 +15,7 @@
     <adoption-cart></adoption-cart>
 
     <div id="carousel">
-      <carousel-3d ref="treeExplorer" :width="400" :height="390" :loop="false"
+      <carousel-3d ref="treeExplorer" :width="300" :height="320" :loop="false"
           :on-slide-change="onSlideChanged"
           :display="5"
           :count="this.$store.state.view.length"
@@ -247,6 +247,7 @@ h1 {
 .navbut {
     background-color: ForestGreen;
     width: 40%;
+    height: 50px;
     opacity: 0.8;
     margin: 10px;
 }
