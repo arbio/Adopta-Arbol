@@ -51,9 +51,14 @@
                   <div class="c-hint">¡Gracias!</div>
                 </label>
                 <label class="c-label">
-                  Para:
+                  Para (nombre):
                   <input v-model.lazy="giftTo" class="c-field c-field--label">
                   <div class="c-hint">Te lo agradecerá</div>
+                </label>
+                <label class="c-label">
+                  Para (email):
+                  <input v-model.lazy="emailTo" class="c-field c-field--label">
+                  <div class="c-hint">Enviaremos una nota</div>
                 </label>
                 <label class="c-label">
                   Mensaje:
@@ -161,6 +166,14 @@ export default {
       },
       set: function (giftTo) {
         this.$store.commit('setGiftTo', giftTo)
+      }
+    },
+    emailTo: {
+      get: function () {
+        return this.$store.state.emailTo
+      },
+      set: function (emailTo) {
+        this.$store.commit('setEmailTo', emailTo)
       }
     },
     giftDedication: {

@@ -21,6 +21,7 @@ const createStore = () => {
       years: 3,
       isGift: false,
       giftTo: '',
+      emailTo: '',
       giftFrom: '',
       giftDedication: ''
     },
@@ -57,6 +58,7 @@ const createStore = () => {
             'isGift': state.isGift,
             'giftFrom': state.giftFrom,
             'giftTo': state.giftTo,
+            'emailTo': state.emailTo,
             'giftDedication': state.giftDedication,
             'years': state.years,
             'amount': getters.totalCost
@@ -116,6 +118,9 @@ const createStore = () => {
       },
       setGiftTo (state, giftTo) {
         state.giftTo = giftTo
+      },
+      setEmailTo (state, emailTo) {
+        state.emailTo = emailTo
       },
       setGiftDedication (state, giftDedication) {
         state.giftDedication = giftDedication
